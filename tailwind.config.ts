@@ -10,6 +10,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-plus-jakarta-sans)'],
+        archivo: ['var(--font-archivo)'],
+        rubik: ['var(--font-rubik)'],
+        outfit: ['var(--font-outfit)'],
+      },
       colors: {
         purple: {
           1: '#6721FF',
