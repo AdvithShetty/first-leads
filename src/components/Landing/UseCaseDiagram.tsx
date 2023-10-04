@@ -1409,8 +1409,8 @@ const UseCaseDiagram = () => {
       <motion.path
         variants={elementVariants}
         whileHover='hover'
-        fill-rule='evenodd'
-        clip-rule='evenodd'
+        fillRule='evenodd'
+        clipRule='evenodd'
         d='M1338.63 652.45L1313.76 621.041C1313.15 620.282 1313.28 619.18 1314.04 618.579C1314.8 617.978 1315.9 618.106 1316.5 618.865L1341.38 650.274L1343.75 648.398C1346.78 645.994 1351.19 646.506 1353.59 649.541L1355.1 651.437L1370.11 666.6L1347.94 684.159L1336.62 666.068L1335.12 664.173C1332.72 661.138 1333.23 656.729 1336.26 654.326L1338.63 652.45ZM1338.44 657.073L1345.92 651.145C1347.44 649.943 1349.64 650.199 1350.85 651.717L1352.35 653.612L1339.37 663.892L1337.87 661.997C1336.66 660.479 1336.92 658.275 1338.44 657.073ZM1341.9 667.899L1348.83 678.98L1351.69 676.72L1346.63 670.137L1349.4 668L1354.44 674.543L1364.87 666.284L1355.67 656.995L1341.9 667.899Z'
         fill='#DCAD36'
       />
@@ -1458,9 +1458,9 @@ const UseCaseDiagram = () => {
           width='242.958'
           height='220.683'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -1481,9 +1481,9 @@ const UseCaseDiagram = () => {
           width='223.344'
           height='201.748'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -1504,9 +1504,9 @@ const UseCaseDiagram = () => {
           width='360.82'
           height='314.304'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -1527,9 +1527,9 @@ const UseCaseDiagram = () => {
           width='251.308'
           height='226.844'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -1550,9 +1550,9 @@ const UseCaseDiagram = () => {
           width='242.958'
           height='220.683'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -1573,9 +1573,9 @@ const UseCaseDiagram = () => {
           width='242.958'
           height='220.683'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -1596,9 +1596,9 @@ const UseCaseDiagram = () => {
           width='242.958'
           height='220.683'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -1619,9 +1619,9 @@ const UseCaseDiagram = () => {
           width='242.958'
           height='220.683'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -1642,9 +1642,9 @@ const UseCaseDiagram = () => {
           width='242.958'
           height='220.683'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -1665,9 +1665,9 @@ const UseCaseDiagram = () => {
           width='231.023'
           height='209.302'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -1688,9 +1688,9 @@ const UseCaseDiagram = () => {
           width='223.344'
           height='201.748'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -1711,9 +1711,9 @@ const UseCaseDiagram = () => {
           width='223.344'
           height='201.748'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -1734,9 +1734,9 @@ const UseCaseDiagram = () => {
           width='223.344'
           height='201.748'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -1757,9 +1757,9 @@ const UseCaseDiagram = () => {
           width='223.344'
           height='201.748'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -1780,9 +1780,9 @@ const UseCaseDiagram = () => {
           width='223.344'
           height='201.748'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -1803,9 +1803,9 @@ const UseCaseDiagram = () => {
           width='242.958'
           height='220.683'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -1826,9 +1826,9 @@ const UseCaseDiagram = () => {
           width='223.344'
           height='201.748'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix
             in='SourceAlpha'
             type='matrix'
@@ -1850,14 +1850,14 @@ const UseCaseDiagram = () => {
           y2='772.256'
           gradientUnits='userSpaceOnUse'
         >
-          <stop offset='0.0833333' stop-color='#E1E1E1' />
-          <stop offset='0.359175' stop-color='#F2F2F2' />
-          <stop offset='0.359275' stop-color='#F2F2F2' />
-          <stop offset='0.359375' stop-color='#F2F2F2' />
-          <stop offset='0.359475' stop-color='#F1F1F1' />
-          <stop offset='0.359575' stop-color='#F1F1F1' />
-          <stop offset='0.59375' stop-color='#F0F0F0' />
-          <stop offset='1' stop-color='#CECECE' />
+          <stop offset='0.0833333' stopColor='#E1E1E1' />
+          <stop offset='0.359175' stopColor='#F2F2F2' />
+          <stop offset='0.359275' stopColor='#F2F2F2' />
+          <stop offset='0.359375' stopColor='#F2F2F2' />
+          <stop offset='0.359475' stopColor='#F1F1F1' />
+          <stop offset='0.359575' stopColor='#F1F1F1' />
+          <stop offset='0.59375' stopColor='#F0F0F0' />
+          <stop offset='1' stopColor='#CECECE' />
         </linearGradient>
         <linearGradient
           id='paint1_linear_9_177'
@@ -1867,14 +1867,14 @@ const UseCaseDiagram = () => {
           y2='603.525'
           gradientUnits='userSpaceOnUse'
         >
-          <stop offset='0.0833333' stop-color='#E1E1E1' />
-          <stop offset='0.359175' stop-color='#F2F2F2' />
-          <stop offset='0.359275' stop-color='#F2F2F2' />
-          <stop offset='0.359375' stop-color='#F2F2F2' />
-          <stop offset='0.359475' stop-color='#F1F1F1' />
-          <stop offset='0.359575' stop-color='#F1F1F1' />
-          <stop offset='0.59375' stop-color='#F0F0F0' />
-          <stop offset='1' stop-color='#CECECE' />
+          <stop offset='0.0833333' stopColor='#E1E1E1' />
+          <stop offset='0.359175' stopColor='#F2F2F2' />
+          <stop offset='0.359275' stopColor='#F2F2F2' />
+          <stop offset='0.359375' stopColor='#F2F2F2' />
+          <stop offset='0.359475' stopColor='#F1F1F1' />
+          <stop offset='0.359575' stopColor='#F1F1F1' />
+          <stop offset='0.59375' stopColor='#F0F0F0' />
+          <stop offset='1' stopColor='#CECECE' />
         </linearGradient>
         <linearGradient
           id='paint2_linear_9_177'
@@ -1884,14 +1884,14 @@ const UseCaseDiagram = () => {
           y2='430.62'
           gradientUnits='userSpaceOnUse'
         >
-          <stop offset='0.0833333' stop-color='#E1E1E1' />
-          <stop offset='0.359175' stop-color='#F2F2F2' />
-          <stop offset='0.359275' stop-color='#F2F2F2' />
-          <stop offset='0.359375' stop-color='#F2F2F2' />
-          <stop offset='0.359475' stop-color='#F1F1F1' />
-          <stop offset='0.359575' stop-color='#F1F1F1' />
-          <stop offset='0.59375' stop-color='#F0F0F0' />
-          <stop offset='1' stop-color='#CECECE' />
+          <stop offset='0.0833333' stopColor='#E1E1E1' />
+          <stop offset='0.359175' stopColor='#F2F2F2' />
+          <stop offset='0.359275' stopColor='#F2F2F2' />
+          <stop offset='0.359375' stopColor='#F2F2F2' />
+          <stop offset='0.359475' stopColor='#F1F1F1' />
+          <stop offset='0.359575' stopColor='#F1F1F1' />
+          <stop offset='0.59375' stopColor='#F0F0F0' />
+          <stop offset='1' stopColor='#CECECE' />
         </linearGradient>
         <linearGradient
           id='paint3_linear_9_177'
@@ -1901,14 +1901,14 @@ const UseCaseDiagram = () => {
           y2='313.924'
           gradientUnits='userSpaceOnUse'
         >
-          <stop offset='0.0833333' stop-color='#E1E1E1' />
-          <stop offset='0.359175' stop-color='#F2F2F2' />
-          <stop offset='0.359275' stop-color='#F2F2F2' />
-          <stop offset='0.359375' stop-color='#F2F2F2' />
-          <stop offset='0.359475' stop-color='#F1F1F1' />
-          <stop offset='0.359575' stop-color='#F1F1F1' />
-          <stop offset='0.59375' stop-color='#F0F0F0' />
-          <stop offset='1' stop-color='#CECECE' />
+          <stop offset='0.0833333' stopColor='#E1E1E1' />
+          <stop offset='0.359175' stopColor='#F2F2F2' />
+          <stop offset='0.359275' stopColor='#F2F2F2' />
+          <stop offset='0.359375' stopColor='#F2F2F2' />
+          <stop offset='0.359475' stopColor='#F1F1F1' />
+          <stop offset='0.359575' stopColor='#F1F1F1' />
+          <stop offset='0.59375' stopColor='#F0F0F0' />
+          <stop offset='1' stopColor='#CECECE' />
         </linearGradient>
         <linearGradient
           id='paint4_linear_9_177'
@@ -1918,14 +1918,14 @@ const UseCaseDiagram = () => {
           y2='297.183'
           gradientUnits='userSpaceOnUse'
         >
-          <stop offset='0.0833333' stop-color='#E1E1E1' />
-          <stop offset='0.359175' stop-color='#F2F2F2' />
-          <stop offset='0.359275' stop-color='#F2F2F2' />
-          <stop offset='0.359375' stop-color='#F2F2F2' />
-          <stop offset='0.359475' stop-color='#F1F1F1' />
-          <stop offset='0.359575' stop-color='#F1F1F1' />
-          <stop offset='0.59375' stop-color='#F0F0F0' />
-          <stop offset='1' stop-color='#CECECE' />
+          <stop offset='0.0833333' stopColor='#E1E1E1' />
+          <stop offset='0.359175' stopColor='#F2F2F2' />
+          <stop offset='0.359275' stopColor='#F2F2F2' />
+          <stop offset='0.359375' stopColor='#F2F2F2' />
+          <stop offset='0.359475' stopColor='#F1F1F1' />
+          <stop offset='0.359575' stopColor='#F1F1F1' />
+          <stop offset='0.59375' stopColor='#F0F0F0' />
+          <stop offset='1' stopColor='#CECECE' />
         </linearGradient>
         <linearGradient
           id='paint5_linear_9_177'
@@ -1935,14 +1935,14 @@ const UseCaseDiagram = () => {
           y2='454.527'
           gradientUnits='userSpaceOnUse'
         >
-          <stop offset='0.0833333' stop-color='#E1E1E1' />
-          <stop offset='0.359175' stop-color='#F2F2F2' />
-          <stop offset='0.359275' stop-color='#F2F2F2' />
-          <stop offset='0.359375' stop-color='#F2F2F2' />
-          <stop offset='0.359475' stop-color='#F1F1F1' />
-          <stop offset='0.359575' stop-color='#F1F1F1' />
-          <stop offset='0.59375' stop-color='#F0F0F0' />
-          <stop offset='1' stop-color='#CECECE' />
+          <stop offset='0.0833333' stopColor='#E1E1E1' />
+          <stop offset='0.359175' stopColor='#F2F2F2' />
+          <stop offset='0.359275' stopColor='#F2F2F2' />
+          <stop offset='0.359375' stopColor='#F2F2F2' />
+          <stop offset='0.359475' stopColor='#F1F1F1' />
+          <stop offset='0.359575' stopColor='#F1F1F1' />
+          <stop offset='0.59375' stopColor='#F0F0F0' />
+          <stop offset='1' stopColor='#CECECE' />
         </linearGradient>
         <linearGradient
           id='paint6_linear_9_177'
@@ -1952,14 +1952,14 @@ const UseCaseDiagram = () => {
           y2='642.229'
           gradientUnits='userSpaceOnUse'
         >
-          <stop offset='0.0833333' stop-color='#E1E1E1' />
-          <stop offset='0.359175' stop-color='#F2F2F2' />
-          <stop offset='0.359275' stop-color='#F2F2F2' />
-          <stop offset='0.359375' stop-color='#F2F2F2' />
-          <stop offset='0.359475' stop-color='#F1F1F1' />
-          <stop offset='0.359575' stop-color='#F1F1F1' />
-          <stop offset='0.59375' stop-color='#F0F0F0' />
-          <stop offset='1' stop-color='#CECECE' />
+          <stop offset='0.0833333' stopColor='#E1E1E1' />
+          <stop offset='0.359175' stopColor='#F2F2F2' />
+          <stop offset='0.359275' stopColor='#F2F2F2' />
+          <stop offset='0.359375' stopColor='#F2F2F2' />
+          <stop offset='0.359475' stopColor='#F1F1F1' />
+          <stop offset='0.359575' stopColor='#F1F1F1' />
+          <stop offset='0.59375' stopColor='#F0F0F0' />
+          <stop offset='1' stopColor='#CECECE' />
         </linearGradient>
         <linearGradient
           id='paint7_linear_9_177'
@@ -1969,14 +1969,14 @@ const UseCaseDiagram = () => {
           y2='809.413'
           gradientUnits='userSpaceOnUse'
         >
-          <stop offset='0.0833333' stop-color='#E1E1E1' />
-          <stop offset='0.359175' stop-color='#F2F2F2' />
-          <stop offset='0.359275' stop-color='#F2F2F2' />
-          <stop offset='0.359375' stop-color='#F2F2F2' />
-          <stop offset='0.359475' stop-color='#F1F1F1' />
-          <stop offset='0.359575' stop-color='#F1F1F1' />
-          <stop offset='0.59375' stop-color='#F0F0F0' />
-          <stop offset='1' stop-color='#CECECE' />
+          <stop offset='0.0833333' stopColor='#E1E1E1' />
+          <stop offset='0.359175' stopColor='#F2F2F2' />
+          <stop offset='0.359275' stopColor='#F2F2F2' />
+          <stop offset='0.359375' stopColor='#F2F2F2' />
+          <stop offset='0.359475' stopColor='#F1F1F1' />
+          <stop offset='0.359575' stopColor='#F1F1F1' />
+          <stop offset='0.59375' stopColor='#F0F0F0' />
+          <stop offset='1' stopColor='#CECECE' />
         </linearGradient>
       </defs>
     </motion.svg>
