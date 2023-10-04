@@ -2,6 +2,7 @@ import Hero from '@/components/Landing/Hero'
 import Navbar from '@/components/Landing/Navbar'
 import UseCases from '@/components/Landing/UseCases'
 import WhatMakesUsUnique from '@/components/Landing/WhatMakesUsUnique'
+import WhatWeOffer from '@/components/Landing/WhatWeOffer'
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <Hero />
         <UseCases />
         <WhatMakesUsUnique />
+        <WhatWeOffer />
       </div>
     </main>
   )
