@@ -1,3 +1,5 @@
+import UseCaseDiagram from './UseCaseDiagram'
+
 const UseCases = () => {
   return (
     <div className='flex min-h-screen w-full flex-col items-center gap-4 pt-10 font-sans'>
@@ -7,6 +9,10 @@ const UseCases = () => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua.
       </p>
+      {/* --------------------------------- Diagram -------------------------------- */}
+      <div className='-mt-14'>
+        <UseCaseDiagram />
+      </div>
     </div>
   )
 }
