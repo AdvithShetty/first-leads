@@ -1,4 +1,5 @@
 import Hero from '@/components/Landing/Hero'
+import HowItWorks from '@/components/Landing/HowItWorks'
 import Navbar from '@/components/Landing/Navbar'
 import UseCases from '@/components/Landing/UseCases'
 import WhatMakesUsUnique from '@/components/Landing/WhatMakesUsUnique'
@@ -15,7 +16,7 @@ export default function Home() {
             borderBottom: '85px solid #7363F3',
             borderLeft: '85vw solid transparent',
           }}
-        ></div>
+        />
       </div>
       <div className='z-0 w-full'>
         <Navbar />
@@ -23,6 +24,7 @@ export default function Home() {
         <UseCases />
         <WhatMakesUsUnique />
         <WhatWeOffer />
+        <HowItWorks />
       </div>
     </main>
   )
