@@ -1,6 +1,7 @@
 import Hero from '@/components/Landing/Hero'
 import HowItWorks from '@/components/Landing/HowItWorks'
 import Navbar from '@/components/Landing/Navbar'
+import Pricing from '@/components/Landing/Pricing'
 import UseCases from '@/components/Landing/UseCases'
 import WhatMakesUsUnique from '@/components/Landing/WhatMakesUsUnique'
 import WhatWeOffer from '@/components/Landing/WhatWeOffer'
@@ -27,6 +28,7 @@ export default function Home() {
         <WhatWeOffer />
         <HowItWorks />
         <WhyUs />
+        <Pricing />
       </div>
     </main>
   )
