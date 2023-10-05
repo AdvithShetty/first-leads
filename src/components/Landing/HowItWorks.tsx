@@ -18,7 +18,7 @@ const HowItWorks = () => {
         className='h-0 w-0'
         style={{
           borderTop: '40px solid #6721FF',
-          borderRight: '100vw solid transparent',
+          borderRight: '98vw solid transparent',
         }}
       />
     </>

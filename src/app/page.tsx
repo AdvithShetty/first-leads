@@ -4,6 +4,7 @@ import Navbar from '@/components/Landing/Navbar'
 import UseCases from '@/components/Landing/UseCases'
 import WhatMakesUsUnique from '@/components/Landing/WhatMakesUsUnique'
 import WhatWeOffer from '@/components/Landing/WhatWeOffer'
+import WhyUs from '@/components/Landing/WhyUs'
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         <WhatMakesUsUnique />
         <WhatWeOffer />
         <HowItWorks />
+        <WhyUs />
       </div>
     </main>
   )
