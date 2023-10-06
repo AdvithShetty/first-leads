@@ -1,6 +1,7 @@
 import Faq from '@/components/Landing/Faq/Faq'
 import Hero from '@/components/Landing/Hero'
 import HowItWorks from '@/components/Landing/HowItWorks'
+import LatestNews from '@/components/Landing/LatestNews/LatestNews'
 import Navbar from '@/components/Landing/Navbar'
 import Pricing from '@/components/Landing/Pricing/Pricing'
 import UseCases from '@/components/Landing/UseCases'
@@ -31,6 +32,7 @@ export default function Home() {
         <WhyUs />
         <Pricing />
         <Faq />
+        <LatestNews />
       </div>
     </main>
   )
