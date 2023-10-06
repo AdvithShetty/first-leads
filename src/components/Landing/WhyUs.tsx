@@ -2,9 +2,9 @@ import Image from 'next/image'
 
 const WhyUs = () => {
   return (
-    <div className='w-full py-10 pl-20'>
+    <div className='w-full px-20 py-10 2xl:px-40'>
       <h1 className='font-sans text-xl font-bold uppercase tracking-[-0.6px] text-[#2A00FF]'>WHY US</h1>
-      <div className='flex items-center justify-between pr-14'>
+      <div className='flex items-center justify-between'>
         <div className='flex w-1/2 flex-col gap-14'>
           <h2 className='py-6 font-sans text-6xl font-bold text-black'>Your Gateway To Exclusive Leads</h2>
           <Image src='/images/Landing/GeographicCoverage.png' width={600} height={400} alt='Why Us' />
