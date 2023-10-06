@@ -9,14 +9,15 @@ const LatestNews = () => {
         Ligula risus auctor tempus magna feugiat lacinia.
       </p>
       <div className='grid grid-cols-3 gap-6 py-10'>
-        {Array(6).fill(
+        {Array.from({ length: 6 }).map((_, i) => (
           <BlogCards
             link='#'
             image='/images/Landing/WhatMakesUsUnique.jpg'
             title='Ligula risus auctor tempus'
             description='Ligula risus auctor tempus magna feugiat lacinia.'
+            key={i}
           />
-        )}
+        ))}
       </div>
     </div>
   )
