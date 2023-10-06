@@ -4,30 +4,9 @@ import { FC } from 'react'
 const PlanCards = () => {
   return (
     <div className='flex flex-wrap items-start gap-10'>
-      <Card
-        title='Basic Plan'
-        price={29}
-        buttonText='14 Day Free Trial'
-        buttonLink='#'
-        description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.'
-        features={['Weekly Report', 'Industry Specific', 'Geo Area Coverage', 'List of Addresses']}
-        isWhite={false}
-      />
-      <Card
-        title='Premium Plan'
-        price={49}
-        buttonText='14 Day Free Trial'
-        buttonLink='#'
-        description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.'
-        features={[
-          'Basic Plan +',
-          'Contact Phone Numbers',
-          'Contact Emails',
-          'Contact Name',
-          'Do Not Call (DNC) Verification',
-        ]}
-        isWhite
-      />
+      {monthlyPlans.map((plan, i) => (
+        <Card key={i} {...plan} />
+      ))}
     </div>
   )
 }
@@ -78,6 +57,33 @@ const Card: FC<CardProps> = ({ title, price, buttonLink, buttonText, description
     </div>
   )
 }
+
+const monthlyPlans = [
+  {
+    title: 'Basic Plan',
+    price: 29,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+    features: ['Weekly Report', 'Industry Specific', 'Geo Area Coverage', 'List of Addresses'],
+    buttonText: '14 Day Free Trial',
+    buttonLink: '#',
+    isWhite: false,
+  },
+  {
+    title: 'Premium Plan',
+    price: 49,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
+    features: [
+      'Basic Plan +',
+      'Contact Phone Numbers',
+      'Contact Emails',
+      'Contact Name',
+      'Do Not Call (DNC) Verification',
+    ],
+    buttonText: '7 Day Free Trial',
+    buttonLink: '#',
+    isWhite: true,
+  },
+]
 
 const PurpleCheckIcon = () => (
   <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'>
