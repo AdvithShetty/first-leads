@@ -3,7 +3,7 @@ import Steps from './Steps'
 const HowItWorks = () => {
   return (
     <>
-      <div className='flex w-full flex-col bg-[#0C1E1B] pb-10 pl-40 pt-20 font-rubik'>
+      <div className='flex w-full flex-col bg-[#0C1E1B] pb-10 pl-40 pt-20 font-rubik' id='how-it-works'>
         <h1 className='font-sans text-xl font-bold uppercase tracking-[-0.6px] text-white'>PROCESS</h1>
         <div className='flex w-full justify-between'>
           <div className='flex w-1/2 flex-col pt-2'>

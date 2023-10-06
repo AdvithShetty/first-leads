@@ -3,7 +3,7 @@ import PricingTabs from './PricingTabs'
 
 const Pricing = () => {
   return (
-    <div className='w-full py-20 '>
+    <div className='w-full py-20' id='pricing'>
       <div className='pl-28 2xl:pl-40'>
         <h1 className='font-sans text-xl font-bold uppercase tracking-[-0.6px] text-[#2A00FF]'>PRICING</h1>
         <h2 className='py-6 font-sans text-6xl font-bold text-black'>We Provide Leads that works</h2>

@@ -3,7 +3,7 @@ import { FC } from 'react'
 
 const WhatWeOffer = () => {
   return (
-    <div className='flex flex-col items-center gap-20 py-20 font-rubik'>
+    <div className='flex flex-col items-center gap-20 py-20 font-rubik' id='features'>
       <h1 className='text-[54px] font-medium tracking-[-1px] text-[#2F353E]'>What We Offer</h1>
       <div className='grid grid-cols-3 gap-10'>
         {cardsContent.map((item, i) => (

@@ -20,7 +20,11 @@ const Navbar = () => {
 
 const NavLink: FC<{ name: string; path: string }> = ({ path, name }) => {
   return (
-    <Link href={path} className='group group relative cursor-pointer text-base font-medium text-[#FCFCFC]'>
+    <Link
+      href={path}
+      scroll={true}
+      className='group group relative cursor-pointer text-base font-medium text-[#FCFCFC]'
+    >
       {name}
       <div className='absolute -bottom-1 h-0.5 w-0 rounded-md bg-white duration-400 ease-in-out group-hover:w-full' />
     </Link>
