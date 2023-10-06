@@ -1,3 +1,4 @@
+import Faq from '@/components/Landing/Faq/Faq'
 import Hero from '@/components/Landing/Hero'
 import HowItWorks from '@/components/Landing/HowItWorks'
 import Navbar from '@/components/Landing/Navbar'
@@ -29,6 +30,7 @@ export default function Home() {
         <HowItWorks />
         <WhyUs />
         <Pricing />
+        <Faq />
       </div>
     </main>
   )

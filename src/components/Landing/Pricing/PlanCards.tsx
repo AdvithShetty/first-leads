@@ -40,7 +40,7 @@ const Card: FC<CardProps> = ({ title, price, buttonLink, buttonText, description
       <p className='font-outfit text-[21px] font-normal'>{description}</p>
       <div className='flex flex-col gap-3 py-4'>
         {features.map((feature, i) => (
-          <div className='flex items-center gap-6'>
+          <div className='flex items-center gap-6' key={i}>
             <PurpleCheckIcon />
             <p className='font-outfit text-[21px] font-medium'>{feature}</p>
           </div>
