@@ -1,4 +1,5 @@
 import Faq from '@/components/Landing/Faq/Faq'
+import Footer from '@/components/Landing/Footer/Footer'
 import Hero from '@/components/Landing/Hero'
 import HowItWorks from '@/components/Landing/HowItWorks'
 import LatestNews from '@/components/Landing/LatestNews/LatestNews'
@@ -33,6 +34,7 @@ export default function Home() {
         <Pricing />
         <Faq />
         <LatestNews />
+        <Footer />
       </div>
     </main>
   )

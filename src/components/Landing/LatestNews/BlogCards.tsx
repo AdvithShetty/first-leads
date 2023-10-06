@@ -19,10 +19,9 @@ const BlogCards: FC<Props> = ({ link, image, title, description }) => {
     >
       <Image
         src={image}
-        layout='fill'
-        objectFit='cover'
+        fill
         alt='Blog Cards'
-        className='z-0 transition-transform ease-soft-spring group-hover:scale-105'
+        className='z-0 object-cover transition-transform ease-soft-spring group-hover:scale-105'
       />
       <div className='absolute z-[1] flex h-full w-full flex-col justify-end gap-1 bg-gradient-to-b from-transparent from-40% to-[#000000c2] p-4 2xl:gap-2'>
         <h1 className='font-sans text-3xl font-bold text-white 2xl:text-4xl'>{title}</h1>
