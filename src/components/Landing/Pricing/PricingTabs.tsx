@@ -30,7 +30,7 @@ const PricingTabs = () => {
         <motion.button
           animate={{ color: activeTab === AvailableTabs.Monthly ? '#fff' : '#000' }}
           onClick={() => setActiveTab(AvailableTabs.Monthly)}
-          className='h-14 w-52 border-r border-[#00000052] text-[26px] font-semibold capitalize text-white'
+          className='h-14 w-[209px] border-r border-[#00000052] text-[26px] font-semibold capitalize text-white'
         >
           {AvailableTabs.Monthly}
         </motion.button>

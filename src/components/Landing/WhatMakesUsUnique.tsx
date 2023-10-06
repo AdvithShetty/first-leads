@@ -3,7 +3,9 @@ import Image from 'next/image'
 const WhatMakesUsUnique = () => {
   return (
     <div className='flex items-center justify-center gap-20 pb-20 font-archivo'>
-      <Image src='/images/WhatMakesUsUnique.png' width={500} height={500} alt='What Makes Us Unique' />
+      <div className='relative h-[22.5rem] w-[30rem]'>
+        <Image src='/images/WhatMakesUsUnique.jpg' fill style={{ objectFit: 'cover' }} alt='What Makes Us Unique' />
+      </div>
       <div className='flex flex-col gap-2'>
         <h1 className='pb-2 font-sans text-xl font-bold uppercase tracking-[-0.6px] text-[#2A00FF]'>
           What Makes Us Unique
