@@ -1,3 +1,5 @@
+import PricingTabs from './PricingTabs'
+
 const Pricing = () => {
   return (
     <div className='w-full py-20 pl-20'>
@@ -7,9 +9,7 @@ const Pricing = () => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua.
       </p>
-      <div className='flex flex-col items-center'>
-        <div className='flex'></div>
-      </div>
+      <PricingTabs />
     </div>
   )
 }
