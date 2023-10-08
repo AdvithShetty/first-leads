@@ -8,13 +8,14 @@ const LatestNews = () => {
       <p className='font-rubik text-2xl font-normal text-[#757575]'>
         Ligula risus auctor tempus magna feugiat lacinia.
       </p>
-      <div className='grid grid-cols-3 gap-6 py-10'>
-        {Array.from({ length: 6 }).map((_, i) => (
+      <div className='grid grid-cols-3 grid-rows-2 gap-6 py-10'>
+        {Array.from({ length: 5 }).map((_, i) => (
           <BlogCards
             link='#'
             image='/images/Landing/WhatMakesUsUnique.jpg'
             title='Ligula risus auctor tempus'
             description='Ligula risus auctor tempus magna feugiat lacinia.'
+            rowSpan={i === 2 ? 'row-span-2' : undefined}
             key={i}
           />
         ))}

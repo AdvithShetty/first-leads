@@ -7,15 +7,21 @@ interface Props {
   title: string
   description: string
   link: string
+  /**
+   * TailwindCSS grid row-span
+   */
+  rowSpan?: string
 }
 
-const BlogCards: FC<Props> = ({ link, image, title, description }) => {
+const BlogCards: FC<Props> = ({ link, image, title, description, rowSpan }) => {
   return (
     <Link
       href={link}
       target='_blank'
       rel='noopener noreferrer'
-      className='group relative z-0 col-span-1 h-[17rem] overflow-hidden rounded-lg 2xl:h-[20rem]'
+      className={`group relative z-0 col-span-1 overflow-hidden rounded-lg 2xl:h-[20rem] ${
+        rowSpan ? rowSpan : 'h-[17rem]'
+      }`}
     >
       <Image
         src={image}
