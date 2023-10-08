@@ -8,7 +8,7 @@ const containerVariant: Variants = {
     opacity: 1,
     transition: {
       when: 'beforeChildren',
-      staggerChildren: 0.4,
+      staggerChildren: 0.2,
     },
   },
   hidden: {
@@ -20,7 +20,7 @@ const containerVariant: Variants = {
 }
 
 const circleVariant: Variants = {
-  visible: { opacity: 1, y: 0, transition: { type: 'spring', damping: 12 } },
+  visible: { opacity: 1, y: 0, transition: { type: 'spring', damping: 20 } },
   hidden: { opacity: 0, y: -100 },
 }
 const lineVariant: Variants = {

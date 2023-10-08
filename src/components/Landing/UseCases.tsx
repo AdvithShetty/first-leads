@@ -10,7 +10,7 @@ const variants: Variants = {
     transition: {
       type: 'spring',
       damping: 12,
-      staggerChildren: 0.4,
+      staggerChildren: 0.25,
     },
   },
   hidden: {
