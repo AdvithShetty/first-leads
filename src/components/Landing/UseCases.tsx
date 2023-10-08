@@ -20,7 +20,7 @@ const variants: Variants = {
 }
 
 const childrenVariants: Variants = {
-  visible: { opacity: 1, y: 0, transition: { type: 'spring', damping: 12 } },
+  visible: { opacity: 1, y: 0, transition: { type: 'spring', damping: 25 } },
   hidden: { opacity: 0, y: 100 },
 }
 
