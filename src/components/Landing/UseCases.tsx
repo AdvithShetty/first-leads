@@ -49,13 +49,6 @@ const UseCases = () => {
       <motion.h2 variants={childrenVariants} className='text-center text-7xl font-bold tracking-tighter text-black'>
         Leads for Every Business
       </motion.h2>
-      <motion.p
-        variants={childrenVariants}
-        className='w-1/2 text-center font-outfit text-[21px] font-normal leading-6 text-[#5F5F5F]'
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua.
-      </motion.p>
       {/* --------------------------------- Diagram -------------------------------- */}
       <motion.div variants={childrenVariants} className='-mt-14'>
         <UseCaseDiagram />
