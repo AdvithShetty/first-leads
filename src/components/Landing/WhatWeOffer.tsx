@@ -71,7 +71,7 @@ const cardsContent: CardProps[] = [
   },
   {
     title: 'Geographic Coverage',
-    description: 'Select countries that matter most to you. Counties include all respective zip-codes.',
+    description: 'Select Counties that matter most to you. Counties include all respective zip-codes.',
     image: '/images/Landing/GeographicCoverage.png',
     className: 'object-contain',
   },

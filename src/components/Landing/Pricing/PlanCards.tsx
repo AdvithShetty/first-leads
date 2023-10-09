@@ -16,17 +16,16 @@ export default PlanCards
 interface CardProps {
   title: string
   price: number
-  description: string
   features: string[]
   buttonText: string
   buttonLink: string
   isWhite: boolean
 }
 
-const Card: FC<CardProps> = ({ title, price, buttonLink, buttonText, description, features, isWhite }) => {
+const Card: FC<CardProps> = ({ title, price, buttonLink, buttonText, features, isWhite }) => {
   return (
     <div
-      className={`flex w-[35rem] flex-col gap-2 rounded-[15px] px-10 py-8 ${
+      className={`flex h-[40.7rem] w-[35rem] flex-col gap-2 rounded-[15px] px-10 py-8 ${
         isWhite ? 'bg-white text-black' : 'bg-[#0C1E1B] text-white'
       }`}
       style={{
@@ -37,7 +36,7 @@ const Card: FC<CardProps> = ({ title, price, buttonLink, buttonText, description
       <p className='pt-2 font-sans text-base font-normal'>Starting From</p>
       <h2 className='font-sans text-[51px] font-extrabold leading-tight'>${price}/mo</h2>
       <div className={`mb-4 mt-8 h-[1px] w-full ${isWhite ? 'bg-[#00000045]' : 'bg-[#ffffff45]'}`} />
-      <p className='font-outfit text-[21px] font-normal'>{description}</p>
+      {/* <p className='font-outfit text-[21px] font-normal'>{description}</p> */}
       <div className='flex flex-col gap-3 py-4'>
         {features.map((feature, i) => (
           <div className='flex items-center gap-6' key={i}>
@@ -62,7 +61,6 @@ const monthlyPlans = [
   {
     title: 'Basic Plan',
     price: 29,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
     features: ['Weekly Report', 'Industry Specific', 'Geo Area Coverage', 'List of Addresses'],
     buttonText: '14 Day Free Trial',
     buttonLink: '#',
@@ -71,14 +69,7 @@ const monthlyPlans = [
   {
     title: 'Premium Plan',
     price: 49,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.',
-    features: [
-      'Basic Plan +',
-      'Contact Phone Numbers',
-      'Contact Emails',
-      'Contact Name',
-      'Do Not Call (DNC) Verification',
-    ],
+    features: ['Basic Plan +', 'Contact Phone Numbers', 'Emails', 'Contact Name', 'Do Not Call (DNC) Verification'],
     buttonText: '7 Day Free Trial',
     buttonLink: '#',
     isWhite: true,

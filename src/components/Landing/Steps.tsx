@@ -54,7 +54,7 @@ const Steps = () => {
               <p className='text-[19px] font-normal text-[#BABABA]'>{step.description}</p>
             </div>
           </motion.div>
-          {i + 1 < 6 ? <motion.div className='ml-[38px] h-16 w-1 bg-white' variants={lineVariant} /> : null}
+          {i + 1 < steps.length ? <motion.div className='ml-[38px] h-16 w-1 bg-white' variants={lineVariant} /> : null}
         </Fragment>
       ))}
     </motion.div>
@@ -63,12 +63,8 @@ const Steps = () => {
 
 const steps = [
   {
-    title: 'Sign Up',
-    description: 'Choose your subscription and payment plan.',
-  },
-  {
-    title: 'Select Industries',
-    description: `Select the industries and lead types you're interested in.`,
+    title: 'Select Lead type',
+    description: `Select the lead types you're interested in.`,
   },
   {
     title: 'Select coverage area.',

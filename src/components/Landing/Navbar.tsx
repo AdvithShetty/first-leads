@@ -5,14 +5,15 @@ import GetStarted from './GetStarted'
 const Navbar = () => {
   return (
     <nav className='flex w-full items-center justify-between px-40 py-4 font-archivo'>
-      <h1 className='mr-44 text-4xl font-semibold text-white'>Logo</h1>
+      <h1 className='text-4xl font-semibold text-white'>Logo</h1>
       <div className='flex items-center gap-16'>
         {navLinks.map((link, i) => (
           <NavLink key={i} {...link} />
         ))}
       </div>
-      <div className='ml-32'>
+      <div className='flex items-center gap-4'>
         <GetStarted backgroundColor='bg-[#D88600]' />
+        <GetStarted backgroundColor='bg-purple-2 w-[9rem]' customText='Login' />
       </div>
     </nav>
   )

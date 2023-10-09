@@ -1,5 +1,4 @@
 'use client'
-import Link from 'next/link'
 import GetStarted from './GetStarted'
 
 const Hero = () => {
@@ -13,12 +12,6 @@ const Hero = () => {
         </p>
         <div className='flex items-center justify-start gap-4 pt-4'>
           <GetStarted backgroundColor='bg-purple-2 px-6 h-14' />
-          <Link
-            href='#'
-            className='flex h-14 items-center justify-center rounded-lg border border-[#859794] px-6 text-center text-base font-semibold text-white transition-all duration-200 ease-in-out hover:border-white hover:bg-white hover:text-purple-2'
-          >
-            Book A Free Call
-          </Link>
         </div>
       </div>
 
