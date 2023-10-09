@@ -34,7 +34,7 @@ const Pricing = () => {
               <RewindIcon />
               <h1 className='pb-2 pt-5 font-rubik text-lg font-medium tracking-[-0.75px] text-[#2F353E]'>Free Trial</h1>
               <p className='w-[18rem] font-outfit text-[21px] font-normal text-[#5F5F5F]'>
-                14 days for basic and 7 days for premium plan. <p>Cancel anytime.</p>
+                14 days for basic and 7 days for premium plan. Cancel anytime.
               </p>
             </div>
             <div className='flex flex-col'>
