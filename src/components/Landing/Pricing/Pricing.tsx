@@ -4,19 +4,19 @@ import PricingTabs from './PricingTabs'
 const Pricing = () => {
   return (
     <div className='w-full py-20' id='pricing'>
-      <div className='pl-28 2xl:pl-40'>
+      <div className='px-10 xl:pl-28 2xl:pl-40'>
         <h1 className='font-sans text-xl font-bold uppercase tracking-[-0.6px] text-[#2A00FF]'>PRICING</h1>
-        <h2 className='py-6 font-sans text-6xl font-bold text-black'>We Provide Leads that work</h2>
+        <h2 className='py-6 font-sans text-4xl font-bold text-black xl:text-6xl'>We Provide Leads that work</h2>
       </div>
       <PricingTabs />
       <div className='flex w-full flex-col items-center pb-10 pt-20'>
         <h2 className='font-outfit text-4xl font-semibold text-black'>See Pricing Details.</h2>
-        <div className='flex justify-center gap-24 py-10'>
-          <div className='flex flex-col'>
+        <div className='flex flex-col items-center justify-center gap-24 py-10 xl:flex-row xl:items-start'>
+          <div className='flex flex-col items-center xl:items-start'>
             <h1 className='font-rubik text-lg font-medium tracking-[-0.75px] text-[#2F353E]'>
               Accepted Payment Methods
             </h1>
-            <div className='flex items-center gap-16 pt-3'>
+            <div className='flex flex-wrap items-center justify-center gap-16 pt-3'>
               {[
                 '/images/Landing/PaymentMethods/Visa.png',
                 '/images/Landing/PaymentMethods/AmericanExpress.png',
@@ -29,7 +29,7 @@ const Pricing = () => {
               ))}
             </div>
           </div>
-          <div className='flex gap-[4.5rem]'>
+          <div className='flex flex-col gap-[4.5rem] xl:flex-row'>
             <div className='flex flex-col'>
               <RewindIcon />
               <h1 className='pb-2 pt-5 font-rubik text-lg font-medium tracking-[-0.75px] text-[#2F353E]'>Free Trial</h1>

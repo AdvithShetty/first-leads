@@ -1,5 +1,6 @@
 'use client'
 import { Variants, motion } from 'framer-motion'
+import Image from 'next/image'
 import { useInView } from 'react-intersection-observer'
 import UseCaseDiagram from './UseCaseDiagram'
 
@@ -46,12 +47,23 @@ const UseCases = () => {
       >
         Use Cases
       </motion.h1>
-      <motion.h2 variants={childrenVariants} className='text-center text-7xl font-bold tracking-tighter text-black'>
+      <motion.h2
+        variants={childrenVariants}
+        className='text-center text-3xl font-bold tracking-tighter text-black lg:text-5xl xl:text-7xl'
+      >
         Leads for Every Business
       </motion.h2>
       {/* --------------------------------- Diagram -------------------------------- */}
-      <motion.div variants={childrenVariants} className='-mt-14'>
+      <motion.div variants={childrenVariants} className='-mt-14 hidden xl:block'>
         <UseCaseDiagram />
+      </motion.div>
+      <motion.div variants={childrenVariants} className='relative mb-20 mt-10 block h-[100vh] w-full xl:hidden'>
+        <Image
+          src='/images/Landing/UseCaseDiagramMobile.svg'
+          fill
+          className='object-contain'
+          alt='Use Case Diagram Mobile'
+        />
       </motion.div>
     </motion.div>
   )

@@ -3,7 +3,7 @@ import { FC } from 'react'
 
 const PlanCards = () => {
   return (
-    <div className='flex flex-wrap items-start gap-10'>
+    <div className='flex flex-col flex-wrap items-center gap-10 xl:flex-row xl:items-start'>
       {monthlyPlans.map((plan, i) => (
         <Card key={i} {...plan} />
       ))}
@@ -25,7 +25,7 @@ interface CardProps {
 const Card: FC<CardProps> = ({ title, price, buttonLink, buttonText, features, isWhite }) => {
   return (
     <div
-      className={`flex h-[40.7rem] w-[35rem] flex-col gap-2 rounded-[15px] px-10 py-8 ${
+      className={`flex h-auto w-[90%] flex-col gap-2 rounded-[15px] px-10 py-8 xl:h-[40.7rem] xl:w-[35rem] ${
         isWhite ? 'bg-white text-black' : 'bg-[#0C1E1B] text-white'
       }`}
       style={{

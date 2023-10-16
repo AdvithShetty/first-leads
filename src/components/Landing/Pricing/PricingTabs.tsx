@@ -22,7 +22,7 @@ const PricingTabs = () => {
       <div className='relative mb-4 mt-10'>
         <div className='relative z-0 flex overflow-hidden rounded-[10px] border border-[#00000052] bg-white font-outfit'>
           <motion.div
-            className={`absolute z-[-1] h-14 w-52 bg-purple-2 ${
+            className={`absolute z-[-1] h-12 w-40 bg-purple-2 xl:h-14 xl:w-52 ${
               activeTab === AvailableTabs.Monthly ? 'left-0 top-0' : 'right-0 top-0'
             }`}
             layout
@@ -31,14 +31,14 @@ const PricingTabs = () => {
           <motion.button
             animate={{ color: activeTab === AvailableTabs.Monthly ? '#fff' : '#000' }}
             onClick={() => setActiveTab(AvailableTabs.Monthly)}
-            className='h-14 w-[209px] border-r border-[#00000052] text-[26px] font-semibold capitalize text-white'
+            className='h-12 w-[161px] border-r border-[#00000052] text-xl font-semibold capitalize text-white xl:h-14 xl:w-[209px] xl:text-[26px]'
           >
             {AvailableTabs.Monthly}
           </motion.button>
           <motion.button
             animate={{ color: activeTab === AvailableTabs.Annually ? '#fff' : '#000' }}
             onClick={() => setActiveTab(AvailableTabs.Annually)}
-            className='h-14 w-52 text-[26px] font-semibold capitalize text-black'
+            className='h-12 w-40 text-xl font-semibold capitalize text-black xl:h-14 xl:w-52 xl:text-[26px]'
           >
             {AvailableTabs.Annually}
           </motion.button>

@@ -4,8 +4,8 @@ import { FC } from 'react'
 const WhatWeOffer = () => {
   return (
     <div className='flex flex-col items-center gap-20 py-20 font-rubik' id='features'>
-      <h1 className='text-[54px] font-medium tracking-[-1px] text-[#2F353E]'>What We Offer</h1>
-      <div className='grid grid-cols-3 gap-10'>
+      <h1 className='text-4xl font-medium tracking-[-1px] text-[#2F353E] xl:text-[54px]'>What We Offer</h1>
+      <div className='grid grid-cols-3 place-items-center gap-4 xl:gap-10'>
         {cardsContent.map((item, i) => (
           <Card key={i} {...item} />
         ))}
@@ -23,7 +23,7 @@ interface CardProps {
 
 const Card: FC<CardProps> = ({ image, title, description, className }) => {
   return (
-    <div className='w-96 pb-16 font-rubik'>
+    <div className='col-span-3 w-4/5 pb-16 font-rubik xl:col-span-1 xl:w-96'>
       <div className='card-top-fade px-8 py-6'>
         <div className='relative h-56 w-full'>
           <Image src={image} fill className={className} alt='Image' />

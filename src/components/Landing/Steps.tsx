@@ -45,16 +45,24 @@ const Steps = () => {
     >
       {steps.map((step, i) => (
         <Fragment key={i}>
-          <motion.div className='flex items-center gap-10' variants={circleVariant}>
-            <div className='grid h-20 w-20 place-items-center rounded-full bg-purple-2 text-[26px] font-medium tracking-[-0.75px] text-white'>
+          <motion.div className='relative z-0 flex gap-6 xl:items-center xl:gap-10' variants={circleVariant}>
+            <div className='grid h-16 w-16 shrink-0 place-items-center rounded-full bg-purple-2 text-[26px] font-medium tracking-[-0.75px] text-white xl:h-20 xl:w-20'>
               0{i + 1}.
             </div>
             <div className='flex flex-col' key={i}>
-              <h3 className='text-[26px] font-medium tracking-[-0.75px] text-white'>{step.title}</h3>
-              <p className='text-[19px] font-normal text-[#BABABA]'>{step.description}</p>
+              <h3 className='text-2xl font-medium tracking-[-0.75px] text-white xl:text-[26px]'>{step.title}</h3>
+              <p className='text-base font-normal text-[#BABABA] xl:text-[19px]'>{step.description}</p>
             </div>
+            {i + 1 < steps.length ? (
+              <motion.div
+                className='absolute z-[-1] ml-[30px] block h-full w-1 bg-white xl:ml-[38px] xl:hidden'
+                variants={lineVariant}
+              />
+            ) : null}
           </motion.div>
-          {i + 1 < steps.length ? <motion.div className='ml-[38px] h-16 w-1 bg-white' variants={lineVariant} /> : null}
+          {i + 1 < steps.length ? (
+            <motion.div className='ml-[30px] h-16 w-1 bg-white xl:ml-[38px]' variants={lineVariant} />
+          ) : null}
         </Fragment>
       ))}
     </motion.div>

@@ -8,7 +8,7 @@ const QuestionAndAnswer = () => {
       <Accordion
         showDivider={false}
         itemClasses={{
-          heading: 'border border-[#E2E2E2] rounded-lg px-10',
+          heading: 'border border-[#E2E2E2] rounded-lg px-6 xl:px-10',
           content: 'pb-4',
         }}
       >
@@ -17,7 +17,9 @@ const QuestionAndAnswer = () => {
             key={i + 1}
             aria-label={faq.question}
             title={
-              <h1 className='py-2 font-sans text-[30px] font-bold tracking-[-0.5px] text-[#212529]'>{faq.question}</h1>
+              <h1 className='py-2 font-sans text-2xl font-bold tracking-[-0.5px] text-[#212529] xl:text-[30px]'>
+                {faq.question}
+              </h1>
             }
             indicator={({ isOpen }) => (
               <ArrowHeadIcon
@@ -28,7 +30,9 @@ const QuestionAndAnswer = () => {
             textValue={faq.answer}
             className='mb-6'
           >
-            <p className='px-10 pt-4 font-outfit text-[21px] font-normal text-[#5F5F5F]'>{faq.answer}</p>
+            <p className='px-6 pt-2 font-outfit text-lg font-normal text-[#5F5F5F] xl:px-10 xl:pt-4 xl:text-[21px]'>
+              {faq.answer}
+            </p>
           </AccordionItem>
         ))}
       </Accordion>

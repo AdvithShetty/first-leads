@@ -4,7 +4,7 @@ import GetStarted from './GetStarted'
 
 const Navbar = () => {
   return (
-    <nav className='flex w-full items-center justify-between px-40 py-4 font-archivo'>
+    <nav className='hidden w-full items-center justify-between px-40 py-4 font-archivo xl:flex'>
       <h1 className='text-4xl font-semibold text-white'>Logo</h1>
       <div className='flex items-center gap-16'>
         {navLinks.map((link, i) => (
