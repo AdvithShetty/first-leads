@@ -16,7 +16,7 @@ const Pricing = () => {
             <h1 className='font-rubik text-lg font-medium tracking-[-0.75px] text-[#2F353E]'>
               Accepted Payment Methods
             </h1>
-            <div className='flex flex-wrap items-center justify-center gap-16 pt-3'>
+            <div className='flex flex-wrap items-center justify-center gap-8 pt-3 xl:gap-16'>
               {[
                 '/images/Landing/PaymentMethods/Visa.png',
                 '/images/Landing/PaymentMethods/AmericanExpress.png',
