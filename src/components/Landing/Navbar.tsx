@@ -6,16 +6,19 @@ import GetStarted from './GetStarted'
 
 const navVariants: Variants = {
   hidden: {
-    x: 45,
+    opacity: 0,
+    x: 10,
   },
   visible: {
+    opacity: 1,
     x: 0,
     transition: {
       duration: 0.1,
     },
   },
   exit: {
-    x: -45,
+    opacity: 0,
+    x: -10,
   },
 }
 
@@ -38,7 +41,7 @@ const Navbar = () => {
       </nav>
       <nav className='fixed right-0 top-0 z-10 block h-screen w-3/4 font-archivo xl:hidden'>
         <button
-          className='absolute right-10 top-10 z-10 h-12 w-12 self-end overflow-hidden rounded-full bg-white'
+          className='absolute right-4 top-4 z-10 h-12 w-12 self-end overflow-hidden rounded-full bg-white'
           onClick={() => {
             setIsOpen((prev) => !prev)
           }}
