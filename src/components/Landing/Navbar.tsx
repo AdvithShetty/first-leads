@@ -87,7 +87,7 @@ const Navbar = () => {
                 }}
                 className='flex h-screen w-full flex-col bg-[#160042] bg-opacity-80 font-archivo backdrop-blur-2xl'
               >
-                <div className='flex flex-col items-end gap-10 p-10 pt-32'>
+                <div className='flex flex-col items-start gap-10 p-10 pt-32'>
                   {navLinks.map((link, i) => (
                     <NavLink key={i} {...link} />
                   ))}

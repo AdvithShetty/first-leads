@@ -7,7 +7,7 @@ const BlogCardsResponsive = () => {
   const [index, setIndex] = useState(0)
 
   return (
-    <div className='flex w-full flex-col gap-10 pt-10'>
+    <div className='flex w-full flex-col gap-10 pt-10 xl:hidden'>
       <AnimatePresence mode='wait'>
         {
           Array.from({ length: 5 }).map((_, i) => (

@@ -32,9 +32,9 @@ const Card: FC<CardProps> = ({ title, price, buttonLink, buttonText, features, i
         boxShadow: '0px 0px 15px 4px rgba(0, 0, 0, 0.07)',
       }}
     >
-      <h1 className='font-sans text-[51px] font-extrabold'>{title}</h1>
+      <h1 className='font-sans text-[35px] font-extrabold xl:text-[51px]'>{title}</h1>
       <p className='pt-2 font-sans text-base font-normal'>Starting From</p>
-      <h2 className='font-sans text-[51px] font-extrabold leading-tight'>${price}/mo</h2>
+      <h2 className='font-sans text-[35px] font-extrabold leading-tight xl:text-[51px]'>${price}/mo</h2>
       <div className={`mb-4 mt-8 h-[1px] w-full ${isWhite ? 'bg-[#00000045]' : 'bg-[#ffffff45]'}`} />
       {/* <p className='font-outfit text-[21px] font-normal'>{description}</p> */}
       <div className='flex flex-col gap-3 py-4'>
