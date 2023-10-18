@@ -39,7 +39,11 @@ const Navbar = () => {
           <GetStarted backgroundColor='bg-purple-2 w-[9rem]' customText='Login' />
         </div>
       </nav>
-      <nav className={`fixed right-0 top-0 z-10 block h-screen font-archivo xl:hidden ${isOpen ? 'w-3/4' : 'w-0'}`}>
+      <nav
+        className={`fixed right-0 top-0 z-10 block h-screen font-archivo xl:hidden ${
+          isOpen ? 'w-3/4 md:w-1/2 lg:w-1/3' : 'w-0'
+        }`}
+      >
         <button
           className='absolute right-4 top-4 z-10 h-12 w-12 self-end overflow-hidden rounded-full bg-white'
           onClick={() => {

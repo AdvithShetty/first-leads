@@ -16,7 +16,7 @@ const LatestNews = () => {
             image='/images/Landing/WhatMakesUsUnique.jpg'
             title='Ligula risus auctor tempus'
             description='Ligula risus auctor tempus magna feugiat lacinia.'
-            rowSpan={i === 2 ? 'h-[17rem] xl:row-span-2' : undefined}
+            rowSpan={i === 2 ? 'lg:row-span-2' : undefined}
             key={i}
           />
         ))}

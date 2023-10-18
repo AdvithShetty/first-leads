@@ -1,46 +1,70 @@
 'use client'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
+import Image from 'next/image'
 import { useState } from 'react'
-import BlogCards from './BlogCards'
 
 const BlogCardsResponsive = () => {
   const [index, setIndex] = useState(0)
+  const [direction, setDirection] = useState(-1) // 1 for right, -1 for left
+  const [isAnimating, setIsAnimating] = useState(false)
+
+  const moveCardsLeft = async () => {
+    if (!isAnimating) {
+      setIsAnimating(true)
+      setDirection(1)
+      await new Promise((resolve) => setTimeout(resolve, 200)) // Adjust the duration to match your animation duration
+      setIndex((prevIndex) => (prevIndex === 0 ? numbers.length - 1 : prevIndex - 1))
+      setIsAnimating(false)
+    }
+  }
+
+  const moveCardsRight = async () => {
+    if (!isAnimating) {
+      setIsAnimating(true)
+      setDirection(-1)
+      await new Promise((resolve) => setTimeout(resolve, 200)) // Adjust the duration to match your animation duration
+      setIndex((prevIndex) => (prevIndex + 1) % numbers.length)
+      setIsAnimating(false)
+    }
+  }
 
   return (
     <div className='flex w-full flex-col gap-10 pt-10 xl:hidden'>
       <AnimatePresence mode='wait'>
         {
-          Array.from({ length: 5 }).map((_, i) => (
-            <BlogCards
-              link='#'
-              image='/images/Landing/WhatMakesUsUnique.jpg'
-              title={'Ligula risus auctor tempus' + i}
-              description='Ligula risus auctor tempus magna feugiat lacinia.'
-              rowSpan={i === 2 ? 'h-[17rem] xl:row-span-2' : undefined}
+          numbers.map((_, i) => (
+            <motion.a
               key={i}
-            />
+              className='relative z-0 col-span-3 h-[17rem] overflow-hidden rounded-lg bg-pink-600'
+              initial={{ x: direction === 1 ? '-100%' : '100%', opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: direction === 1 ? '100%' : '-100%', opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Image
+                src='/images/Landing/WhatMakesUsUnique.jpg'
+                fill
+                alt='Blog Cards'
+                className='z-0 object-cover transition-transform ease-soft-spring group-hover:scale-105'
+              />
+              <div className='absolute z-[1] flex h-full w-full flex-col justify-end gap-1 bg-gradient-to-b from-transparent from-40% to-[#000000c2] p-4 2xl:gap-2'>
+                <h1 className='font-sans text-3xl font-bold text-white 2xl:text-4xl'>
+                  Ligula risus auctor tempus {index}
+                </h1>
+                <p className='font-rubik text-base font-normal text-white 2xl:text-lg'>
+                  Ligula risus auctor tempus magna feugiat lacinia.
+                </p>
+                <p className='font-rubik text-base font-medium text-white 2xl:text-lg'>{`Read More >`}</p>
+              </div>
+            </motion.a>
           ))[index]
         }
       </AnimatePresence>
       <div className='flex w-full items-center justify-center gap-10'>
-        <button
-          onClick={() => {
-            setIndex(index - 1)
-            if (index === 0) {
-              setIndex(4)
-            }
-          }}
-        >
+        <button onClick={moveCardsLeft}>
           <PurpleLeftArrowIcon />
         </button>
-        <button
-          onClick={() => {
-            setIndex(index + 1)
-            if (index === 4) {
-              setIndex(0)
-            }
-          }}
-        >
+        <button onClick={moveCardsRight}>
           <PurpleRightArrowIcon />
         </button>
       </div>
@@ -65,5 +89,7 @@ const PurpleRightArrowIcon = () => (
     />
   </svg>
 )
+
+const numbers = [1, 2, 3, 4, 5]
 
 export default BlogCardsResponsive
