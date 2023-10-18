@@ -17,7 +17,7 @@ const QuestionAndAnswer = () => {
             key={i + 1}
             aria-label={faq.question}
             title={
-              <h1 className='py-2 font-sans text-2xl font-bold tracking-[-0.5px] text-[#212529] xl:text-[30px]'>
+              <h1 className='py-2 font-sans text-[1.3rem] font-bold tracking-[-0.5px] text-[#212529] xl:text-[30px]'>
                 {faq.question}
               </h1>
             }
