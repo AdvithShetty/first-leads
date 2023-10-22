@@ -2,6 +2,7 @@
 import { useIsClient } from '@/hooks/useIsClient'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@nextui-org/react'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { useSessionStorage } from 'usehooks-ts'
 import { z } from 'zod'
@@ -19,8 +20,9 @@ type OnboardingDetails = z.infer<typeof schema>
 
 const OnboardingDetailsForm = () => {
   const isClient = useIsClient()
-
   const [sessionValue, setSessionValue] = useSessionStorage<OnboardingDetails | null>('onboardingDetails', null)
+
+  const router = useRouter()
 
   const {
     register,
@@ -40,6 +42,8 @@ const OnboardingDetailsForm = () => {
   const onSubmit = (data: OnboardingDetails) => {
     console.log(data)
     setSessionValue(data)
+
+    router.push('/onboarding/select-leads')
   }
 
   if (!isClient) return null
