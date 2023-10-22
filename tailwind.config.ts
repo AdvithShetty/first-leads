@@ -15,6 +15,8 @@ const config: Config = {
         archivo: ['var(--font-archivo)'],
         rubik: ['var(--font-rubik)'],
         outfit: ['var(--font-outfit)'],
+        quicksand: ['var(--font-quicksand)'],
+        inter: ['var(--font-inter)'],
       },
       colors: {
         purple: {
