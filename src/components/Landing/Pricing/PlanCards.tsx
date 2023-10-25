@@ -76,7 +76,7 @@ const monthlyPlans = [
   },
 ]
 
-const PurpleCheckIcon = () => (
+export const PurpleCheckIcon = () => (
   <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'>
     <path
       d='M16 9.5C16 12.5376 13.5376 15 10.5 15C7.46243 15 5 12.5376 5 9.5C5 6.46243 7.46243 4 10.5 4C13.5376 4 16 6.46243 16 9.5Z'

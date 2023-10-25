@@ -1,8 +1,11 @@
 'use client'
 import { Button } from '@nextui-org/react'
-import { LeadTypeTitle } from './common'
+import { useState } from 'react'
+import { LeadPlanPopover, LeadTypeTitle } from './common'
 
 const LeadTypeCard = () => {
+  const [plan, setPlan] = useState<'basic' | 'premium'>('basic')
+
   return (
     <div
       className='col-span-2 flex flex-col rounded-[10px] bg-white px-6 py-4'
@@ -10,24 +13,39 @@ const LeadTypeCard = () => {
         boxShadow: '0px 0px 30px 3px rgba(0, 0, 0, 0.07)',
       }}
     >
-      <LeadTypeTitle title='Lead Type' />
-      <div className='flex items-center justify-between'>
+      <LeadTypeTitle
+        title='Lead Type'
+        description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.'
+      />
+      <div className='flex items-center justify-between pt-4'>
         <div className='flex gap-2'>
-          <div className='grid h-5 w-5 place-items-center rounded-full bg-[#7363F33B]'>
-            <div className='h-[14px] w-[14px] rounded-full bg-[#7363F3]' />
-          </div>
+          <button
+            type='button'
+            className='grid h-5 w-5 place-items-center rounded-full bg-[#7363F33B]'
+            onClick={() => setPlan('basic')}
+          >
+            {plan === 'basic' ? <div className='h-[14px] w-[14px] rounded-full bg-[#7363F3]' /> : null}
+          </button>
           <p className='font-quicksand text-sm font-medium text-black'>
             Basic Plan
-            <span className='pl-1 font-bold text-black'>- $29</span>
+            <span className='inline-flex items-center gap-2 pl-1 font-bold text-black'>
+              - $29 <LeadPlanPopover plan='basic' />
+            </span>
           </p>
         </div>
         <div className='flex gap-2'>
-          <div className='grid h-5 w-5 place-items-center rounded-full bg-[#7363F33B]'>
-            <div className='h-[14px] w-[14px] rounded-full' />
-          </div>
+          <button
+            type='button'
+            className='grid h-5 w-5 place-items-center rounded-full bg-[#7363F33B]'
+            onClick={() => setPlan('premium')}
+          >
+            {plan === 'premium' ? <div className='h-[14px] w-[14px] rounded-full bg-[#7363F3]' /> : null}
+          </button>
           <p className='font-quicksand text-sm font-medium text-black'>
             Premium Plan
-            <span className='pl-1 font-bold text-black'>- $49</span>
+            <span className='inline-flex items-center gap-2 pl-1 font-bold text-black'>
+              - $49 <LeadPlanPopover plan='premium' />
+            </span>
           </p>
         </div>
       </div>
@@ -42,10 +60,10 @@ const LeadTypeCard = () => {
         <input
           type='text'
           placeholder='Location'
-          className='font-quicksand h-10 w-full text-sm font-medium text-[#8E8E8E] outline-none'
+          className='h-10 w-full font-quicksand text-sm font-medium text-[#8E8E8E] outline-none'
         />
       </div>
-      <Button className='font-inter mt-6 h-12 rounded-lg bg-[#6941C6] text-[15px] font-semibold text-white'>
+      <Button className='mt-6 h-12 rounded-lg bg-[#6941C6] font-inter text-[15px] font-semibold text-white'>
         Add to Cart
       </Button>
     </div>
