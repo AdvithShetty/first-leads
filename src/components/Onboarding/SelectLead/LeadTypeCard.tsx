@@ -2,11 +2,15 @@
 import { Button } from '@nextui-org/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
+import { useInterval } from 'usehooks-ts'
 import { LeadPlanPopover, LeadTypeTitle } from './common'
 
 const LeadTypeCard = () => {
   const [plan, setPlan] = useState<'basic' | 'premium'>('basic')
   const [searchInput, setSearchInput] = useState('')
+  const [addedToCart, setAddedToCart] = useState(false)
+
+  useInterval(() => setAddedToCart(false), 3000)
 
   return (
     <div
@@ -67,8 +71,22 @@ const LeadTypeCard = () => {
         />
         {searchInput ? <SearchDropdown /> : null}
       </div>
-      <Button className='mt-6 h-12 rounded-lg bg-[#6941C6] font-inter text-[15px] font-semibold text-white'>
-        Add to Cart
+      <Button
+        onClick={() => setAddedToCart(true)}
+        className={`mt-6 h-12 rounded-lg bg-[#6941C6] font-inter text-[15px] font-semibold text-white transition-colors ${
+          addedToCart ? 'bg-[#11D900]' : ''
+        }`}
+      >
+        {addedToCart ? (
+          <svg xmlns='http://www.w3.org/2000/svg' width='21' height='21' viewBox='0 0 21 21' fill='none'>
+            <path
+              d='M21 10.5C21 16.299 16.299 21 10.5 21C4.70099 21 0 16.299 0 10.5C0 4.70099 4.70099 0 10.5 0C16.299 0 21 4.70099 21 10.5ZM9.28547 16.0597L17.0758 8.26934C17.3403 8.00481 17.3403 7.57588 17.0758 7.31134L16.1178 6.35335C15.8533 6.08877 15.4243 6.08877 15.1598 6.35335L8.80645 12.7066L5.84024 9.7404C5.57571 9.47587 5.14678 9.47587 4.8822 9.7404L3.92421 10.6984C3.65967 10.9629 3.65967 11.3919 3.92421 11.6564L8.32743 16.0596C8.59201 16.3242 9.0209 16.3242 9.28547 16.0597Z'
+              fill='white'
+            />
+          </svg>
+        ) : (
+          'Add to Cart'
+        )}
       </Button>
     </div>
   )
