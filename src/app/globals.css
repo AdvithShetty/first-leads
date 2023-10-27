@@ -17,3 +17,11 @@ body {
   border-radius: 16px;
   background: linear-gradient(180deg, rgba(244, 244, 249, 0.8) 50%, rgba(244, 244, 249, 0.05) 100%);
 }
+
+.no-scroll-bar {
+  &::-webkit-scrollbar {
+    display: none; /* Safari */
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
