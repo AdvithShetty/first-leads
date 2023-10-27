@@ -22,7 +22,7 @@ const Cart = () => {
         ))}
       </div>
       <div className='h-1/5 w-full text-white'>
-        <div className='flex w-full items-center justify-between bg-[#160042] px-8 py-4'>
+        <div className='flex h-3/5 w-full items-center justify-between bg-[#160042] px-8 py-4'>
           <div className='flex w-1/2 flex-col'>
             <h1 className='text-[30px] font-bold'>Sub Total</h1>
             <p className='text-sm font-medium'>(Exclusive Tax)</p>
@@ -32,7 +32,7 @@ const Cart = () => {
             <p className='text-sm font-medium'>(Billed Annually)</p>
           </div>
         </div>
-        <Button className='h-14 w-full rounded-none bg-[#6941C6] text-2xl font-bold text-white' type='button'>
+        <Button className='h-2/5 w-full rounded-none bg-[#6941C6] text-2xl font-bold text-white' type='button'>
           Checkout
           <svg xmlns='http://www.w3.org/2000/svg' width='16' height='15' viewBox='0 0 16 15' fill='none'>
             <path
