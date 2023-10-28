@@ -35,7 +35,7 @@ const Cart = () => {
         </div>
         <Button className='h-2/5 w-full rounded-none bg-[#6941C6] p-0 text-2xl font-bold text-white' type='button'>
           <Link
-            href='onboarding/select-leads/checkout'
+            href='/onboarding/checkout'
             className='flex h-full w-full items-center justify-center gap-3'
             onClick={(e) => e.stopPropagation()}
           >

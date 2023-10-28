@@ -16,7 +16,7 @@ const schema = z.object({
   zipCode: z.string().regex(/^\d{5}$/, 'Invalid zip code'),
 })
 
-type OnboardingDetails = z.infer<typeof schema>
+export type OnboardingDetails = z.infer<typeof schema>
 
 const OnboardingDetailsForm = () => {
   const isClient = useIsClient()

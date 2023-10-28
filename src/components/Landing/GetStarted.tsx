@@ -17,8 +17,7 @@ const GetStarted: FC<Props> = ({ backgroundColor, customText }) => {
     <Button
       className={`${backgroundColor} cursor-pointer rounded-lg py-6 transition-all duration-250 ease-in-out hover:scale-105`}
     >
-      {/* //TODO: Added Get Started Link */}
-      <Link href='#' className='text-base font-semibold text-[#FAFAFA]'>
+      <Link href='/onboarding' className='text-base font-semibold text-[#FAFAFA]'>
         {customText || 'Get Started Now'}
       </Link>
     </Button>
