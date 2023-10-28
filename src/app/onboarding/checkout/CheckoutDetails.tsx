@@ -77,7 +77,7 @@ const CheckoutDetails = () => {
             <div className='h-[10px] w-2 rounded-sm bg-[#7363F3]' />
           </div>
           <p className='font-inter text-[11px] font-normal text-[#000000B5]'>
-            I have read and agree to the website{' '}
+            I have read and agree to the website {/* //TODO: Add Correct Link */}
             <a href='#' target='_blank' rel='noopener noreferrer' className='underline'>
               terms and conditions
             </a>{' '}

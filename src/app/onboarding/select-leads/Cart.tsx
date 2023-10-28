@@ -1,4 +1,5 @@
 'use client'
+import SelectedLeadRow from '@/components/Onboarding/SelectedLeadRow'
 import { Button } from '@nextui-org/react'
 import Link from 'next/link'
 
@@ -8,18 +9,14 @@ const Cart = () => {
       <div className='no-scroll-bar h-4/5 w-full overflow-y-auto px-8 pt-10'>
         <h1 className='text-[38px] font-bold text-black'>Your Cart</h1>
         {Array.from({ length: 5 }).map((_, i) => (
-          <div className='flex flex-col gap-4 pt-8 text-black' key={i}>
-            <h2 className='text-2xl font-bold'>Lead Type</h2>
-            <div className='flex items-center justify-between'>
-              <h3 className='text-lg font-medium'>Location (Basic)</h3>
-              <p className='text-[20px] font-bold'>$29</p>
-            </div>
-            <div className='flex items-center justify-between'>
-              <h3 className='text-lg font-medium'>Location (Basic)</h3>
-              <p className='text-[20px] font-bold'>$29</p>
-            </div>
-            <div className='h-[1px] w-full bg-[#0000001F]' />
-          </div>
+          <SelectedLeadRow
+            key={i}
+            leadType='Lead Type'
+            plans={[
+              { title: 'Location (Basic)', price: 29 },
+              { title: 'Location (Premium)', price: 49 },
+            ]}
+          />
         ))}
       </div>
       <div className='h-1/5 w-full text-white'>
