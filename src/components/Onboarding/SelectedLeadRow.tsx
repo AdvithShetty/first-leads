@@ -8,7 +8,7 @@ interface SelectedLeadRowProps {
 
 const SelectedLeadRow = ({ leadType, plans }: SelectedLeadRowProps) => {
   return (
-    <div className='flex flex-col gap-4 pt-8 text-black'>
+    <div className='flex flex-col gap-4 pt-8 font-sans text-black'>
       <div className='flex w-full items-center justify-between'>
         <h2 className='w-4/5 truncate text-2xl font-bold'>{leadType}</h2>
         <button className='group h-4 w-4'>

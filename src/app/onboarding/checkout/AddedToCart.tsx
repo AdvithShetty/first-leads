@@ -1,6 +1,7 @@
 'use client'
 import SelectedLeadRow from '@/components/Onboarding/SelectedLeadRow'
 import { Button } from '@nextui-org/react'
+import Link from 'next/link'
 import { useState } from 'react'
 
 const AddedToCart = () => {
@@ -66,8 +67,10 @@ const AddedToCart = () => {
         <h1 className='text-2xl font-semibold text-black'>Today's Due</h1>
         <p className='text-right text-2xl font-semibold text-purple-2'>$199</p>
       </div>
-      <Button className='h-14 w-full shrink-0 rounded-[5px] bg-[#7363F3] font-sans text-lg font-medium text-white'>
-        Checkout Now
+      <Button className='h-14 w-full shrink-0 rounded-[5px] bg-[#7363F3] p-0 font-sans text-lg font-medium text-white'>
+        <Link href='checkout/thankyou' className='flex h-full w-full items-center justify-center'>
+          Checkout Now
+        </Link>
       </Button>
     </div>
   )
