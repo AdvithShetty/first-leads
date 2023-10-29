@@ -3,7 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Input } from '@nextui-org/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FC, SVGAttributes, useState } from 'react'
+import { FC, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { z } from 'zod'
@@ -146,7 +146,7 @@ const SignUp = () => {
 
 export default SignUp
 
-export const EyeFilledIcon: FC<SVGAttributes<SVGSVGElement>> = (props) => (
+export const EyeFilledIcon: FC<{ className: string }> = (props) => (
   <svg
     aria-hidden='true'
     fill='none'
@@ -168,7 +168,7 @@ export const EyeFilledIcon: FC<SVGAttributes<SVGSVGElement>> = (props) => (
   </svg>
 )
 
-export const EyeSlashFilledIcon: FC<SVGAttributes<SVGSVGElement>> = (props) => (
+export const EyeSlashFilledIcon: FC<{ className: string }> = (props) => (
   <svg
     aria-hidden='true'
     fill='none'
