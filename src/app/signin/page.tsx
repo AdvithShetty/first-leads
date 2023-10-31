@@ -1,51 +1,68 @@
 'use client'
-import { EyeFilledIcon, EyeSlashFilledIcon } from '@/components/Onboarding/Input'
+import { EmailIcon, EyeFilledIcon, EyeSlashFilledIcon } from '@/components/Onboarding/Input'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Button, Input } from '@nextui-org/react'
+import { Button, Input, useDisclosure } from '@nextui-org/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import toast from 'react-hot-toast'
 import { z } from 'zod'
+import ForgorPasswordModal from './ForgorPasswordModal'
 
 const schema = z.object({
+  email: z.string().email(),
   password: z.string().min(8),
-  confirmPassword: z.string().min(8),
 })
 
-export type PasswordSchemaType = z.infer<typeof schema>
+export type SignInSchemaType = z.infer<typeof schema>
 
-const SignUp = () => {
+const SignIn = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
-  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false)
+  const [rememberMe, setRememberMe] = useState(true)
+  const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm<PasswordSchemaType>({
+  } = useForm<SignInSchemaType>({
     resolver: zodResolver(schema),
     defaultValues: {
+      email: '',
       password: '',
-      confirmPassword: '',
     },
   })
 
-  const onSubmit = (data: PasswordSchemaType) => {
-    if (data.password !== data.confirmPassword) {
-      toast.error('Passwords do not match')
-      return
-    }
-
+  const onSubmit = (data: SignInSchemaType) => {
     console.log(data)
   }
 
   return (
     <div className='flex w-full gap-10 bg-white p-8'>
       <div className='w-1/2'>
-        <form onSubmit={handleSubmit(onSubmit)} className='flex h-[89vh] w-full flex-col justify-center gap-8 px-20'>
-          <h1 className='pb-4 font-inter text-4xl font-bold tracking-[-0.72px] text-black'>Set Your Password</h1>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className='flex h-[89vh] w-[85%] flex-col items-center justify-center gap-8 px-20 2xl:w-3/4'
+        >
+          <div className='flex w-full flex-col items-center gap-2'>
+            <h1 className='font-inter text-4xl font-bold tracking-[-0.72px] text-black'>Sign In</h1>
+            <p className='font-inter text-lg font-normal text-[#667085]'>Send, spend and save smarter</p>
+          </div>
+          <Input
+            {...register('email')}
+            // label='Email'
+            placeholder='example@domain.com'
+            variant='bordered'
+            isInvalid={Boolean(errors.email)}
+            errorMessage={errors.email?.message}
+            type='email'
+            startContent={<EmailIcon className='h-5 w-5 shrink-0' />}
+            classNames={{
+              label: 'text-[#667085] font-inter text-base font-normal',
+              input: 'font-inter text-base font-normal',
+              inputWrapper: 'border border-[#D0D5DD] rounded-lg h-14',
+            }}
+          />
           <Input
             {...register('password')}
             label='Password'
@@ -66,45 +83,38 @@ const SignUp = () => {
             isInvalid={Boolean(errors.password)}
             errorMessage={errors.password?.message}
             type={isPasswordVisible ? 'text' : 'password'}
-            className='w-[85%] 2xl:w-3/4'
             classNames={{
               label: 'text-[#667085] font-inter text-base font-normal',
               input: 'font-inter text-base font-normal',
               inputWrapper: 'border border-[#D0D5DD] rounded-lg',
             }}
           />
-          <Input
-            {...register('confirmPassword')}
-            label='Confirm Password'
-            variant='bordered'
-            endContent={
-              <button
-                className='focus:outline-none'
-                type='button'
-                onClick={() => setIsConfirmPasswordVisible(!isConfirmPasswordVisible)}
+          <div className='flex w-full items-center justify-between'>
+            <div className='flex items-center gap-2'>
+              <svg
+                className='cursor-pointer'
+                onClick={() => setRememberMe(!rememberMe)}
+                xmlns='http://www.w3.org/2000/svg'
+                width='20'
+                height='20'
+                viewBox='0 0 20 20'
+                fill='none'
               >
-                {isConfirmPasswordVisible ? (
-                  <EyeSlashFilledIcon className='pointer-events-none text-2xl text-default-400' />
-                ) : (
-                  <EyeFilledIcon className='pointer-events-none text-2xl text-default-400' />
-                )}
-              </button>
-            }
-            isInvalid={Boolean(errors.confirmPassword)}
-            errorMessage={errors.confirmPassword?.message}
-            type={isConfirmPasswordVisible ? 'text' : 'password'}
-            className='w-[85%] 2xl:w-3/4'
-            classNames={{
-              label: 'text-[#667085] font-inter text-base font-normal',
-              input: 'font-inter text-base font-normal',
-              inputWrapper: 'border border-[#D0D5DD] rounded-lg',
-            }}
-          />
+                <rect x='0.5' y='0.5' width='19' height='19' rx='9.5' fill='#F9F5FF' />
+                {rememberMe ? <circle cx='10' cy='10' r='4' fill='#7F56D9' /> : null}
+                <rect x='0.5' y='0.5' width='19' height='19' rx='9.5' stroke='#7F56D9' />
+              </svg>
+              <h2 className='font-inter text-base font-medium text-black'>Remember me</h2>
+            </div>
+            <button className='font-inter text-lg font-normal text-[#6941C6]' onClick={onOpen}>
+              Forgot Password?
+            </button>
+          </div>
           <Button
             type='submit'
-            className='h-14 w-[85%] rounded-lg bg-[#6941C6] font-inter text-lg font-semibold text-white 2xl:w-3/4'
+            className='h-14 w-full rounded-lg bg-[#6941C6] font-inter text-lg font-semibold text-white 2xl:w-3/4'
           >
-            Sign Up
+            Sign In
           </Button>
         </form>
         <div className='flex items-center justify-between font-inter text-sm font-normal text-[#667085]'>
@@ -142,8 +152,9 @@ const SignUp = () => {
           </div>
         </div>
       </div>
+      <ForgorPasswordModal isOpen={isOpen} onOpenChange={onOpenChange} />
     </div>
   )
 }
 
-export default SignUp
+export default SignIn

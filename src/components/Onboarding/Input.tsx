@@ -86,3 +86,15 @@ export const EyeSlashFilledIcon: FC<{ className: string }> = ({ className }) => 
     </svg>
   )
 }
+
+export const EmailIcon: FC<{ className: string }> = ({ className }) => (
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 21' fill='none' className={className}>
+    <path
+      d='M18.3327 5.49967C18.3327 4.58301 17.5827 3.83301 16.666 3.83301H3.33268C2.41602 3.83301 1.66602 4.58301 1.66602 5.49967M18.3327 5.49967V15.4997C18.3327 16.4163 17.5827 17.1663 16.666 17.1663H3.33268C2.41602 17.1663 1.66602 16.4163 1.66602 15.4997V5.49967M18.3327 5.49967L9.99935 11.333L1.66602 5.49967'
+      stroke='#667085'
+      stroke-width='1.66667'
+      stroke-linecap='round'
+      stroke-linejoin='round'
+    />
+  </svg>
+)

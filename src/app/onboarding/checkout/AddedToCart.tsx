@@ -1,11 +1,12 @@
 'use client'
 import SelectedLeadRow from '@/components/Onboarding/SelectedLeadRow'
-import { Button } from '@nextui-org/react'
+import { Button, Input } from '@nextui-org/react'
 import Link from 'next/link'
 import { useState } from 'react'
 
 const AddedToCart = () => {
   const [billedPeriod, setBilledPeriod] = useState<'monthly' | 'yearly'>('monthly')
+  const [isCouponVisible, setIsCouponVisible] = useState(false)
 
   return (
     <div className='sticky top-0 flex w-full flex-col items-center p-8'>
@@ -52,11 +53,27 @@ const AddedToCart = () => {
         </div>
         <div className='flex items-center justify-between'>
           <h1 className='text-lg font-medium text-black'>Coupon Discount</h1>
-          {/* //TODO: Add Apply a Coupon Link */}
-          <a href='#' className='text-right text-[15px] font-medium text-[#494949] underline'>
+          <button
+            onClick={() => setIsCouponVisible(!isCouponVisible)}
+            type='button'
+            className='text-right text-[15px] font-medium text-[#494949] underline'
+          >
             Apply a Coupon?
-          </a>
+          </button>
         </div>
+        {isCouponVisible ? (
+          <Input
+            label='Coupon Code'
+            variant='bordered'
+            type='text'
+            className='w-full'
+            classNames={{
+              label: 'text-[#667085] font-inter text-base font-normal',
+              input: 'font-inter text-base font-normal',
+              inputWrapper: 'border border-[#D0D5DD] rounded-lg',
+            }}
+          />
+        ) : null}
         <div className='flex items-center justify-between'>
           <h1 className='text-lg font-medium text-black'>Tax</h1>
           <p className='text-right text-lg font-medium text-purple-2'>$20</p>
