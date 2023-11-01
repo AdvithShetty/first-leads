@@ -7,7 +7,7 @@ const layout = ({ children }: { children: ReactNode }) => {
     <div className='grid h-screen grid-cols-6 bg-[#160042]'>
       <Sidebar />
       <div className='col-span-5 w-full'>
-        <div className='flex h-[10%] w-full items-center justify-between px-16'>
+        <div className='flex h-[10vh] w-full items-center justify-between px-16'>
           <h1 className='flex gap-2 font-quicksand text-[21px] font-bold text-white'>
             <svg xmlns='http://www.w3.org/2000/svg' width='24' height='17' viewBox='0 0 24 17' fill='none'>
               <path
@@ -19,9 +19,7 @@ const layout = ({ children }: { children: ReactNode }) => {
           </h1>
           <Image src='/images/LogoWhite.png' width={250} height={100} alt='Logo' />
         </div>
-        <div className='h-[90%] w-full overflow-y-auto rounded-tl-[15px] border-4 border-red-500 bg-white'>
-          {children}
-        </div>
+        <div className='h-[90vh] w-full overflow-y-auto rounded-tl-[15px] bg-white'>{children}</div>
       </div>
     </div>
   )

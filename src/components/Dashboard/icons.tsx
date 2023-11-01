@@ -66,7 +66,7 @@ export const SettingsIcon = (props: SVGProps<SVGSVGElement>) => (
 )
 
 export const HelpAndSupportIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'>
+  <svg {...props} xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'>
     <path
       d='M20.7821 5.98409C17.6202 6.15201 14.5208 5.0587 12.1641 2.94409C9.80733 5.0587 6.70796 6.15201 3.54607 5.98409C3.2916 6.96921 3.16324 7.98264 3.16407 9.00009C3.16407 14.5911 6.98807 19.2901 12.1641 20.6221C17.3401 19.2901 21.1641 14.5921 21.1641 9.00009C21.1641 7.95809 21.0311 6.94809 20.7821 5.98409ZM12.1641 9.00009V11.0001V9.00009ZM12.1641 15.0001H12.1741H12.1641Z'
       fill='white'
@@ -82,13 +82,31 @@ export const HelpAndSupportIcon = (props: SVGProps<SVGSVGElement>) => (
 )
 
 export const LogoutIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'>
+  <svg {...props} xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'>
     <path
       d='M16.1641 20L17.1641 20C17.9597 20 18.7228 19.6839 19.2854 19.1213C19.848 18.5587 20.1641 17.7956 20.1641 17L20.1641 7C20.1641 6.20435 19.848 5.44129 19.2854 4.87868C18.7228 4.31607 17.9597 4 17.1641 4L16.1641 4M8.16406 8L4.16406 12M4.16406 12L8.16406 16M4.16406 12L16.1641 12'
       stroke='#F10A0A'
       strokeWidth='2'
       strokeLinecap='round'
       strokeLinejoin='round'
+    />
+  </svg>
+)
+
+export const StockGrowthIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg {...props} xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'>
+    <path
+      d='M4.83364 3.57491L7.16697 5.90825L10.4961 2.57916L11.8336 3.91675V0.416748H8.33364L9.67122 1.75433L7.16697 4.25858L4.83364 1.92525L0.337891 6.421L1.16272 7.24583L4.83364 3.57491Z'
+      fill='#0B8A00'
+    />
+  </svg>
+)
+
+export const DownloadReportIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg {...props} xmlns='http://www.w3.org/2000/svg' width='10' height='12' viewBox='0 0 10 12' fill='none'>
+    <path
+      d='M5.83333 3.1875V0H0.625C0.278646 0 0 0.250781 0 0.5625V11.4375C0 11.7492 0.278646 12 0.625 12H9.375C9.72135 12 10 11.7492 10 11.4375V3.75H6.45833C6.11458 3.75 5.83333 3.49688 5.83333 3.1875ZM7.82422 8.14125L5.31328 10.3842C5.1401 10.5391 4.86042 10.5391 4.68724 10.3842L2.1763 8.14125C1.91198 7.90523 2.0974 7.5 2.46927 7.5H4.16667V5.625C4.16667 5.41781 4.35313 5.25 4.58333 5.25H5.41667C5.64687 5.25 5.83333 5.41781 5.83333 5.625V7.5H7.53073C7.9026 7.5 8.08802 7.90523 7.82422 8.14125ZM9.81771 2.46094L7.26823 0.164062C7.15104 0.0585938 6.99219 0 6.82552 0H6.66667V3H10V2.85703C10 2.70938 9.9349 2.56641 9.81771 2.46094Z'
+      fill='white'
     />
   </svg>
 )
