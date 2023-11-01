@@ -1,5 +1,5 @@
 const Page = () => {
-  return <div className='col-span-5 bg-pink-400 text-white'>Enter</div>
+  return <div className='w-full bg-pink-600'>Enter</div>
 }
 
 export default Page
