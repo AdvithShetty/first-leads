@@ -40,7 +40,7 @@ const Page = () => {
         </div>
       </div>
       <RecentlyAdded />
-      <NeedMoreLeads />
+      <NeedMoreLeads buttonStyles='px-8' />
       <div className='flex items-center justify-end'>
         <p className='font-rubik text-sm font-normal text-black'>© 2023 All Right Reserved by First Leads</p>
       </div>

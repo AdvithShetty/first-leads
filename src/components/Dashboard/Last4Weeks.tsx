@@ -1,16 +1,14 @@
 'use client'
 import Table from './Table'
 
-const RecentlyAdded = () => {
-  return (
-    <>
-      <h2 className='pb-6 pt-8 font-sans text-2xl font-semibold text-black'>Recently Added</h2>
-      <Table columns={columns} rows={rows} />
-    </>
-  )
+const Last4Weeks = () => {
+  return Table({
+    columns,
+    rows,
+  })
 }
 
-export default RecentlyAdded
+export default Last4Weeks
 
 const columns = [
   {
@@ -18,7 +16,7 @@ const columns = [
     className: 'col-span-3',
   },
   {
-    title: 'Lead Type',
+    title: 'Location',
     className: 'col-span-4',
   },
   {
@@ -26,7 +24,7 @@ const columns = [
     className: 'col-span-2',
   },
   {
-    title: 'Status',
+    title: 'Download',
     className: 'col-span-2',
   },
 ]
@@ -46,6 +44,12 @@ const rows = [
   },
   {
     fileName: 'October Week 3',
+    leadType: 'Lead Type',
+    date: '29 Sept 2023',
+    status: 'Status',
+  },
+  {
+    fileName: 'October Week 4',
     leadType: 'Lead Type',
     date: '29 Sept 2023',
     status: 'Status',
