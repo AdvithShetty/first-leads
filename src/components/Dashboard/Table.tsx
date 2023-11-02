@@ -18,17 +18,17 @@ interface TableProps {
 const Table = ({ columns, rows }: TableProps) => {
   return (
     <div
-      className='grid w-full grid-cols-11 gap-4 rounded-md bg-white px-6 py-4'
+      className='grid w-full grid-cols-11 gap-6 rounded-md bg-white px-6 py-4'
       style={{
         boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.10)',
       }}
     >
       {columns.map((column, i) => (
-        <h1 className={`pt-2 font-rubik text-lg font-medium text-black ${column.className}`} key={i}>
+        <h1 className={`pt-3 font-rubik text-lg font-medium text-black ${column.className}`} key={i}>
           {column.title}
         </h1>
       ))}
-      <div className='col-span-full mb-4 h-[1px] rounded-full bg-[#F5F5F5]' />
+      <div className='col-span-full h-[1px] rounded-full bg-[#F5F5F5]' />
       {rows.map((row, i) => (
         <Fragment key={i}>
           <h1 className='col-span-3 py-2 font-rubik text-[15px] font-normal text-[#686868]'>{row.fileName}</h1>

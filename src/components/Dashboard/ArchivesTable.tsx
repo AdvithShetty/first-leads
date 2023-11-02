@@ -1,10 +1,14 @@
 import Table from './Table'
 
-const Last4Weeks = () => {
-  return <Table columns={columns} rows={rows} />
+const ArchivesTable = () => {
+  return (
+    <div className='pt-10'>
+      <Table columns={columns} rows={rows} />
+    </div>
+  )
 }
 
-export default Last4Weeks
+export default ArchivesTable
 
 const columns = [
   {
@@ -12,7 +16,7 @@ const columns = [
     className: 'col-span-3',
   },
   {
-    title: 'Location',
+    title: 'Lead Type',
     className: 'col-span-4',
   },
   {
@@ -20,12 +24,36 @@ const columns = [
     className: 'col-span-2',
   },
   {
-    title: 'Download',
+    title: 'Status',
     className: 'col-span-2',
   },
 ]
 
 const rows = [
+  {
+    fileName: 'October Week 1',
+    leadType: 'Lead Type',
+    date: '29 Sept 2023',
+    status: 'Status',
+  },
+  {
+    fileName: 'October Week 2',
+    leadType: 'Lead Type',
+    date: '29 Sept 2023',
+    status: 'Status',
+  },
+  {
+    fileName: 'October Week 3',
+    leadType: 'Lead Type',
+    date: '29 Sept 2023',
+    status: 'Status',
+  },
+  {
+    fileName: 'October Week 4',
+    leadType: 'Lead Type',
+    date: '29 Sept 2023',
+    status: 'Status',
+  },
   {
     fileName: 'October Week 1',
     leadType: 'Lead Type',
