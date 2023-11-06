@@ -1,5 +1,5 @@
 'use client'
-import { EyeFilledIcon, EyeSlashFilledIcon } from '@/components/Onboarding/Input'
+import { EyeFilledIcon, EyeSlashFilledIcon } from '@/components/Input'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Input } from '@nextui-org/react'
 import Image from 'next/image'

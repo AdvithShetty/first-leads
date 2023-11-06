@@ -1,4 +1,4 @@
-import { EmailIcon } from '@/components/Onboarding/Input'
+import { EmailIcon } from '@/components/Input'
 import { Button, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@nextui-org/react'
 
 const ForgorPasswordModal = ({ isOpen, onOpenChange }: { isOpen: boolean; onOpenChange: (open: boolean) => void }) => {

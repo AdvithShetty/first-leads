@@ -1,5 +1,5 @@
 'use client'
-import Input from '@/components/Onboarding/Input'
+import Input from '@/components/Input'
 import { Button } from '@nextui-org/react'
 import Image from 'next/image'
 import { useFormContext } from 'react-hook-form'

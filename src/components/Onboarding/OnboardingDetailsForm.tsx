@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { useSessionStorage } from 'usehooks-ts'
 import { z } from 'zod'
-import Input from './Input'
+import Input from '../Input'
 
 const schema = z.object({
   firstName: z.string().min(1, 'First name is required'),

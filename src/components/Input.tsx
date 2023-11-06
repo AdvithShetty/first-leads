@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes } from 'react'
+import { FC, InputHTMLAttributes, TextareaHTMLAttributes } from 'react'
 import { FieldError } from 'react-hook-form'
 
 interface InputProps {
@@ -26,6 +26,30 @@ const Input = ({ label, inputProps, className, error }: InputProps) => {
 }
 
 export default Input
+
+interface TextAreaProps {
+  label: string
+  error?: FieldError
+  className?: string
+  textAreaProps?: TextareaHTMLAttributes<HTMLTextAreaElement>
+}
+
+export const TextArea: FC<TextAreaProps> = ({ label, textAreaProps, className, error }: TextAreaProps) => {
+  return (
+    <div className={`relative ${className}`}>
+      <label className='absolute -mt-[10px] ml-4 bg-white px-1.5 font-inter text-[13px] font-normal text-[#000000B5]'>
+        {label}
+      </label>
+      <p className='absolute right-0 -mt-[10px] mr-4 bg-white px-1.5 font-inter text-[13px] font-normal text-red-500'>
+        {error?.message}
+      </p>
+      <textarea
+        {...textAreaProps}
+        className={`min-h-[100px] w-full shrink-0 rounded-[10px] border border-[#E7E7E7] p-2 font-outfit text-lg outline-none transition-all placeholder:text-[#a1a1a1] focus:border-2 focus:border-[#a1a1a1] ${textAreaProps?.className}`}
+      />
+    </div>
+  )
+}
 
 export const EyeFilledIcon: FC<{ className: string }> = ({ className }) => {
   return (

@@ -1,4 +1,4 @@
-import Input from '@/components/Onboarding/Input'
+import Input from '@/components/Input'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@nextui-org/react'
 import { useForm } from 'react-hook-form'
