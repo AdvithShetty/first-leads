@@ -2,6 +2,7 @@ import Input from '@/components/Onboarding/Input'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@nextui-org/react'
 import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 import { z } from 'zod'
 
 export const schema = z.object({
@@ -26,6 +27,12 @@ const ChangePassword = () => {
   })
 
   const onSubmit = (data: ChangePasswordSchemaType) => {
+    if (data.oldPassword === data.newPassword) {
+      toast.error('New password cannot be the same as old password', {
+        position: 'bottom-right',
+      })
+      return
+    }
     console.log(data)
   }
 
@@ -35,13 +42,13 @@ const ChangePassword = () => {
       <div className='grid w-full grid-cols-4 gap-x-10 gap-y-8 pb-16'>
         <Input
           label='Old Password'
-          inputProps={{ ...register('oldPassword') }}
+          inputProps={{ ...register('oldPassword'), type: 'password' }}
           error={errors.oldPassword}
           className='col-span-4'
         />
         <Input
           label='New Password'
-          inputProps={{ ...register('newPassword') }}
+          inputProps={{ ...register('newPassword'), type: 'password' }}
           error={errors.newPassword}
           className='col-span-4'
         />
