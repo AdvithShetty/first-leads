@@ -1,8 +1,14 @@
+'use client'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { ReactNode } from 'react'
 import AdminSidebar from './AdminSidebar'
 
 const layout = ({ children }: { children: ReactNode }) => {
+  const pathname = usePathname()
+
+  if (pathname == '/admin/login') return <>{children}</>
+
   return (
     <div className='grid h-screen grid-cols-6 bg-[#160042]'>
       <AdminSidebar />
