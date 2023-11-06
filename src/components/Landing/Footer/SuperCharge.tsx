@@ -23,7 +23,7 @@ const SuperCharge = () => {
           Ready to supercharge your Business?
         </h1>
         <h2 className='pt-1 text-5xl font-semibold tracking-[-1px] text-white'>Sign up for free!</h2>
-        <GetStarted backgroundColor='bg-[#0F151C] h-14 px-8 mt-8' customText='Get Started' />
+        <GetStarted backgroundColor='bg-[#D88600] h-14 px-8 mt-8' customText='Get Started' />
       </div>
     </div>
   )

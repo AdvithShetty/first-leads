@@ -53,7 +53,7 @@ const faqs = [
   {
     question: 'How often is the data updated?',
     answer:
-      'We update our lead data on a weekly basis to ensure that you have access to the most current information available. This frequency allows you to stay ahead in your lead generation efforts.',
+      'We update our lead data on a daily basis to ensure that you have access to the most current information available. This frequency allows you to stay ahead in your lead generation efforts.',
   },
   {
     question: 'Can I cancel my subscription at any time?',

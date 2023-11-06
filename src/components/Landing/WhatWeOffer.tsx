@@ -46,14 +46,14 @@ const cardsContent: CardProps[] = [
     className: 'object-cover object-top',
   },
   {
-    title: 'Fresh leads delivered weekly',
+    title: 'Fresh leads delivered on schedule',
     description: 'Straight to your dashboard, downloadable, accessible all in one place.',
     image: '/images/Landing/DeliveredWeekly.png',
     className: 'object-cover',
   },
   {
     title: 'Leads Contact Information',
-    description: 'Get direct contact information of prospective clients. Name, Address, Phone Number, Email.',
+    description: 'Get direct contact information of prospective clients. Name, Address, Phone and more.',
     image: '/images/Landing/LeadContactInformation.png',
     className: 'object-cover',
   },

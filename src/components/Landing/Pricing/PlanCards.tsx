@@ -69,7 +69,7 @@ const monthlyPlans = [
   {
     title: 'Premium Plan',
     price: 49,
-    features: ['Basic Plan +', 'Contact Phone Numbers', 'Emails', 'Contact Name', 'Do Not Call (DNC) Verification'],
+    features: ['Basic Plan +', 'Phone Numbers', 'Contact Emails', 'Home Equity', 'Do Not Call (DNC) Verification'],
     buttonText: '7 Day Free Trial',
     buttonLink: '#',
     isWhite: true,
