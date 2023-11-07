@@ -56,7 +56,7 @@ const sidebarTabs = [
     label: 'Lead Type',
   },
   {
-    route: '/admin/archives',
+    route: '/admin/upload-leads',
     icon: <UploadLeadsIcon />,
     label: 'Upload Leads',
   },
