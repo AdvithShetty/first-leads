@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Archivo, Inter, Outfit, Plus_Jakarta_Sans, Quicksand, Rubik } from 'next/font/google'
+import NextTopLoader from 'nextjs-toploader'
 import './globals.css'
 import { Providers } from './providers'
 
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={`${archivo.variable} ${plusJakartaSans.variable} ${rubik.variable} ${outfit.variable} ${quicksand.variable} ${inter.variable}
       `}
       >
+        <NextTopLoader color='#7363F3' showSpinner={false} initialPosition={0.4} />
         <Providers>{children}</Providers>
       </body>
     </html>
