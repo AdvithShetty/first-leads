@@ -1,9 +1,10 @@
 'use client'
+import Image from 'next/image'
 import GetStarted from './GetStarted'
 
 const Hero = () => {
   return (
-    <div className='flex flex-col items-center justify-between pb-40 pt-20 font-archivo xl:flex-row xl:pt-16'>
+    <div className='flex flex-col items-center justify-between overflow-x-hidden pb-40 pt-20 font-archivo xl:mb-40 xl:flex-row xl:pt-16'>
       <div className='flex w-full flex-col gap-4 px-4 xl:w-1/2 xl:pl-40 xl:pr-0'>
         <h1 className='w-full text-center text-4xl font-semibold text-white xl:text-left xl:text-6xl xl:tracking-[-2px]'>
           Unlock Your Business Superpower!
@@ -17,7 +18,13 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className='mt-20 h-[30rem] w-[90%] rounded-2xl bg-slate-500 xl:mt-0 xl:w-[40rem]'></div>
+      <Image
+        src='/images/Landing/Hero.png'
+        alt='hero'
+        width={600}
+        height={600}
+        className='mt-24 translate-x-6 scale-110 object-contain xl:mt-0 xl:scale-150'
+      />
     </div>
   )
 }
