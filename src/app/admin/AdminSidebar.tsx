@@ -51,7 +51,7 @@ const sidebarTabs = [
     label: 'Dashboard',
   },
   {
-    route: '/admin/reports',
+    route: '/admin/lead-type',
     icon: <LeadTypeIcon />,
     label: 'Lead Type',
   },

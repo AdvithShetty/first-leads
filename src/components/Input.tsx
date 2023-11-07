@@ -6,9 +6,30 @@ interface InputProps {
   error?: FieldError
   className?: string
   inputProps?: InputHTMLAttributes<HTMLInputElement>
+  starterContent?: string | JSX.Element
 }
 
-const Input = ({ label, inputProps, className, error }: InputProps) => {
+const Input = ({ label, inputProps, className, error, starterContent }: InputProps) => {
+  if (starterContent) {
+    return (
+      <div className={`relative ${className}`}>
+        <label className='absolute -mt-[10px] ml-4 bg-white px-1.5 font-inter text-[13px] font-normal text-[#000000B5]'>
+          {label}
+        </label>
+        <p className='absolute right-0 -mt-[10px] mr-4 bg-white px-1.5 font-inter text-[13px] font-normal text-red-500'>
+          {error?.message}
+        </p>
+        <div className='flex items-center justify-between rounded-[10px] border border-[#E7E7E7] px-3'>
+          {starterContent}
+          <input
+            {...inputProps}
+            className={`h-[52px] w-full shrink-0 rounded-[10px] border-none p-2 font-outfit text-lg outline-none transition-all placeholder:text-[#a1a1a1] focus:border-2 focus:border-[#a1a1a1] ${inputProps?.className}`}
+          />
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className={`relative ${className}`}>
       <label className='absolute -mt-[10px] ml-4 bg-white px-1.5 font-inter text-[13px] font-normal text-[#000000B5]'>

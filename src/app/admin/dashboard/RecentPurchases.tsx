@@ -43,28 +43,6 @@ const RecentPurchases = () => {
             ))}
           </Fragment>
         ))}
-        {/* <Fragment>
-          <div className='col-span-3'>
-            <h1 className='font-rubik text-sm font-normal text-black'>Indica Watson</h1>
-            <h2 className='font-rubik text-[11px] font-medium text-[#848484]'>indicawatson@example.com</h2>
-          </div>
-          {Array.from({ length: 2 }).map((_, i) => (
-            <Fragment key={i}>
-              <div className='col-start-4 col-end-7 flex flex-col gap-2'>
-                <h1 className='pb-2 font-rubik text-base font-medium text-black'>Lead Type</h1>
-                <h2 className='font-sans text-xs font-medium text-black'>Location (Basic Plan)</h2>
-                <h2 className='font-sans text-xs font-medium text-black'>Location (Basic Plan)</h2>
-              </div>
-              <div className='col-span-3'>
-                <h1 className='font-sans text-xs font-medium text-black'>05 Oct 2023</h1>
-              </div>
-              <div className='col-span-2'>
-                <h1 className='font-sans text-xl font-bold text-purple-2'>$199</h1>
-                <h2 className='font-sans text-[15px] font-medium text-black'>(Billed Annually)</h2>
-              </div>
-            </Fragment>
-          ))}
-        </Fragment> */}
       </div>
     </div>
   )
