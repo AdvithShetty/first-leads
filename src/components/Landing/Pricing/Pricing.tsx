@@ -1,9 +1,25 @@
+'use client'
+import { fadeVariants } from '@/utils/variants'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useInView } from 'react-intersection-observer'
 import PricingTabs from './PricingTabs'
 
 const Pricing = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.25,
+    triggerOnce: true,
+    fallbackInView: true,
+  })
   return (
-    <div className='w-full py-20' id='pricing'>
+    <motion.div
+      variants={fadeVariants}
+      initial='hidden'
+      animate={inView && 'visible'}
+      ref={ref}
+      className='w-full py-20'
+      id='pricing'
+    >
       <div className='px-10 xl:pl-28 2xl:pl-40'>
         <h1 className='font-sans text-xl font-bold uppercase tracking-[-0.6px] text-[#2A00FF]'>PRICING</h1>
         <h2 className='py-6 font-sans text-4xl font-bold text-black xl:text-6xl'>We Provide Leads that work</h2>
@@ -49,7 +65,7 @@ const Pricing = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

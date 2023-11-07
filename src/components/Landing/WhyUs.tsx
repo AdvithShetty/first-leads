@@ -1,8 +1,23 @@
+'use client'
+import { fadeVariants } from '@/utils/variants'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useInView } from 'react-intersection-observer'
 
 const WhyUs = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.25,
+    triggerOnce: true,
+    fallbackInView: true,
+  })
   return (
-    <div className='w-full px-10 py-10 xl:px-20 2xl:px-40'>
+    <motion.div
+      variants={fadeVariants}
+      initial='hidden'
+      animate={inView && 'visible'}
+      ref={ref}
+      className='w-full px-10 py-10 xl:px-20 2xl:px-40'
+    >
       <h1 className='font-sans text-xl font-bold uppercase tracking-[-0.6px] text-[#2A00FF]'>WHY US</h1>
       <div className='flex flex-col items-center justify-between xl:flex-row'>
         <div className='flex w-full flex-col gap-14 xl:w-1/2'>
@@ -20,7 +35,7 @@ const WhyUs = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

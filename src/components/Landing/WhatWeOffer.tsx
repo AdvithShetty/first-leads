@@ -1,16 +1,33 @@
+'use client'
+import { fadeVariants } from '@/utils/variants'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { FC } from 'react'
+import { useInView } from 'react-intersection-observer'
 
 const WhatWeOffer = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.25,
+    triggerOnce: true,
+    fallbackInView: true,
+  })
+
   return (
-    <div className='flex flex-col items-center gap-20 pb-20 font-rubik xl:py-20' id='features'>
+    <motion.div
+      variants={fadeVariants}
+      initial='hidden'
+      animate={inView && 'visible'}
+      ref={ref}
+      className='flex flex-col items-center gap-20 pb-20 font-rubik xl:py-20'
+      id='features'
+    >
       <h1 className='text-4xl font-medium tracking-[-1px] text-[#2F353E] xl:text-[54px]'>What We Offer</h1>
       <div className='grid grid-cols-3 place-items-center gap-4 xl:gap-10'>
         {cardsContent.map((item, i) => (
           <Card key={i} {...item} />
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
 

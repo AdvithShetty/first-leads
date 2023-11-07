@@ -1,8 +1,24 @@
+'use client'
+import { fadeVariants } from '@/utils/variants'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useInView } from 'react-intersection-observer'
 
 const WhatMakesUsUnique = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.25,
+    triggerOnce: true,
+    fallbackInView: true,
+  })
+
   return (
-    <div className='flex flex-col items-center justify-center gap-10 pb-20 font-archivo xl:flex-row xl:gap-20'>
+    <motion.div
+      variants={fadeVariants}
+      initial='hidden'
+      animate={inView && 'visible'}
+      ref={ref}
+      className='flex flex-col items-center justify-center gap-10 pb-20 font-archivo xl:flex-row xl:gap-20'
+    >
       <div className='relative h-[15rem] w-4/5 xl:h-[22.5rem] xl:w-[30rem]'>
         <Image src='/images/Landing/WhatMakesUsUnique.jpg' fill className='object-cover' alt='What Makes Us Unique' />
       </div>
@@ -36,7 +52,7 @@ const WhatMakesUsUnique = () => {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
