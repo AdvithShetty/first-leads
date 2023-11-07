@@ -1,5 +1,6 @@
 'use client'
 
+import Pagination from '@/components/Dashboard/Pagination'
 import { Button } from '@nextui-org/react'
 import LeadTypesTable from './LeadTypesTable'
 
@@ -16,6 +17,9 @@ const Page = () => {
         </Button>
       </div>
       <LeadTypesTable />
+      <div className='pt-10'>
+        <Pagination />
+      </div>
     </div>
   )
 }
