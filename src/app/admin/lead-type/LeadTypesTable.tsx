@@ -1,13 +1,10 @@
 'use client'
 
 import { SearchIcon } from '@/components/Dashboard/icons'
-import { Input, useDisclosure } from '@nextui-org/react'
+import { Input } from '@nextui-org/react'
 import { Fragment } from 'react'
-import AddNewLeadsModal from './AddNewLeadsModal'
 
 const LeadTypesTable = () => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure()
-
   return (
     <div
       className='mt-10 grid w-full grid-cols-10 gap-6 rounded-md bg-white px-6 py-6'
@@ -43,14 +40,11 @@ const LeadTypesTable = () => {
           <h1 className='col-span-2 py-2 font-rubik text-[15px] font-normal text-[#686868]'>{row.premium}</h1>
           <h1 className='col-span-3 py-2 font-rubik text-[15px] font-normal text-[#686868]'>{row.description}</h1>
           <div className='col-span-2 flex items-center justify-end gap-10 pr-4'>
-            <button className='font-rubik text-[15px] font-normal text-purple-2' onClick={onOpen}>
-              Edit
-            </button>
+            <button className='font-rubik text-[15px] font-normal text-purple-2'>Edit</button>
             <button className='font-rubik text-[15px] font-normal text-[#F10A0A]'>Delete</button>
           </div>
         </Fragment>
       ))}
-      <AddNewLeadsModal isOpen={isOpen} onClose={onOpenChange} />
     </div>
   )
 }
