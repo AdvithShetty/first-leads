@@ -61,7 +61,7 @@ const sidebarTabs = [
     label: 'Upload Leads',
   },
   {
-    route: '/admin/my-subscriptions',
+    route: '/admin/transaction',
     icon: <TransactionIcon />,
     label: 'Transaction',
   },

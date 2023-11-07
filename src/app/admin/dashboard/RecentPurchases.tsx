@@ -41,6 +41,7 @@ const RecentPurchases = () => {
                 </div>
               </Fragment>
             ))}
+            {i !== rows.length - 1 && <div className='col-span-full h-[1px] rounded-full bg-[#F5F5F5]' />}
           </Fragment>
         ))}
       </div>
