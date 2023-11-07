@@ -25,13 +25,16 @@ const Hero = () => {
         </div>
       </div>
 
-      <Image
-        src='/images/Landing/Hero.png'
-        alt='hero'
-        width={600}
-        height={600}
-        className='mt-24 translate-x-6 scale-110 object-contain xl:mt-0 xl:scale-150'
-      />
+      <div className='flex items-center justify-center xl:w-1/2'>
+        <Image
+          src='/images/Landing/Hero.png'
+          alt='hero'
+          width={900}
+          height={800}
+          className='mt-[8rem] translate-x-10 scale-110 object-contain xl:mt-0 xl:translate-x-[6rem] xl:scale-125 2xl:translate-x-[9rem]'
+          quality={100}
+        />
+      </div>
     </motion.div>
   )
 }

@@ -21,6 +21,7 @@ const HowItWorks = () => {
             width={700}
             height={600}
             className='mt-24 hidden object-contain xl:mt-0 xl:block'
+            quality={100}
           />
         </div>
       </div>
