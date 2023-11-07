@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Steps from './Steps'
 
 const HowItWorks = () => {
@@ -14,7 +15,13 @@ const HowItWorks = () => {
             <Steps />
           </div>
           {/* ---------------------------------- Image ---------------------------------  */}
-          <div className='mt-16 hidden h-[30rem] w-2/5 bg-slate-500 xl:block'></div>
+          <Image
+            src='/images/Landing/HowItWorks.png'
+            alt='hero'
+            width={700}
+            height={600}
+            className='mt-24 hidden object-contain xl:mt-0 xl:block'
+          />
         </div>
       </div>
       <div className='h-8 w-full bg-purple-1' />
