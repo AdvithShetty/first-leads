@@ -2,7 +2,7 @@ import RecentPurchases from './RecentPurchases'
 
 const Page = () => {
   return (
-    <div className='w-full px-10 py-6'>
+    <div className='w-full px-10 pb-14 pt-6'>
       <h1 className='font-sans text-[40px] font-bold text-black'>Dashboard</h1>
       <h2 className='pb-6 pt-4 font-sans text-2xl font-semibold text-black'>Analytics</h2>
       <div className='flex items-center gap-10'>

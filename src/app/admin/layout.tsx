@@ -7,7 +7,7 @@ import AdminSidebar from './AdminSidebar'
 const layout = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname()
 
-  if (pathname == '/admin/login') return <>{children}</>
+  if (pathname === '/admin') return <>{children}</>
 
   return (
     <div className='grid h-screen grid-cols-6 bg-[#160042]'>
