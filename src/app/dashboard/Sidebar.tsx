@@ -47,11 +47,7 @@ const Sidebar = () => {
           <HelpAndSupportIcon />
           Help & Support
         </Link>
-        <button
-          className={`flex w-full items-center gap-4 rounded-lg px-4 py-3 text-[#F10A0A]${
-            pathname == '/support' ? 'bg-purple-2' : ''
-          }`}
-        >
+        <button className='flex w-full items-center gap-4 rounded-lg px-4 py-3 text-[#F10A0A]'>
           <LogoutIcon />
           Log Out
         </button>
