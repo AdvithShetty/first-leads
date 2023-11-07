@@ -12,6 +12,7 @@ const Page = () => {
             style={{
               boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.10)',
             }}
+            key={i}
           >
             <div className='flex items-center gap-4 pb-2'>
               <h3 className='text-base font-bold tracking-[0.16px] text-[#343434]'>{data.title}</h3>

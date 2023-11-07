@@ -21,8 +21,8 @@ const MySubscriptions = () => {
                 <h1 className='col-span-4 font-sans text-2xl font-bold text-black'>Lead Type</h1>
                 <h1 className='col-span-4 font-sans text-2xl font-bold text-black'>Renewal</h1>
               </div>
-              {[1, 2].map((_, i) => (
-                <div className='grid w-full grid-cols-10' key={i}>
+              {[1, 2].map((_, i2) => (
+                <div className='grid w-full grid-cols-10' key={i2}>
                   <p className='col-span-4 font-sans text-lg font-medium text-black'>Location (Basic Plan)</p>
                   <p className='col-span-4 font-sans text-lg font-medium text-black'>Renews at 02 Dec 2023</p>
                   <p className='col-span-2 text-right font-sans text-xl font-bold text-black'>$29</p>
