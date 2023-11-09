@@ -1,5 +1,6 @@
 'use client'
 import { AnimatePresence, Variants, motion } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 import { FC, useState } from 'react'
 import GetStarted from './GetStarted'
@@ -27,8 +28,9 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className='hidden w-full items-center justify-between px-40 py-4 font-archivo xl:flex'>
-        <h1 className='text-4xl font-semibold text-white'>Logo</h1>
+      {/* --------------------------------- Desktop -------------------------------- */}
+      <nav className='hidden w-full items-center justify-between px-36 py-4 font-archivo xl:flex'>
+        <Image src='/images/LogoWhite.png' alt='logo' width={200} height={50} />
         <div className='flex items-center gap-16'>
           {navLinks.map((link, i) => (
             <NavLink key={i} {...link} />
@@ -39,6 +41,10 @@ const Navbar = () => {
           <GetStarted backgroundColor='bg-purple-2 w-[9rem]' customText='Login' />
         </div>
       </nav>
+      {/* --------------------------------- Mobile --------------------------------- */}
+      <div className='absolute left-4 top-5 xl:hidden'>
+        <Image src='/images/LogoWhite.png' alt='logo' width={200} height={50} />
+      </div>
       <nav
         className={`fixed right-0 top-0 z-10 block h-screen font-archivo xl:hidden ${
           isOpen ? 'w-3/4 md:w-1/2 lg:w-1/3' : 'w-0'
