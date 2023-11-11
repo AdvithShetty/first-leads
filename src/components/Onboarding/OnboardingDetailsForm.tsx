@@ -2,11 +2,14 @@
 import { useIsClient } from '@/hooks/useIsClient'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@nextui-org/react'
+import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 import { useSessionStorage } from 'usehooks-ts'
 import { z } from 'zod'
 import Input from '../Input'
+import { useUser } from '../UserContext'
 
 const schema = z.object({
   firstName: z.string().min(1, 'First name is required'),
@@ -21,6 +24,7 @@ export type OnboardingDetails = z.infer<typeof schema>
 const OnboardingDetailsForm = () => {
   const isClient = useIsClient()
   const [sessionValue, setSessionValue] = useSessionStorage<OnboardingDetails | null>('onboardingDetails', null)
+  const { setUser } = useUser()
 
   const router = useRouter()
 
@@ -39,9 +43,36 @@ const OnboardingDetailsForm = () => {
     },
   })
 
-  const onSubmit = (data: OnboardingDetails) => {
+  const onSubmit = async (data: OnboardingDetails) => {
     console.log(data)
     setSessionValue(data)
+
+    try {
+      const res = await axios.post('/onboarding/api/save', {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        industry: data.industry,
+        zipCode: data.zipCode,
+      })
+
+      if (res.data.message === 'Email already exists') {
+        toast.error(res.data.message)
+        return
+      }
+
+      setUser({
+        id: res.data.user.id,
+        firstName: res.data.user.firstName,
+        lastName: res.data.user.lastName,
+        email: res.data.user.email,
+      })
+    } catch (error) {
+      console.log('error', error)
+
+      toast.error('Something went wrong')
+      return
+    }
 
     router.push('/onboarding/select-leads')
   }

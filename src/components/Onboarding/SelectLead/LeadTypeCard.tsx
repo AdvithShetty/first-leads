@@ -32,12 +32,12 @@ const LeadTypeCard = () => {
           >
             {plan === 'basic' ? <div className='h-[14px] w-[14px] rounded-full bg-[#7363F3]' /> : null}
           </button>
-          <p className='font-quicksand text-sm font-medium text-black'>
+          <div className='font-quicksand text-sm font-medium text-black'>
             Basic Plan
             <span className='inline-flex items-center gap-2 pl-1 font-bold text-black'>
               - $29 <LeadPlanPopover plan='basic' />
             </span>
-          </p>
+          </div>
         </div>
         <div className='flex gap-2'>
           <button
@@ -47,12 +47,12 @@ const LeadTypeCard = () => {
           >
             {plan === 'premium' ? <div className='h-[14px] w-[14px] rounded-full bg-[#7363F3]' /> : null}
           </button>
-          <p className='font-quicksand text-sm font-medium text-black'>
+          <div className='font-quicksand text-sm font-medium text-black'>
             Premium Plan
             <span className='inline-flex items-center gap-2 pl-1 font-bold text-black'>
               - $49 <LeadPlanPopover plan='premium' />
             </span>
-          </p>
+          </div>
         </div>
       </div>
       {/* ----------------------------- Location Search ---------------------------- */}
