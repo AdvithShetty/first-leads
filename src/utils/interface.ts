@@ -1,4 +1,4 @@
-export interface SaveUserResponse {
+export interface UserResponse {
   user: {
     id: number
     firstName: string
