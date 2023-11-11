@@ -2,7 +2,7 @@
 import { useIsClient } from '@/hooks/useIsClient'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@nextui-org/react'
-import axios from 'axios'
+import axios, { isAxiosError } from 'axios'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
@@ -56,11 +56,6 @@ const OnboardingDetailsForm = () => {
         zipCode: data.zipCode,
       })
 
-      if (res.data.message === 'Email already exists') {
-        toast.error(res.data.message)
-        return
-      }
-
       setUser({
         id: res.data.user.id,
         firstName: res.data.user.firstName,
@@ -68,7 +63,12 @@ const OnboardingDetailsForm = () => {
         email: res.data.user.email,
       })
     } catch (error) {
-      console.log('error', error)
+      if (isAxiosError(error)) {
+        if (error.response?.status === 409) {
+          toast.error('Email already exists')
+          return
+        }
+      }
 
       toast.error('Something went wrong')
       return

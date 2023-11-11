@@ -10,11 +10,23 @@ export async function POST(request: Request) {
     return Response.json(data)
   } catch (error: any) {
     if (error.response.status === 409) {
-      return Response.json({
-        message: 'Email already exists',
-      })
+      return Response.json(
+        {
+          error: 'Email already exists',
+        },
+        {
+          status: 409,
+        }
+      )
     }
 
-    return Response.error()
+    return Response.json(
+      {
+        error: 'Something went wrong',
+      },
+      {
+        status: 500,
+      }
+    )
   }
 }
