@@ -3,8 +3,10 @@ import Input, { TextArea } from '@/components/Input'
 import { useIsClient } from '@/hooks/useIsClient'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@nextui-org/react'
+import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 import { z } from 'zod'
 
 const schema = z.object({
@@ -25,13 +27,31 @@ const SupportForm = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm<SupportFormDetailsType>({
     resolver: zodResolver(schema),
     defaultValues: {},
   })
 
-  const onSubmit = (data: SupportFormDetailsType) => {
+  const onSubmit = async (data: SupportFormDetailsType) => {
     console.log(data)
+
+    const body = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      subject: data.subject,
+      body: data.message,
+      type: 'general',
+    }
+
+    try {
+      await axios.post('/api/support', body)
+      toast.success('Message sent successfully')
+      reset()
+    } catch (error) {
+      toast.error('Something went wrong, please try again later')
+    }
   }
 
   if (!isClient) return null
