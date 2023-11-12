@@ -5,6 +5,8 @@ type User = {
   firstName: string
   lastName: string
   email: string
+  refreshToken: string
+  accessToken: string
 }
 
 interface UserContextType {

@@ -1,5 +1,6 @@
 'use client'
 import { useIsClient } from '@/hooks/useIsClient'
+import { UserResponse } from '@/utils/interface'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@nextui-org/react'
 import axios, { isAxiosError } from 'axios'
@@ -48,7 +49,7 @@ const OnboardingDetailsForm = () => {
     setSessionValue(data)
 
     try {
-      const res = await axios.post('/onboarding/api/save', {
+      const res = await axios.post<UserResponse>('/onboarding/api/save', {
         firstName: data.firstName,
         lastName: data.lastName,
         email: data.email,
@@ -61,6 +62,8 @@ const OnboardingDetailsForm = () => {
         firstName: res.data.user.firstName,
         lastName: res.data.user.lastName,
         email: res.data.user.email,
+        refreshToken: res.data.refreshToken,
+        accessToken: res.data.accessToken,
       })
     } catch (error) {
       if (isAxiosError(error)) {

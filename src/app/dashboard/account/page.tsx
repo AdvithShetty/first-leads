@@ -1,16 +1,15 @@
 'use client'
 import ChangePassword from './ChangePassword'
 import ProfileForm from './ProfileForm'
-import UploadImage from './UploadImage'
 
 const Account = () => {
   return (
     <div className='w-full px-10 py-10'>
       <div className='flex w-full items-start justify-between gap-20'>
-        <div className='flex w-1/2 flex-col items-start'>
-          <h1 className='font-sans text-[40px] font-bold text-black'>My Account</h1>
+        {/* <div className='flex w-1/2 flex-col items-start'>
+          
           <UploadImage />
-        </div>
+        </div> */}
         <div className='flex w-1/2 flex-col'>
           <ProfileForm />
           <ChangePassword />
