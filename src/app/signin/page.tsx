@@ -1,6 +1,8 @@
 'use client'
 import { EmailIcon, EyeFilledIcon, EyeSlashFilledIcon } from '@/components/Input'
-import { useUser } from '@/components/UserContext'
+import { useUserContext } from '@/components/UserContext'
+import useRefreshToken from '@/hooks/useRefreshToken'
+import { UserResponse } from '@/utils/interface'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Input, useDisclosure } from '@nextui-org/react'
 import axios from 'axios'
@@ -23,7 +25,8 @@ const SignIn = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const [rememberMe, setRememberMe] = useState(true)
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
-  const { setUser } = useUser()
+  const { setUser } = useUserContext()
+  const { setRefreshToken } = useRefreshToken()
 
   const {
     handleSubmit,
@@ -40,16 +43,20 @@ const SignIn = () => {
   const onSubmit = async (data: SignInSchemaType) => {
     console.log(data)
     try {
-      const res = await axios.post('/signin/api/login', {
+      const res = await axios.post<UserResponse>('/signin/api/login', {
         email: data.email,
         password: data.password,
       })
+
+      setRefreshToken(res.data.refreshToken)
 
       setUser({
         id: res.data.user.id,
         firstName: res.data.user.firstName,
         lastName: res.data.user.lastName,
         email: res.data.user.email,
+        refreshToken: res.data.refreshToken,
+        accessToken: res.data.accessToken,
       })
     } catch (error: any) {
       toast.error("We couldn't find an account matching the email and password you entered. Please try again.")

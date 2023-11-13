@@ -1,5 +1,5 @@
 import Input from '@/components/Input'
-import { useUser } from '@/components/UserContext'
+import { useUserContext } from '@/components/UserContext'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@nextui-org/react'
 import { useForm } from 'react-hook-form'
@@ -16,7 +16,7 @@ export const profileSchema = z.object({
 export type ProfileSchemaType = z.infer<typeof profileSchema>
 
 const ProfileForm = () => {
-  const { user } = useUser()
+  const { user } = useUserContext()
 
   const {
     formState: { errors },
