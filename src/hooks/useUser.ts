@@ -1,5 +1,7 @@
+import { User } from '@/utils/interface'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 import { useQuery } from 'react-query'
 import useRefreshToken from './useRefreshToken'
 
@@ -7,16 +9,16 @@ const useUser = () => {
   const { refreshToken } = useRefreshToken()
   const router = useRouter()
 
-  // useEffect(() => {
-  //   if (!refreshToken) {
-  //     router.replace('/signin')
-  //   }
-  // }, [refreshToken])
+  useEffect(() => {
+    if (!refreshToken) {
+      router.replace('/signin')
+    }
+  }, [refreshToken])
 
   return useQuery(
     ['user', refreshToken],
     async () => {
-      const res = await axios.get('/api/user', {
+      const res = await axios.get<User>('/api/user', {
         params: {
           refreshToken,
         },
