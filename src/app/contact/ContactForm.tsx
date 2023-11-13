@@ -13,12 +13,13 @@ const schema = z.object({
   lastName: z.string().min(1, 'Last name is required'),
   email: z.string().email('Invalid email address'),
   subject: z.string().min(1, 'Subject is required'),
-  message: z.string().min(10, 'Message is required'),
+  message: z.string().min(1, 'Message is required'),
+  phone: z.string().min(10, 'Phone number is required'),
 })
 
 export type SupportFormDetailsType = z.infer<typeof schema>
 
-const SupportForm = () => {
+const ContactForm = () => {
   const isClient = useIsClient()
 
   const {
@@ -38,7 +39,7 @@ const SupportForm = () => {
       email: data.email,
       subject: data.subject,
       body: data.message,
-      type: 'general',
+      type: 'additional lead type request',
     }
 
     try {
@@ -66,10 +67,11 @@ const SupportForm = () => {
         inputProps={{ ...register('lastName') }}
         error={errors.lastName}
       />
-      <Input label='Email Address' className='col-span-4' inputProps={{ ...register('email') }} error={errors.email} />
+      <Input label='Email Address' className='col-span-2' inputProps={{ ...register('email') }} error={errors.email} />
+      <Input label='Phone Number' className='col-span-2' inputProps={{ ...register('phone') }} error={errors.phone} />
       <Input label='Subject' className='col-span-4' inputProps={{ ...register('subject') }} error={errors.subject} />
       <TextArea
-        label='Your Message'
+        label='Enter the lead type you are looking for'
         className='col-span-4'
         textAreaProps={{ ...register('message') }}
         error={errors.message}
@@ -84,4 +86,4 @@ const SupportForm = () => {
   )
 }
 
-export default SupportForm
+export default ContactForm
