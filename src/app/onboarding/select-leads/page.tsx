@@ -1,3 +1,4 @@
+import GetCustomPlanCard from '@/components/Onboarding/SelectLead/GetCustomPlanCard'
 import LeadTypeCard from '@/components/Onboarding/SelectLead/LeadTypeCard'
 import Image from 'next/image'
 
@@ -11,9 +12,10 @@ const SelectLead = () => {
         magna aliqua.
       </p>
       <div className='grid grid-cols-4 gap-10 py-10'>
-        {Array.from({ length: 10 }).map((_, i) => (
+        {Array.from({ length: 6 }).map((_, i) => (
           <LeadTypeCard key={i} />
         ))}
+        <GetCustomPlanCard />
       </div>
     </div>
   )
