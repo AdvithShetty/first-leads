@@ -2,14 +2,12 @@ import backend from '@/utils/axios'
 import { UserResponse } from '@/utils/interface'
 import { cookies } from 'next/headers'
 
-export async function GET(request: Request) {
-  // Extract query string params from request
-  const url = new URL(request.url)
-  const params = Object.fromEntries(url.searchParams) as {
-    refreshToken: string
-  }
+export async function PATCH(request: Request) {
+  const refreshCookie = cookies().get('refreshToken')
 
-  if (!params.refreshToken) {
+  const refreshToken = refreshCookie?.value
+
+  if (!refreshToken) {
     return Response.json(
       {
         error: 'Refresh token is required',
@@ -20,12 +18,13 @@ export async function GET(request: Request) {
     )
   }
 
-  cookies().set('refreshToken', params.refreshToken)
+  const body = await request.json()
 
   try {
     const tokenRes = await backend.post<Promise<UserResponse>>('/auth/refresh-token', {
-      refreshToken: params.refreshToken,
+      refreshToken,
     })
+
     const tokenData = await tokenRes.data
 
     backend.interceptors.request.use(
@@ -58,7 +57,7 @@ export async function GET(request: Request) {
       }
     )
 
-    const res = await backend.get('/users/me', {
+    const res = await backend.patch('/users', body, {
       headers: {
         'Content-Type': 'application/json',
       },

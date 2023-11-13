@@ -1,8 +1,10 @@
 import Input from '@/components/Input'
-import { useUserContext } from '@/components/UserContext'
+import useUser from '@/hooks/useUser'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@nextui-org/react'
+import axios from 'axios'
 import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 import { z } from 'zod'
 
 export const profileSchema = z.object({
@@ -10,13 +12,13 @@ export const profileSchema = z.object({
   lastName: z.string().min(1, 'Required'),
   email: z.string().email('Invalid email address'),
   phoneNumber: z.string().min(1, 'Phone number is required'),
-  city: z.string().min(1, 'City is required'),
+  zipCode: z.string().min(1, 'ZipCode is required'),
 })
 
 export type ProfileSchemaType = z.infer<typeof profileSchema>
 
 const ProfileForm = () => {
-  const { user } = useUserContext()
+  const { data: user } = useUser()
 
   const {
     formState: { errors },
@@ -27,14 +29,25 @@ const ProfileForm = () => {
       firstName: user?.firstName ?? '',
       lastName: user?.lastName ?? '',
       email: user?.email ?? '',
-      phoneNumber: '',
-      city: '',
+      phoneNumber: user?.phone ?? '',
+      zipCode: user?.zipCode ?? '',
     },
     resolver: zodResolver(profileSchema),
   })
 
   const onSubmit = async (data: ProfileSchemaType) => {
     console.log(data)
+    const res = await axios.patch('/api/user/update', {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      phone: data.phoneNumber,
+      zipCode: data.zipCode,
+    })
+
+    if (res.status === 200) {
+      toast.success('Profile updated successfully')
+    }
   }
 
   return (
@@ -74,7 +87,7 @@ const ProfileForm = () => {
           error={errors.phoneNumber}
           className='col-span-4'
         />
-        <Input label='City' inputProps={{ ...register('city') }} error={errors.city} className='col-span-4' />
+        <Input label='Zip Code' inputProps={{ ...register('zipCode') }} error={errors.zipCode} className='col-span-4' />
       </div>
     </form>
   )
