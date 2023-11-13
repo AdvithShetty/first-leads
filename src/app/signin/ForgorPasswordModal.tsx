@@ -24,7 +24,7 @@ const ForgorPasswordModal = ({ isOpen, onOpenChange }: { isOpen: boolean; onOpen
   })
 
   const onSubmit = async (data: SchemaType) => {
-    await axios.post('/signin/api/password/reset', {
+    await axios.post('/api/password/reset', {
       email: data.email,
     })
     onOpenChange(false)

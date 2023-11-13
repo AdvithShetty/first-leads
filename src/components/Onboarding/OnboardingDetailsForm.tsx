@@ -50,7 +50,7 @@ const OnboardingDetailsForm = () => {
     setSessionValue(data)
 
     try {
-      const res = await axios.post<UserResponse>('/onboarding/api/save', {
+      const res = await axios.post<UserResponse>('/api/save', {
         firstName: data.firstName,
         lastName: data.lastName,
         email: data.email,

@@ -1,6 +1,7 @@
 import Input from '@/components/Input'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@nextui-org/react'
+import axios from 'axios'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { z } from 'zod'
@@ -26,14 +27,25 @@ const ChangePassword = () => {
     resolver: zodResolver(schema),
   })
 
-  const onSubmit = (data: ChangePasswordSchemaType) => {
+  const onSubmit = async (data: ChangePasswordSchemaType) => {
     if (data.oldPassword === data.newPassword) {
       toast.error('New password cannot be the same as old password', {
         position: 'bottom-right',
       })
       return
     }
-    console.log(data)
+
+    const res = await axios.post('/api/password/change', {
+      currentPassword: data.oldPassword,
+      newPassword: data.newPassword,
+      confirmNewPassword: data.newPassword,
+    })
+
+    if (res.status === 204 || res.status === 200 || res.status === 201) {
+      toast.success('Password changed successfully', {
+        position: 'bottom-right',
+      })
+    }
   }
 
   return (
