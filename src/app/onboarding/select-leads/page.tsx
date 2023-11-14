@@ -1,5 +1,4 @@
 'use client'
-import { useCartId } from '@/components/Onboarding/SelectLead/CartContext'
 import GetCustomPlanCard from '@/components/Onboarding/SelectLead/GetCustomPlanCard'
 import LeadTypeCard from '@/components/Onboarding/SelectLead/LeadTypeCard'
 import usePicklists from '@/hooks/usePicklists'
@@ -8,7 +7,6 @@ import Image from 'next/image'
 
 const SelectLead = () => {
   const { data: picklists, isLoading } = usePicklists()
-  const { cartId, setCartId } = useCartId()
 
   return (
     <div className='flex h-full w-full flex-col overflow-y-hidden p-16 2xl:w-4/5'>
@@ -22,9 +20,7 @@ const SelectLead = () => {
         {isLoading
           ? Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} className='col-span-2 h-[230px] rounded-lg' />)
           : picklists
-          ? picklists.leadTypes.map((picklist, i) => (
-              <LeadTypeCard key={i} {...picklist} cartId={cartId} setCartId={setCartId} />
-            ))
+          ? picklists.leadTypes.map((picklist, i) => <LeadTypeCard key={i} {...picklist} />)
           : null}
         <GetCustomPlanCard />
       </div>

@@ -68,11 +68,11 @@ export interface AreaValues {
   rows: number
   total: number
   results: {
-    leadCount: number
     leadTypeId: number
     areaTypeId: number
-    state: string
+    areaType: string
     areaValue: string
+    state: string
   }[]
 }
 

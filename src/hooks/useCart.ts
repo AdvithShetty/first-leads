@@ -1,11 +1,10 @@
-import { useCartId } from '@/components/Onboarding/SelectLead/CartContext'
 import { Cart } from '@/utils/interface'
 import axios from 'axios'
 import { useQuery } from 'react-query'
+import useCartId from './useCartId'
 
 const useCart = () => {
   const { cartId } = useCartId()
-  console.log('🚀 ~ file: useCart.ts:8 ~ useCart ~ cartId:', cartId)
 
   return useQuery(
     ['cart', cartId],

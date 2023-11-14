@@ -1,36 +1,28 @@
 'use client'
 import useAreaValues from '@/hooks/useAreaValues'
+import useCartId from '@/hooks/useCartId'
 import useUser from '@/hooks/useUser'
 import { LeadType } from '@/utils/interface'
 import { Button, Modal, ModalContent, ModalFooter, Pagination, Spinner, useDisclosure } from '@nextui-org/react'
 import axios from 'axios'
 import { useCallback, useState } from 'react'
 import toast from 'react-hot-toast'
-import { useInterval, useLocalStorage } from 'usehooks-ts'
+import { useQueryClient } from 'react-query'
+import { useInterval } from 'usehooks-ts'
 import { LeadPlanPopover, LeadTypeTitle } from './common'
 
-const LeadTypeCard = ({
-  description,
-  id,
-  name,
-  premiumPrice,
-  basicPrice,
-  cartId,
-  setCartId,
-}: LeadType & {
-  cartId: number | null
-  setCartId: (id: number) => void
-}) => {
+const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadType) => {
   const [plan, setPlan] = useState<'basic' | 'premium'>('basic')
   const [areaValue, setAreaValue] = useState<{
-    areaTypeId: number
+    areaType: string
     areaValue: string
   } | null>(null)
 
   const [addedToCart, setAddedToCart] = useState(false)
   const { isOpen, onOpenChange, onOpen, onClose } = useDisclosure()
   const { data: user } = useUser()
-  const [, setCartIdInLocalStorage] = useLocalStorage('cartId', cartId)
+  const { cartId, setCartId } = useCartId()
+  const queryClient = useQueryClient()
 
   useInterval(() => setAddedToCart(false), 3000)
 
@@ -49,8 +41,7 @@ const LeadTypeCard = ({
 
     if (cartId) {
       _cartId = cartId
-      console.log('🚀 ~ file: LeadTypeCard.tsx:52 ~ onAddToCart ~ cartId:', cartId)
-      setCartIdInLocalStorage(cartId)
+      console.log('🚀 ~ file: LeadTypeCard.tsx:42 ~ onAddToCart ~ cartId:', cartId)
     }
 
     try {
@@ -58,8 +49,8 @@ const LeadTypeCard = ({
         '/api/cart/add',
         {
           itemId: plan === 'basic' ? basicPrice.id : premiumPrice.id,
-          areaTypeId: 1,
-          areaValue: areaValue,
+          areaType: areaValue?.areaType,
+          areaValue: areaValue.areaValue,
         },
         {
           params: {
@@ -68,14 +59,16 @@ const LeadTypeCard = ({
         }
       )
 
-      if (res.status === 204) {
+      queryClient.invalidateQueries(['cart', cartId])
+
+      if (res) {
         setAddedToCart(true)
         toast.success('Added to cart')
       }
     } catch (error) {
       toast.error('Error Creating cart')
     }
-  }, [areaValue, basicPrice.id, cartId, plan, premiumPrice.id, setCartId, user])
+  }, [areaValue, basicPrice.id, cartId, plan, premiumPrice.id, queryClient, setCartId, user])
 
   return (
     <div
@@ -129,7 +122,8 @@ const LeadTypeCard = ({
           type='text'
           placeholder='Location'
           className='h-10 w-full font-quicksand text-sm font-medium text-[#8E8E8E] outline-none'
-          value={areaValue?.areaValue}
+          value={areaValue?.areaValue || ''}
+          readOnly
         />
       </button>
       <Button
@@ -166,7 +160,7 @@ interface SearchDropdownModalProps {
   isOpen: boolean
   onOpenChange: () => void
   leadTypeId?: number
-  setAreaValue?: (areaValue: { areaTypeId: number; areaValue: string }) => void
+  setAreaValue?: (areaValue: { areaType: string; areaValue: string }) => void
   onClose: () => void
 }
 
@@ -211,14 +205,14 @@ const SearchDropdownModal = ({ isOpen, onOpenChange, leadTypeId, setAreaValue, o
                 key={i}
                 className='flex w-full items-center justify-between px-2'
                 onClick={() => {
-                  setAreaValue?.({ areaTypeId: item.areaTypeId, areaValue: item.areaValue })
+                  setAreaValue?.({ areaType: item.areaType, areaValue: item.areaValue })
                   onClose()
                 }}
               >
                 <h1 className='w-full cursor-pointer p-2 text-left font-outfit text-lg hover:bg-slate-100'>
                   {item.areaValue}
                 </h1>
-                {/* <h2 className='cursor-pointer p-2 font-outfit text-lg hover:bg-slate-100'>#{item.areaTypeId}</h2> */}
+                {/* <h2 className='cursor-pointer p-2 font-outfit text-lg hover:bg-slate-100'>#{item.areaType}</h2> */}
               </button>
             ))
           )}

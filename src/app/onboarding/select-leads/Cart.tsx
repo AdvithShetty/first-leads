@@ -6,7 +6,6 @@ import Link from 'next/link'
 
 const Cart = () => {
   const { data: cart, isLoading } = useCart()
-  console.log('cart', cart)
 
   return (
     <div className='fixed flex h-full w-1/4 flex-col items-center font-sans'>
