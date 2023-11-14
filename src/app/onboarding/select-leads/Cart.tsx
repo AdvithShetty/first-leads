@@ -20,6 +20,7 @@ const Cart = () => {
                 leadType={item.name}
                 //TODO: Ask for plan data like basic or premium
                 plans={[{ title: `${item.areaValue} (${item.price})`, price: Number(item.price) }]}
+                itemId={item.id}
               />
             ))
           : null}
