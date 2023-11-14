@@ -13,7 +13,7 @@ const useUser = () => {
     if (!refreshToken) {
       router.replace('/signin')
     }
-  }, [refreshToken])
+  }, [refreshToken, router])
 
   return useQuery(
     ['user', refreshToken],

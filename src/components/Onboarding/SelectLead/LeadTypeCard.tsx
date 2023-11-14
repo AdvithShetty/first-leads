@@ -1,18 +1,79 @@
 'use client'
 import useAreaValues from '@/hooks/useAreaValues'
+import useUser from '@/hooks/useUser'
 import { LeadType } from '@/utils/interface'
 import { Button, Modal, ModalContent, ModalFooter, Pagination, Spinner, useDisclosure } from '@nextui-org/react'
-import { useState } from 'react'
+import axios from 'axios'
+import { useCallback, useState } from 'react'
+import toast from 'react-hot-toast'
 import { useInterval } from 'usehooks-ts'
 import { LeadPlanPopover, LeadTypeTitle } from './common'
 
-const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadType) => {
+const LeadTypeCard = ({
+  description,
+  id,
+  name,
+  premiumPrice,
+  basicPrice,
+  cartId,
+  setCartId,
+}: LeadType & {
+  cartId: number | null
+  setCartId: (id: number) => void
+}) => {
   const [plan, setPlan] = useState<'basic' | 'premium'>('basic')
-  const [searchInput, setSearchInput] = useState('')
+  const [areaValue, setAreaValue] = useState<{
+    areaTypeId: number
+    areaValue: string
+  } | null>(null)
+
   const [addedToCart, setAddedToCart] = useState(false)
-  const { isOpen, onOpenChange, onOpen } = useDisclosure()
+  const { isOpen, onOpenChange, onOpen, onClose } = useDisclosure()
+  const { data: user } = useUser()
 
   useInterval(() => setAddedToCart(false), 3000)
+
+  const onAddToCart = useCallback(async () => {
+    let _cartId: number | null = null
+    console.log('🚀 ~ file: LeadTypeCard.tsx:38 ~ onAddToCart ~ _cartId:', _cartId)
+    if (!user) return
+
+    if (!areaValue?.areaValue) return toast.error('Please select a location')
+
+    if (!cartId) {
+      axios.post('/api/cart/create', { userId: user.id }).then((res) => {
+        _cartId = res.data.id
+        setCartId(res.data.id)
+      })
+    }
+
+    if (cartId) {
+      _cartId = cartId
+    }
+
+    try {
+      const res = await axios.post(
+        '/api/cart/add',
+        {
+          itemId: plan === 'basic' ? basicPrice.id : premiumPrice.id,
+          areaTypeId: 1,
+          areaValue: areaValue,
+        },
+        {
+          params: {
+            cartId: _cartId,
+          },
+        }
+      )
+
+      if (res.status === 204) {
+        setAddedToCart(true)
+        toast.success('Added to cart')
+      }
+    } catch (error) {
+      toast.error('Error Creating cart')
+    }
+  }, [areaValue, basicPrice.id, cartId, plan, premiumPrice.id, setCartId, user])
 
   return (
     <div
@@ -66,10 +127,11 @@ const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadT
           type='text'
           placeholder='Location'
           className='h-10 w-full font-quicksand text-sm font-medium text-[#8E8E8E] outline-none'
+          value={areaValue?.areaValue}
         />
       </button>
       <Button
-        onClick={() => setAddedToCart(true)}
+        onClick={onAddToCart}
         className={`mt-6 h-12 rounded-lg bg-[#6941C6] font-inter text-[15px] font-semibold text-white transition-colors ${
           addedToCart ? 'bg-[#11D900]' : ''
         }`}
@@ -85,7 +147,15 @@ const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadT
           'Add to Cart'
         )}
       </Button>
-      {isOpen ? <SearchDropdownModal isOpen={isOpen} onOpenChange={onOpenChange} leadTypeId={id} /> : null}
+      {isOpen ? (
+        <SearchDropdownModal
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+          leadTypeId={id}
+          onClose={onClose}
+          setAreaValue={setAreaValue}
+        />
+      ) : null}
     </div>
   )
 }
@@ -94,11 +164,13 @@ interface SearchDropdownModalProps {
   isOpen: boolean
   onOpenChange: () => void
   leadTypeId?: number
+  setAreaValue?: (areaValue: { areaTypeId: number; areaValue: string }) => void
+  onClose: () => void
 }
 
 const totalItems = 10
 
-const SearchDropdownModal = ({ isOpen, onOpenChange, leadTypeId }: SearchDropdownModalProps) => {
+const SearchDropdownModal = ({ isOpen, onOpenChange, leadTypeId, setAreaValue, onClose }: SearchDropdownModalProps) => {
   const [currentPage, setCurrentPage] = useState(1)
   const [searchInput, setSearchInput] = useState('')
   const { data: areaValues, isLoading } = useAreaValues({
@@ -133,7 +205,14 @@ const SearchDropdownModal = ({ isOpen, onOpenChange, leadTypeId }: SearchDropdow
             <Spinner size='lg' color='secondary' />
           ) : (
             areaValues?.results.map((item, i) => (
-              <button key={i} className='flex w-full items-center justify-between px-2'>
+              <button
+                key={i}
+                className='flex w-full items-center justify-between px-2'
+                onClick={() => {
+                  setAreaValue?.({ areaTypeId: item.areaTypeId, areaValue: item.areaValue })
+                  onClose()
+                }}
+              >
                 <h1 className='w-full cursor-pointer p-2 text-left font-outfit text-lg hover:bg-slate-100'>
                   {item.areaValue}
                 </h1>

@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 import { ReactNode } from 'react'
 import AdminSidebar from './AdminSidebar'
 
-const layout = ({ children }: { children: ReactNode }) => {
+const Layout = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname()
 
   if (pathname === '/admin') return <>{children}</>
@@ -22,4 +22,4 @@ const layout = ({ children }: { children: ReactNode }) => {
   )
 }
 
-export default layout
+export default Layout
