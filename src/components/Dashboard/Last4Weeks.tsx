@@ -1,7 +1,38 @@
+'use client'
+import useUserReports from '@/hooks/useUserReports'
+import { Spinner } from '@nextui-org/react'
+import { useState } from 'react'
 import Table from './Table'
 
 const Last4Weeks = () => {
-  return <Table columns={columns} rows={rows} />
+  const [startDate, setStartDate] = useState(() => {
+    const date = new Date()
+    date.setDate(date.getDate() - 28)
+    return date.toISOString()
+  })
+
+  const { data: reports, isLoading } = useUserReports({
+    startDate,
+  })
+  console.log('🚀 ~ file: Last4Weeks.tsx:7 ~ Last4Weeks ~ data', reports)
+
+  if (isLoading || !reports)
+    return (
+      <div className='flex min-h-[20rem] w-full items-center justify-center'>
+        <Spinner size='lg' color='secondary' />
+      </div>
+    )
+
+  return (
+    <Table
+      columns={columns}
+      rows={reports.results?.map((report) => ({
+        fileName: report.name,
+        leadType: String(report.leadTypeId),
+        date: report.createdAt,
+      }))}
+    />
+  )
 }
 
 export default Last4Weeks
@@ -22,32 +53,5 @@ const columns = [
   {
     title: 'Download',
     className: 'col-span-2',
-  },
-]
-
-const rows = [
-  {
-    fileName: 'October Week 1',
-    leadType: 'Lead Type',
-    date: '29 Sept 2023',
-    status: 'Status',
-  },
-  {
-    fileName: 'October Week 2',
-    leadType: 'Lead Type',
-    date: '29 Sept 2023',
-    status: 'Status',
-  },
-  {
-    fileName: 'October Week 3',
-    leadType: 'Lead Type',
-    date: '29 Sept 2023',
-    status: 'Status',
-  },
-  {
-    fileName: 'October Week 4',
-    leadType: 'Lead Type',
-    date: '29 Sept 2023',
-    status: 'Status',
   },
 ]

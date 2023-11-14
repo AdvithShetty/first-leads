@@ -8,6 +8,7 @@ import { Button, Input, useDisclosure } from '@nextui-org/react'
 import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
@@ -27,6 +28,7 @@ const SignIn = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
   const { setUser } = useUserContext()
   const { setRefreshToken } = useRefreshToken()
+  const router = useRouter()
 
   const {
     handleSubmit,
@@ -58,6 +60,9 @@ const SignIn = () => {
         refreshToken: res.data.refreshToken,
         accessToken: res.data.accessToken,
       })
+
+      toast.success('Logged in successfully \n\n Redirecting to dashboard...')
+      router.push('/dashboard')
     } catch (error: any) {
       toast.error("We couldn't find an account matching the email and password you entered. Please try again.")
       console.log('error', error?.response?.data.error)

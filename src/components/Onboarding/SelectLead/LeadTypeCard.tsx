@@ -129,7 +129,7 @@ const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadT
       <Button
         onClick={onAddToCart}
         className={`mt-6 h-12 rounded-lg bg-[#6941C6] font-inter text-[15px] font-semibold text-white transition-colors ${
-          addedToCart ? 'bg-[#11D900]' : ''
+          addedToCart ? 'bg-[#0B8A00]' : ''
         }`}
       >
         {addedToCart ? (

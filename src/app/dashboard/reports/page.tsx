@@ -1,5 +1,4 @@
 import Last4Weeks from '@/components/Dashboard/Last4Weeks'
-import NeedCustom from '@/components/Dashboard/NeedCustom'
 import NeedMoreLeads from '@/components/Dashboard/NeedMoreLeads'
 
 const Reports = () => {
@@ -9,8 +8,7 @@ const Reports = () => {
       <h2 className='pb-6 pt-10 font-sans text-[32px] font-bold text-black'>Last 4 Week</h2>
       <Last4Weeks />
       <div className='flex gap-20'>
-        <NeedMoreLeads paragraphWidth='w-full' />
-        <NeedCustom paragraphWidth='w-full' />
+        <NeedMoreLeads />
       </div>
       <div className='flex items-center justify-end pt-6'>
         <p className='font-rubik text-sm font-normal text-black'>© 2023 All Right Reserved by First Leads</p>

@@ -91,3 +91,16 @@ export interface CartItems {
   areaType: string
   areaValue: string
 }
+
+export interface Reports {
+  page: number
+  rows: number
+  total: number
+  results: {
+    id: number
+    name: string
+    url: string
+    createdAt: string
+    leadTypeId: number
+  }[]
+}
