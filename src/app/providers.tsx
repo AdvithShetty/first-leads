@@ -1,6 +1,5 @@
 'use client'
 
-import { UserContextProvider } from '@/components/UserContext'
 import { NextUIProvider } from '@nextui-org/react'
 import { useState } from 'react'
 import { Toaster } from 'react-hot-toast'
@@ -11,12 +10,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <UserContextProvider>
-        <NextUIProvider>
-          <Toaster />
-          {children}
-        </NextUIProvider>
-      </UserContextProvider>
+      <NextUIProvider>
+        <Toaster />
+        {children}
+      </NextUIProvider>
     </QueryClientProvider>
   )
 }

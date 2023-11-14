@@ -1,17 +1,18 @@
 'use client'
 import { useIsClient } from '@/hooks/useIsClient'
 import useRefreshToken from '@/hooks/useRefreshToken'
+import useUser from '@/hooks/useUser'
 import { UserResponse } from '@/utils/interface'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@nextui-org/react'
 import axios, { isAxiosError } from 'axios'
 import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { useSessionStorage } from 'usehooks-ts'
 import { z } from 'zod'
 import Input from '../Input'
-import { useUserContext } from '../UserContext'
 
 const schema = z.object({
   firstName: z.string().min(1, 'First name is required'),
@@ -27,9 +28,16 @@ const OnboardingDetailsForm = () => {
   const isClient = useIsClient()
   const [sessionValue, setSessionValue] = useSessionStorage<OnboardingDetails | null>('onboardingDetails', null)
   const { setRefreshToken } = useRefreshToken()
-  const { setUser } = useUserContext()
 
   const router = useRouter()
+
+  const { data: user } = useUser()
+
+  useEffect(() => {
+    if (user) {
+      router.push('/dashboard')
+    }
+  }, [router, user])
 
   const {
     register,
@@ -59,15 +67,6 @@ const OnboardingDetailsForm = () => {
       })
 
       setRefreshToken(res.data.refreshToken)
-
-      setUser({
-        id: res.data.user.id,
-        firstName: res.data.user.firstName,
-        lastName: res.data.user.lastName,
-        email: res.data.user.email,
-        refreshToken: res.data.refreshToken,
-        accessToken: res.data.accessToken,
-      })
     } catch (error) {
       if (isAxiosError(error)) {
         if (error.response?.status === 409) {

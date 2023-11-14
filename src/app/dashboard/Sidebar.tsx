@@ -12,14 +12,22 @@ import useRefreshToken from '@/hooks/useRefreshToken'
 import useUser from '@/hooks/useUser'
 import { Skeleton } from '@nextui-org/react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 import { useQueryClient } from 'react-query'
 
 const Sidebar = () => {
   const pathname = usePathname()
   const { data: user, isSuccess } = useUser()
-  const { setRefreshToken } = useRefreshToken()
+  const { refreshToken, setRefreshToken } = useRefreshToken()
   const queryClient = useQueryClient()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!refreshToken) {
+      router.replace('/signin')
+    }
+  }, [refreshToken, router])
 
   return (
     <div className='col-span-1 flex h-full flex-col'>
