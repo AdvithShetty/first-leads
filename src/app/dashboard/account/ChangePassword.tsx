@@ -9,6 +9,7 @@ import { z } from 'zod'
 export const schema = z.object({
   oldPassword: z.string().min(8),
   newPassword: z.string().min(8),
+  confirmNewPassword: z.string().min(8),
 })
 
 export type ChangePasswordSchemaType = z.infer<typeof schema>
@@ -23,6 +24,7 @@ const ChangePassword = () => {
     defaultValues: {
       oldPassword: '',
       newPassword: '',
+      confirmNewPassword: '',
     },
     resolver: zodResolver(schema),
   })
@@ -30,6 +32,13 @@ const ChangePassword = () => {
   const onSubmit = async (data: ChangePasswordSchemaType) => {
     if (data.oldPassword === data.newPassword) {
       toast.error('New password cannot be the same as old password', {
+        position: 'bottom-right',
+      })
+      return
+    }
+
+    if (data.newPassword !== data.confirmNewPassword) {
+      toast.error('New password and confirm new password do not match', {
         position: 'bottom-right',
       })
       return
@@ -62,6 +71,12 @@ const ChangePassword = () => {
           label='New Password'
           inputProps={{ ...register('newPassword'), type: 'password' }}
           error={errors.newPassword}
+          className='col-span-4'
+        />
+        <Input
+          label='Confirm New Password'
+          inputProps={{ ...register('confirmNewPassword'), type: 'password' }}
+          error={errors.confirmNewPassword}
           className='col-span-4'
         />
 
