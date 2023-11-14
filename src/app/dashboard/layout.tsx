@@ -15,7 +15,7 @@ const layout = ({ children }: { children: ReactNode }) => {
                 fill='#6721FF'
               />
             </svg>
-            Let's Get your business the Growth It Deserves
+            {`Let's Get your business the Growth It Deserves`}
           </h1>
           <Image src='/images/LogoWhite.png' width={250} height={100} alt='Logo' />
         </div>

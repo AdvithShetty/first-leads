@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 const UploadImage = () => {
   return (
     <div className='mt-10 flex items-center gap-8'>
