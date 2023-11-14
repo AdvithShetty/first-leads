@@ -21,8 +21,7 @@ const Cart = () => {
               <SelectedLeadRow
                 key={i}
                 leadType={item.name}
-                //TODO: Ask for plan data like basic or premium
-                plans={[{ title: `${item.areaValue} (${item.price})`, price: Number(item.price) }]}
+                plans={[{ title: `${item.areaValue} (${item.coverageType})`, price: Number(item.price) }]}
                 itemId={item.id}
               />
             ))
