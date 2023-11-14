@@ -1,8 +1,13 @@
+'use client'
 import GetCustomPlanCard from '@/components/Onboarding/SelectLead/GetCustomPlanCard'
 import LeadTypeCard from '@/components/Onboarding/SelectLead/LeadTypeCard'
+import usePicklists from '@/hooks/usePicklists'
+import { Skeleton } from '@nextui-org/react'
 import Image from 'next/image'
 
 const SelectLead = () => {
+  const { data: picklists, isLoading } = usePicklists()
+
   return (
     <div className='flex h-full w-full flex-col overflow-y-hidden p-16 2xl:w-4/5'>
       <Image src='/images/Onboarding/Logo.png' width={250} height={150} alt='Logo' className='object-contain' />
@@ -12,9 +17,11 @@ const SelectLead = () => {
         magna aliqua.
       </p>
       <div className='grid grid-cols-4 gap-10 py-10'>
-        {Array.from({ length: 6 }).map((_, i) => (
-          <LeadTypeCard key={i} />
-        ))}
+        {isLoading
+          ? Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} className='col-span-2 h-[230px] rounded-lg' />)
+          : picklists
+          ? picklists.leadTypes.map((picklist, i) => <LeadTypeCard key={i} {...picklist} />)
+          : null}
         <GetCustomPlanCard />
       </div>
     </div>

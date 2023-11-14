@@ -4,7 +4,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react'
 export const LeadTypeTitle = ({ title, description }: { title: string; description?: string }) => {
   return (
     <div className='flex items-center gap-2'>
-      <h1 className='font-quicksand text-[25px] font-bold text-black'>{title}</h1>
+      <h1 className='font-quicksand text-[25px] font-bold capitalize text-black'>{title}</h1>
       {description ? (
         <Popover
           placement='top'
@@ -22,7 +22,7 @@ export const LeadTypeTitle = ({ title, description }: { title: string; descripti
           </PopoverTrigger>
           <PopoverContent>
             <div className='flex w-full flex-col rounded-[15px] px-6 pb-6 pt-2'>
-              <h1 className='w-full font-sans text-[44px] font-extrabold leading-[72px] tracking-[-0.6px] text-black'>
+              <h1 className='w-full font-sans text-[44px] font-extrabold capitalize leading-[72px] tracking-[-0.6px] text-black'>
                 {title}
               </h1>
               <div
