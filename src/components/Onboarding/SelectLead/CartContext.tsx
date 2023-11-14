@@ -1,43 +1,25 @@
 import { ReactNode, createContext, useContext, useState } from 'react'
 
 export const CartContext = createContext<{
-  cart: CartItem[]
-  addToCart: (item: CartItem) => void
-  removeFromCart: (item: CartItem) => void
-}>({
-  cart: [],
-  addToCart: () => {},
-  removeFromCart: () => {},
-})
+  cartId: number | null
+  setCartId: (cartId: number | null) => void
+} | null>(null)
 
 export const CartContextProvider = ({ children }: { children: ReactNode }) => {
-  const [cart, setCart] = useState<CartItem[]>([])
-
-  const addToCart = (item: CartItem) => {
-    setCart([...cart, item])
-  }
-
-  const removeFromCart = (item: CartItem) => {
-    setCart(cart.filter((cartItem) => cartItem.id !== item.id))
-  }
+  const [cartId, setCartId] = useState<number | null>(null)
 
   const value = {
-    cart,
-    addToCart,
-    removeFromCart,
+    cartId,
+    setCartId,
   }
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }
 
-export const useCart = () => {
+export const useCartId = () => {
   const context = useContext(CartContext)
   if (!context) {
     throw new Error('useCart must be used within a CartContextProvider')
   }
   return context
-}
-
-export interface CartItem {
-  id: string
 }

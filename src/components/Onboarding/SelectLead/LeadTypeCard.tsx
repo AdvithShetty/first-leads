@@ -6,7 +6,7 @@ import { Button, Modal, ModalContent, ModalFooter, Pagination, Spinner, useDiscl
 import axios from 'axios'
 import { useCallback, useState } from 'react'
 import toast from 'react-hot-toast'
-import { useInterval } from 'usehooks-ts'
+import { useInterval, useLocalStorage } from 'usehooks-ts'
 import { LeadPlanPopover, LeadTypeTitle } from './common'
 
 const LeadTypeCard = ({
@@ -30,12 +30,12 @@ const LeadTypeCard = ({
   const [addedToCart, setAddedToCart] = useState(false)
   const { isOpen, onOpenChange, onOpen, onClose } = useDisclosure()
   const { data: user } = useUser()
+  const [, setCartIdInLocalStorage] = useLocalStorage('cartId', cartId)
 
   useInterval(() => setAddedToCart(false), 3000)
 
   const onAddToCart = useCallback(async () => {
     let _cartId: number | null = null
-    console.log('🚀 ~ file: LeadTypeCard.tsx:38 ~ onAddToCart ~ _cartId:', _cartId)
     if (!user) return
 
     if (!areaValue?.areaValue) return toast.error('Please select a location')
@@ -49,6 +49,8 @@ const LeadTypeCard = ({
 
     if (cartId) {
       _cartId = cartId
+      console.log('🚀 ~ file: LeadTypeCard.tsx:52 ~ onAddToCart ~ cartId:', cartId)
+      setCartIdInLocalStorage(cartId)
     }
 
     try {

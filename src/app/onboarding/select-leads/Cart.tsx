@@ -1,23 +1,29 @@
 'use client'
 import SelectedLeadRow from '@/components/Onboarding/SelectedLeadRow'
+import useCart from '@/hooks/useCart'
 import { Button } from '@nextui-org/react'
 import Link from 'next/link'
 
 const Cart = () => {
+  const { data: cart, isLoading } = useCart()
+  console.log('cart', cart)
+
   return (
     <div className='fixed flex h-full w-1/4 flex-col items-center font-sans'>
       <div className='no-scroll-bar h-4/5 w-full overflow-y-auto px-8 pt-10'>
         <h1 className='text-[38px] font-bold text-black'>Your Cart</h1>
-        {Array.from({ length: 5 }).map((_, i) => (
-          <SelectedLeadRow
-            key={i}
-            leadType='Lead Type'
-            plans={[
-              { title: 'Location (Basic)', price: 29 },
-              { title: 'Location (Premium)', price: 49 },
-            ]}
-          />
-        ))}
+        {isLoading
+          ? null
+          : cart
+          ? cart.items.map((item, i) => (
+              <SelectedLeadRow
+                key={i}
+                leadType={item.name}
+                //TODO: Ask for plan data like basic or premium
+                plans={[{ title: `${item.areaValue} (${item.price})`, price: Number(item.price) }]}
+              />
+            ))
+          : null}
       </div>
       <div className='h-1/5 w-full text-white'>
         <div className='flex h-3/5 w-full items-center justify-between bg-[#160042] px-8 py-4'>

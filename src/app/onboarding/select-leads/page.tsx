@@ -1,14 +1,14 @@
 'use client'
+import { useCartId } from '@/components/Onboarding/SelectLead/CartContext'
 import GetCustomPlanCard from '@/components/Onboarding/SelectLead/GetCustomPlanCard'
 import LeadTypeCard from '@/components/Onboarding/SelectLead/LeadTypeCard'
 import usePicklists from '@/hooks/usePicklists'
 import { Skeleton } from '@nextui-org/react'
 import Image from 'next/image'
-import { useState } from 'react'
 
 const SelectLead = () => {
   const { data: picklists, isLoading } = usePicklists()
-  const [cartId, setCartId] = useState<number | null>(null)
+  const { cartId, setCartId } = useCartId()
 
   return (
     <div className='flex h-full w-full flex-col overflow-y-hidden p-16 2xl:w-4/5'>

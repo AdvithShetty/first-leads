@@ -75,3 +75,19 @@ export interface AreaValues {
     areaValue: string
   }[]
 }
+
+export interface Cart {
+  id: number
+  userId: number
+  status: string
+  dateCreated: string
+  items: CartItems[]
+}
+
+export interface CartItems {
+  id: number
+  price: string
+  name: string
+  areaType: string
+  areaValue: string
+}
