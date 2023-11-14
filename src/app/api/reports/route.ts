@@ -63,22 +63,24 @@ export async function POST(request: Request) {
       }
     )
 
+    const reqParams = search
+      ? { search, page, rows }
+      : {
+          page,
+          rows,
+        }
+
     const res = await backend.post('/reports/search', body, {
       headers: {
         'Content-Type': 'application/json',
       },
-      params: search
-        ? { search, page, rows }
-        : {
-            page,
-            rows,
-          },
+      params: reqParams,
     })
     const data = await res.data
 
     return Response.json(data)
   } catch (error: any) {
-    console.log('error', error)
+    console.log('error', error?.response?.data || error?.response)
 
     return Response.json(
       {

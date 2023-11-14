@@ -43,7 +43,6 @@ const SignIn = () => {
   })
 
   const onSubmit = async (data: SignInSchemaType) => {
-    console.log(data)
     try {
       const res = await axios.post<UserResponse>('/api/login', {
         email: data.email,

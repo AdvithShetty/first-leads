@@ -67,7 +67,7 @@ export async function GET(request: Request) {
 
     return Response.json(data)
   } catch (error: any) {
-    console.log('error', error)
+    console.log('error', error?.response?.data || error?.response)
 
     return Response.json(
       {

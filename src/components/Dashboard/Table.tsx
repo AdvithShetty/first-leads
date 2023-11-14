@@ -12,6 +12,7 @@ interface TableProps {
     fileName: string
     leadType: string
     date: string
+    link: string
   }[]
 }
 
@@ -31,13 +32,20 @@ const Table = ({ columns, rows }: TableProps) => {
       <div className='col-span-full h-[1px] rounded-full bg-[#F5F5F5]' />
       {rows.map((row, i) => (
         <Fragment key={i}>
-          <h1 className='col-span-3 py-2 font-rubik text-[15px] font-normal text-[#686868]'>{row.fileName}</h1>
-          <h1 className='col-span-4 py-2 font-rubik text-[15px] font-normal text-[#686868]'>{row.leadType}</h1>
-          <h1 className='col-span-2 py-2 font-rubik text-[15px] font-normal text-[#686868]'>{row.date}</h1>
+          <h1 className='col-span-3 py-2 font-rubik text-[15px] font-normal capitalize text-[#686868]'>
+            {row.fileName}
+          </h1>
+          <h1 className='col-span-4 py-2 font-rubik text-[15px] font-normal capitalize text-[#686868]'>
+            {row.leadType}
+          </h1>
+          <h1 className='col-span-2 py-2 font-rubik text-[15px] font-normal text-[#686868]'>
+            {dateInHumanReadableFormat(row.date)}
+          </h1>
           <div className='col-span-2 pb-2'>
             <Button
               type='button'
               className='flex h-11 w-3/4 items-center gap-2 rounded-[10px] border border-[#0000001C] bg-[#7363F3] px-4 font-rubik text-[13px] font-normal text-white'
+              onClick={() => window.open(row.link, '_blank')}
             >
               <DownloadReportIcon />
               Download
@@ -50,3 +58,12 @@ const Table = ({ columns, rows }: TableProps) => {
 }
 
 export default Table
+
+const dateInHumanReadableFormat = (date: string) => {
+  const dateObject = new Date(date)
+  return dateObject.toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  })
+}

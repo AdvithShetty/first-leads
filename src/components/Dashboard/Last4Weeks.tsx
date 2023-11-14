@@ -14,7 +14,6 @@ const Last4Weeks = () => {
   const { data: reports, isLoading } = useUserReports({
     startDate,
   })
-  console.log('🚀 ~ file: Last4Weeks.tsx:7 ~ Last4Weeks ~ data', reports)
 
   if (isLoading || !reports)
     return (
@@ -28,8 +27,9 @@ const Last4Weeks = () => {
       columns={columns}
       rows={reports.results?.map((report) => ({
         fileName: report.name,
-        leadType: String(report.leadTypeId),
+        leadType: report.leadType,
         date: report.createdAt,
+        link: report.url,
       }))}
     />
   )

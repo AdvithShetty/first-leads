@@ -8,7 +8,7 @@ export async function GET() {
 
     return Response.json(data)
   } catch (error: any) {
-    console.log('Error in Picklists', error)
+    console.log('Error in Picklists', error?.response?.data || error?.response)
 
     return Response.json(
       {

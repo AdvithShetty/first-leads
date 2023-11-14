@@ -11,7 +11,7 @@ export async function GET(request: Request) {
 
     return Response.json(data)
   } catch (error: any) {
-    console.log('Error in Get Cart Items', error)
+    console.log('Error in Get Cart Items', error?.response?.data || error?.response)
 
     return Response.json(
       {

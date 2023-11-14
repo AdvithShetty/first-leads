@@ -90,6 +90,8 @@ export interface CartItems {
   name: string
   areaType: string
   areaValue: string
+  leadTypeId: number
+  coverageType: string
 }
 
 export interface Reports {
@@ -102,5 +104,6 @@ export interface Reports {
     url: string
     createdAt: string
     leadTypeId: number
+    leadType: string
   }[]
 }

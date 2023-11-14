@@ -9,6 +9,7 @@ export async function POST(request: Request) {
 
     return Response.json(data)
   } catch (error: any) {
+    console.log('error', error?.response?.data || error?.response)
     return Response.json(
       {
         error: 'Something went wrong',

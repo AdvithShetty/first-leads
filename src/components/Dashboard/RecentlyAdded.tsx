@@ -28,8 +28,9 @@ const RecentlyAdded = () => {
           columns={columns}
           rows={reports.results?.map((report) => ({
             fileName: report.name,
-            leadType: String(report.leadTypeId),
+            leadType: report.leadType,
             date: report.createdAt,
+            link: report.url,
           }))}
         />
       ) : null}

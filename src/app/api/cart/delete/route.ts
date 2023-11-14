@@ -24,7 +24,7 @@ export async function DELETE(request: Request) {
 
     return Response.json(data)
   } catch (error: any) {
-    console.log('Error while Deleting Cart', error?.response)
+    console.log('Error while Deleting Cart', error?.response?.data || error?.response)
     return Response.json(
       {
         error: 'Something went wrong',

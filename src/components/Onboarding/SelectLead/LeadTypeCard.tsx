@@ -41,7 +41,6 @@ const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadT
 
     if (cartId) {
       _cartId = cartId
-      console.log('🚀 ~ file: LeadTypeCard.tsx:42 ~ onAddToCart ~ cartId:', cartId)
     }
 
     try {

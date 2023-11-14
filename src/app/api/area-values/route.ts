@@ -28,7 +28,7 @@ export async function GET(request: Request) {
 
     return Response.json(data)
   } catch (error: any) {
-    console.log('Error in Area Values', error)
+    console.log('Error in Area Values', error?.response?.data || error?.response)
 
     return Response.json(
       {

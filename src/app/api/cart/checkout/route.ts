@@ -23,7 +23,7 @@ export async function GET(request: Request) {
 
     return Response.json(data)
   } catch (error: any) {
-    console.log('Error while checkout', error)
+    console.log('Error while checkout', error?.response?.data || error?.response)
 
     return Response.json(
       {

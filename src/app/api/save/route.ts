@@ -13,6 +13,7 @@ export async function POST(request: Request) {
 
     return Response.json(data)
   } catch (error: any) {
+    console.log('error', error?.response?.data || error?.response)
     if (error.response.status === 409) {
       return Response.json(
         {

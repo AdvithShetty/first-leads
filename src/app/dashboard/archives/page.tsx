@@ -1,14 +1,16 @@
 'use client'
-import ArchivesTable from '@/components/Dashboard/ArchivesTable'
 import Pagination from '@/components/Dashboard/Pagination'
+import Table from '@/components/Dashboard/Table'
 import { CalenderIcon, SearchIcon } from '@/components/Dashboard/icons'
 import usePicklists from '@/hooks/usePicklists'
-import { Input, Select, SelectItem } from '@nextui-org/react'
+import useUserReports from '@/hooks/useUserReports'
+import { Input, Select, SelectItem, Spinner } from '@nextui-org/react'
 import { useMemo, useState } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
 const Archives = () => {
+  const [searchInput, setSearchInput] = useState<string>('')
   const [startDate, setStartDate] = useState<Date>()
   const { data: picklists, isLoading: isPicklistsLoading } = usePicklists()
 
@@ -16,6 +18,11 @@ const Archives = () => {
     if (isPicklistsLoading || !picklists) return []
     return picklists.leadTypes.map((leadType) => leadType.name)
   }, [isPicklistsLoading, picklists])
+
+  const { data: reports, isLoading: isReportsLoading } = useUserReports({
+    startDate: startDate?.toISOString(),
+    search: searchInput,
+  })
 
   return (
     <div className='w-full px-10 py-6'>
@@ -57,10 +64,28 @@ const Archives = () => {
               inputWrapper: 'h-[3.5rem]',
             }}
             className='w-[223px]'
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
           />
         </div>
       </div>
-      <ArchivesTable />
+      <div className='pt-10'>
+        {isReportsLoading ? (
+          <div className='flex min-h-[20rem] w-full items-center justify-center'>
+            <Spinner size='lg' color='secondary' />
+          </div>
+        ) : reports ? (
+          <Table
+            columns={columns}
+            rows={reports.results?.map((report) => ({
+              fileName: report.name,
+              leadType: report.leadType,
+              date: report.createdAt,
+              link: report.url,
+            }))}
+          />
+        ) : null}
+      </div>
       <div className='flex items-center justify-between pt-8'>
         <Pagination />
         <p className='font-rubik text-sm font-normal text-black'>© 2023 All Right Reserved by First Leads</p>
@@ -70,3 +95,22 @@ const Archives = () => {
 }
 
 export default Archives
+
+const columns = [
+  {
+    title: 'File Name',
+    className: 'col-span-3',
+  },
+  {
+    title: 'Lead Type',
+    className: 'col-span-4',
+  },
+  {
+    title: 'Date',
+    className: 'col-span-2',
+  },
+  {
+    title: 'Status',
+    className: 'col-span-2',
+  },
+]
