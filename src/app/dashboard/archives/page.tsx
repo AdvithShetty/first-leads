@@ -14,6 +14,13 @@ const Archives = () => {
   const [startDate, setStartDate] = useState<Date>()
   const { data: picklists, isLoading: isPicklistsLoading } = usePicklists()
 
+  const [currentPage, setCurrentPage] = useState(1)
+  console.log('🚀 ~ file: page.tsx:18 ~ Archives ~ currentPage:', currentPage)
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage)
+  }
+
   const leadTypes = useMemo(() => {
     if (isPicklistsLoading || !picklists) return []
     return picklists.leadTypes.map((leadType) => leadType.name)
@@ -22,7 +29,14 @@ const Archives = () => {
   const { data: reports, isLoading: isReportsLoading } = useUserReports({
     startDate: startDate?.toISOString(),
     search: searchInput,
+    page: currentPage - 1,
+    rows: 10,
   })
+
+  const totalPages = useMemo(() => {
+    if (isReportsLoading || !reports) return 0
+    return Math.ceil(reports.total / 10)
+  }, [isReportsLoading, reports])
 
   return (
     <div className='w-full px-10 py-6'>
@@ -88,8 +102,10 @@ const Archives = () => {
         ) : null}
       </div>
       <div className='flex items-center justify-between pt-8'>
-        <Pagination />
-        <p className='font-rubik text-sm font-normal text-black'>© 2023 All Right Reserved by First Leads</p>
+        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+        <p className='select-none font-rubik text-sm font-normal text-black'>
+          © 2023 All Right Reserved by First Leads
+        </p>
       </div>
     </div>
   )
