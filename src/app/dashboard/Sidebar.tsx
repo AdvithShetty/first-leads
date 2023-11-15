@@ -84,7 +84,7 @@ const Sidebar = () => {
               transition={{
                 duration: 0.5,
               }}
-              className='fixed left-0 top-0 flex h-full w-3/4 flex-col items-center justify-between bg-[#160042]'
+              className='fixed left-0 top-0 z-10 flex h-full w-3/4 flex-col items-center justify-between bg-[#160042]'
             >
               <div className='flex w-3/4 justify-end pt-6'>
                 <button className='block rounded-full bg-white p-2.5 lg:hidden' onClick={onClose}>

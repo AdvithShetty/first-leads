@@ -17,7 +17,7 @@ const RecentlyAdded = () => {
 
   return (
     <>
-      <h2 className='pb-6 pt-8 font-sans text-2xl font-semibold text-black'>Recently Added</h2>
+      <h2 className='pb-6 pt-8 font-sans text-lg font-semibold text-black lg:text-2xl'>Recently Added</h2>
       {isLoading ? (
         <div className='flex min-h-[20rem] w-full items-center justify-center'>
           <Spinner size='lg' color='secondary' />

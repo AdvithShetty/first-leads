@@ -5,20 +5,14 @@ import Link from 'next/link'
 const NeedMoreLeads = ({ buttonStyles }: { buttonStyles?: string }) => {
   return (
     <div
-      className='my-8 flex w-full items-center justify-between gap-2 rounded-md bg-[#7363F3] px-10 py-10'
+      className='my-8 flex w-full flex-wrap items-center justify-between gap-2 rounded-md bg-[#7363F3] p-6 lg:p-10'
       style={{
         boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.10)',
       }}
     >
-      <div className='3/5 flex flex-col'>
-        <h1 className='font-sans text-[32px] font-medium text-white'>{`Didn't find what you're looking for`}</h1>
-        {/* <p className={`${paragraphWidth} font-rubik text-xs font-normal text-[#EDEDED]`}>
-          Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis a liberotempus, blandit and cursus
-          varius and magnis sapien
-        </p> */}
-      </div>
+      <h1 className='text-center font-sans text-lg font-medium text-white lg:text-left lg:text-[32px]'>{`Didn't find what you're looking for`}</h1>
       <Button
-        className={`h-12 shrink-0 rounded-lg bg-black font-inter text-base font-medium text-white ${buttonStyles}`}
+        className={`mx-auto h-12 shrink-0 rounded-lg bg-black font-inter text-base font-medium text-white lg:mx-0 ${buttonStyles}`}
       >
         <Link href='/contact'>Get In Touch</Link>
       </Button>
