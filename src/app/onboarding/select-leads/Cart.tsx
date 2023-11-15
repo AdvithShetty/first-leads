@@ -1,10 +1,12 @@
 'use client'
+import { CrossIcon } from '@/components/Dashboard/icons'
 import SelectedLeadRow from '@/components/Onboarding/SelectedLeadRow'
 import useCart from '@/hooks/useCart'
 import { Button, Checkbox, Skeleton } from '@nextui-org/react'
 import axios from 'axios'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
+import { useCartDisclosure } from './CartSidebarContext'
 
 const Cart = () => {
   const { data: cart, isLoading } = useCart()
@@ -12,10 +14,17 @@ const Cart = () => {
   const total = cart?.items.reduce((acc, item) => acc + Number(item.price), 0)
   const [termsAgreed, setTermsAgreed] = useState(true)
 
+  const { onClose } = useCartDisclosure()
+
   return (
-    <div className='fixed flex h-full w-1/4 flex-col items-center font-sans'>
+    <div className='absolute top-0 flex h-full w-full flex-col items-center font-sans lg:fixed lg:w-1/4'>
       <div className='no-scroll-bar h-auto w-full overflow-y-auto px-8 pt-10'>
-        <h1 className='text-[38px] font-bold text-black'>Your Cart</h1>
+        <div className='flex items-center justify-between'>
+          <h1 className='text-[38px] font-bold text-black'>Your Cart</h1>
+          <button className='block rounded-full bg-white p-3 lg:hidden' onClick={onClose}>
+            <CrossIcon className='h-4 w-4' />
+          </button>
+        </div>
         {isLoading ? (
           Array.from({ length: 3 }).map((_, i) => <Skeleton key={i} className='mt-8 h-20 w-full rounded-lg' />)
         ) : cart?.items.length ? (

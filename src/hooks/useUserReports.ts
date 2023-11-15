@@ -34,8 +34,6 @@ const useUserReports = ({ page, rows, search, startDate, leadTypeId }: Partial<U
             }
           : {}
 
-      console.log('body', body)
-
       const res = await axios.post<Reports>('/api/reports', body, {
         params: {
           page,

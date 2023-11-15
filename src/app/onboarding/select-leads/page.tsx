@@ -5,9 +5,11 @@ import LeadTypeCard from '@/components/Onboarding/SelectLead/LeadTypeCard'
 import usePicklists from '@/hooks/usePicklists'
 import { Skeleton } from '@nextui-org/react'
 import Image from 'next/image'
+import { useCartDisclosure } from './CartSidebarContext'
 
 const SelectLead = () => {
   const { data: picklists, isLoading } = usePicklists()
+  const { onOpen } = useCartDisclosure()
 
   return (
     <div className='flex h-full w-full flex-col overflow-y-hidden px-6 py-10 lg:p-16 2xl:w-4/5'>
@@ -15,7 +17,7 @@ const SelectLead = () => {
         <div className='relative h-[65px] w-3/5 lg:h-[80px] lg:w-[250px]'>
           <Image src='/images/Onboarding/Logo.png' fill alt='Logo' className='object-contain' />
         </div>
-        <button className='block lg:hidden'>
+        <button className='block lg:hidden' onClick={onOpen}>
           <CartIcon />
         </button>
       </div>
