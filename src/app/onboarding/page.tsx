@@ -1,7 +1,27 @@
+'use client'
+import LoadingUi from '@/components/LoadingUi'
 import OnboardingDetailsForm from '@/components/Onboarding/OnboardingDetailsForm'
+import useUser from '@/hooks/useUser'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
+import { useIsClient } from 'usehooks-ts'
 
 const Onboarding = () => {
+  const router = useRouter()
+
+  const { data: user, isLoading: isUserLoading, isSuccess } = useUser()
+
+  useEffect(() => {
+    if (user) {
+      router.push('/dashboard')
+    }
+  }, [router, user])
+
+  const isClient = useIsClient()
+
+  if ((isUserLoading && !isSuccess) || !isClient) return <LoadingUi />
+
   return (
     <div className='flex min-h-screen w-full flex-col items-center justify-center bg-white py-10'>
       <Image src='/images/Onboarding/Logo.png' width={400} height={150} alt='Logo' className='object-contain' />

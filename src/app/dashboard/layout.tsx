@@ -1,8 +1,28 @@
+'use client'
+import LoadingUi from '@/components/LoadingUi'
+import useRefreshToken from '@/hooks/useRefreshToken'
+import useUser from '@/hooks/useUser'
 import Image from 'next/image'
-import { ReactNode } from 'react'
+import { useRouter } from 'next/navigation'
+import { ReactNode, useEffect } from 'react'
+import useIsClient from 'usehooks-ts/dist/esm/useIsClient/useIsClient'
 import Sidebar from './Sidebar'
 
-const layout = ({ children }: { children: ReactNode }) => {
+const Layout = ({ children }: { children: ReactNode }) => {
+  const { data: user, isLoading: isUserLoading, isSuccess } = useUser()
+  const { refreshToken } = useRefreshToken()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!refreshToken) {
+      router.replace('/signin')
+    }
+  }, [refreshToken, router])
+
+  const isClient = useIsClient()
+
+  if ((isUserLoading && !isSuccess) || !isClient) return <LoadingUi />
+
   return (
     <div className='grid h-screen grid-cols-6 bg-[#160042]'>
       <Sidebar />
@@ -25,4 +45,4 @@ const layout = ({ children }: { children: ReactNode }) => {
   )
 }
 
-export default layout
+export default Layout

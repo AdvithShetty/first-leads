@@ -25,3 +25,29 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;
 }
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: white;
+  color: black;
+}
+
+.loading-spinner {
+  display: flex;
+  gap: 8px;
+}
+
+.loading-spinner-circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #6721ff;
+}
+
+.loading-text {
+  margin-top: 16px;
+}

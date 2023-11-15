@@ -1,6 +1,8 @@
 'use client'
 import { EmailIcon, EyeFilledIcon, EyeSlashFilledIcon } from '@/components/Input'
+import LoadingUi from '@/components/LoadingUi'
 import useRefreshToken from '@/hooks/useRefreshToken'
+import useUser from '@/hooks/useUser'
 import { UserResponse } from '@/utils/interface'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Input, useDisclosure } from '@nextui-org/react'
@@ -8,9 +10,10 @@ import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
+import { useIsClient } from 'usehooks-ts'
 import { z } from 'zod'
 import ForgorPasswordModal from './ForgorPasswordModal'
 
@@ -56,6 +59,18 @@ const SignIn = () => {
       console.log('error', error?.response?.data.error)
     }
   }
+
+  const { data: user, isLoading: isUserLoading, isSuccess } = useUser()
+
+  useEffect(() => {
+    if (user) {
+      router.push('/dashboard')
+    }
+  }, [router, user])
+
+  const isClient = useIsClient()
+
+  if ((isUserLoading && !isSuccess) || !isClient) return <LoadingUi />
 
   return (
     <div className='flex w-full gap-10 bg-white p-8'>

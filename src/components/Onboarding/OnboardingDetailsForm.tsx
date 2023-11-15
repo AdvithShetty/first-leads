@@ -1,13 +1,11 @@
 'use client'
 import { useIsClient } from '@/hooks/useIsClient'
 import useRefreshToken from '@/hooks/useRefreshToken'
-import useUser from '@/hooks/useUser'
 import { UserResponse } from '@/utils/interface'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@nextui-org/react'
 import axios, { isAxiosError } from 'axios'
 import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { useSessionStorage } from 'usehooks-ts'
@@ -30,14 +28,6 @@ const OnboardingDetailsForm = () => {
   const { setRefreshToken } = useRefreshToken()
 
   const router = useRouter()
-
-  const { data: user } = useUser()
-
-  useEffect(() => {
-    if (user) {
-      router.push('/dashboard')
-    }
-  }, [router, user])
 
   const {
     register,
