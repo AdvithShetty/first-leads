@@ -14,18 +14,22 @@ const Cart = () => {
     <div className='fixed flex h-full w-1/4 flex-col items-center font-sans'>
       <div className='no-scroll-bar h-4/5 w-full overflow-y-auto px-8 pt-10'>
         <h1 className='text-[38px] font-bold text-black'>Your Cart</h1>
-        {isLoading
-          ? Array.from({ length: 3 }).map((_, i) => <Skeleton key={i} className='mt-8 h-1/5 w-full rounded-lg' />)
-          : cart
-          ? cart.items.map((item, i) => (
-              <SelectedLeadRow
-                key={i}
-                leadType={item.name}
-                plans={[{ title: `${item.areaValue} (${item.coverageType})`, price: Number(item.price) }]}
-                itemId={item.id}
-              />
-            ))
-          : null}
+        {isLoading ? (
+          Array.from({ length: 3 }).map((_, i) => <Skeleton key={i} className='mt-8 h-1/5 w-full rounded-lg' />)
+        ) : cart?.items.length ? (
+          cart.items.map((item, i) => (
+            <SelectedLeadRow
+              key={i}
+              leadType={item.name}
+              plans={[{ title: `${item.areaValue} (${item.coverageType})`, price: Number(item.price) }]}
+              itemId={item.id}
+            />
+          ))
+        ) : (
+          <div className='mt-10 flex w-full items-center justify-center border-y border-[#ddd] py-6 font-outfit text-lg text-[#777]'>
+            Empty Cart
+          </div>
+        )}
       </div>
       <div className='h-1/5 w-full text-white'>
         <div className='flex h-3/5 w-full items-center justify-between bg-[#160042] px-8 py-4'>
