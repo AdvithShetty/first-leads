@@ -30,6 +30,7 @@ const SignIn = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
   const { setRefreshToken } = useRefreshToken()
   const router = useRouter()
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const {
     handleSubmit,
@@ -44,6 +45,7 @@ const SignIn = () => {
   })
 
   const onSubmit = async (data: SignInSchemaType) => {
+    setIsSubmitting(true)
     try {
       const res = await axios.post<UserResponse>('/api/login', {
         email: data.email,
@@ -52,9 +54,11 @@ const SignIn = () => {
 
       setRefreshToken(res.data.refreshToken)
 
+      setIsSubmitting(false)
       toast.success('Logged in successfully: Redirecting to dashboard...')
       router.push('/dashboard')
     } catch (error: any) {
+      setIsSubmitting(false)
       toast.error("We couldn't find an account matching the email and password you entered. Please try again.")
       console.log('error', error?.response?.data.error)
     }
@@ -148,6 +152,8 @@ const SignIn = () => {
           <Button
             type='submit'
             className='h-14 w-full rounded-lg bg-[#6941C6] font-inter text-lg font-semibold text-white 2xl:w-3/4'
+            isLoading={isSubmitting}
+            isDisabled={isSubmitting}
           >
             Sign In
           </Button>
