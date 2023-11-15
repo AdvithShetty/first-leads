@@ -14,7 +14,6 @@ const RecentlyAdded = () => {
   const { data: reports, isLoading } = useUserReports({
     startDate,
   })
-  console.log('🚀 ~ file: RecentlyAdded.tsx:7 ~ RecentlyAdded ~ reports:', reports)
 
   return (
     <>
