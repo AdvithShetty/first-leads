@@ -99,13 +99,13 @@ const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadT
 
   return (
     <div
-      className='col-span-2 flex flex-col rounded-[10px] bg-white px-6 py-4'
+      className='col-span-full flex flex-col rounded-[10px] bg-white px-6 py-4 lg:col-span-2'
       style={{
         boxShadow: '0px 0px 30px 3px rgba(0, 0, 0, 0.07)',
       }}
     >
       <LeadTypeTitle title={name} description={description} />
-      <div className='flex items-center justify-between pt-4'>
+      <div className='flex flex-col items-start justify-between gap-2 pt-4 lg:flex-row lg:items-center lg:gap-0'>
         <div className='flex gap-2'>
           <button
             type='button'

@@ -4,7 +4,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react'
 export const LeadTypeTitle = ({ title, description }: { title: string; description?: string }) => {
   return (
     <div className='flex items-center gap-2'>
-      <h1 className='font-quicksand text-[25px] font-bold capitalize text-black'>{title}</h1>
+      <h1 className='font-quicksand text-xl font-bold capitalize text-black lg:text-[25px]'>{title}</h1>
       {description ? (
         <Popover
           placement='top'
