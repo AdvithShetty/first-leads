@@ -7,19 +7,36 @@ interface UserReport {
   rows: number
   search: string
   startDate: string
+  leadTypeId: number
 }
 
-const useUserReports = ({ page, rows, search, startDate }: Partial<UserReport>) => {
+const useUserReports = ({ page, rows, search, startDate, leadTypeId }: Partial<UserReport>) => {
   return useQuery(
-    ['userReports', page, rows, search, startDate],
+    ['userReports', page, rows, search, startDate, leadTypeId],
     async () => {
-      const body = {
-        createdAt: {
-          startDate,
-        },
-      }
+      const body =
+        startDate && leadTypeId
+          ? {
+              createdAt: {
+                startDate,
+              },
+              leadTypeId,
+            }
+          : startDate
+          ? {
+              createdAt: {
+                startDate,
+              },
+            }
+          : leadTypeId
+          ? {
+              leadTypeId,
+            }
+          : {}
 
-      const res = await axios.post<Reports>('/api/reports', startDate ? body : {}, {
+      console.log('body', body)
+
+      const res = await axios.post<Reports>('/api/reports', body, {
         params: {
           page,
           rows,

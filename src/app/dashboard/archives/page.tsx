@@ -25,11 +25,21 @@ const Archives = () => {
     return picklists.leadTypes.map((leadType) => leadType.name)
   }, [isPicklistsLoading, picklists])
 
+  const [value, setValue] = useState(new Set<string>([]))
+
+  const leadTypeId = useMemo(() => {
+    const selectedLeadIndex = Number(Array.from(value)[0])
+
+    if (isPicklistsLoading || !picklists || isNaN(selectedLeadIndex)) return null
+    return picklists.leadTypes[selectedLeadIndex].id
+  }, [isPicklistsLoading, picklists, value])
+
   const { data: reports, isLoading: isReportsLoading } = useUserReports({
     startDate: startDate?.toISOString(),
     search: searchInput,
     page: currentPage - 1,
     rows: 10,
+    leadTypeId: leadTypeId as number,
   })
 
   const totalPages = useMemo(() => {
@@ -51,6 +61,8 @@ const Archives = () => {
               listboxWrapper: 'font-inter text-sm font-normal text-[#686868] capitalize',
               innerWrapper: 'font-inter text-sm font-normal text-[#686868] capitalize',
             }}
+            selectedKeys={value}
+            onSelectionChange={setValue as any}
           >
             {leadTypes.map((type, i) => (
               <SelectItem key={i} value={type} className='capitalize'>

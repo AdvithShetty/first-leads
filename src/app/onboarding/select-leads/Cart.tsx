@@ -17,7 +17,7 @@ const Cart = () => {
       <div className='no-scroll-bar h-auto w-full overflow-y-auto px-8 pt-10'>
         <h1 className='text-[38px] font-bold text-black'>Your Cart</h1>
         {isLoading ? (
-          Array.from({ length: 3 }).map((_, i) => <Skeleton key={i} className='mt-8 h-1/5 w-full rounded-lg' />)
+          Array.from({ length: 3 }).map((_, i) => <Skeleton key={i} className='mt-8 h-20 w-full rounded-lg' />)
         ) : cart?.items.length ? (
           cart.items.map((item, i) => (
             <SelectedLeadRow
@@ -63,7 +63,7 @@ const Cart = () => {
           className='flex h-16 w-full items-center justify-center gap-3 rounded-none bg-[#6941C6] p-0 text-2xl font-bold text-white'
           type='button'
           disabled={!total}
-          onClick={async (e) => {
+          onClick={async () => {
             if (!termsAgreed) return toast.error('Please agree to the terms and conditions')
 
             try {
@@ -73,11 +73,10 @@ const Cart = () => {
                 },
               })
 
-              if (res.data.id) {
+              if (res) {
                 toast.success('Checkout successful: Redirecting to payment page')
-                console.log('res.data.url', res.data.url)
 
-                window.location.href = res.data.url
+                window.location.href = res.data
               }
             } catch (error) {
               toast.error('Error while checking out')
