@@ -2,11 +2,20 @@
 
 import Pagination from '@/components/Dashboard/Pagination'
 import { Button, useDisclosure } from '@nextui-org/react'
+import { useState } from 'react'
 import AddNewLeadsModal from './AddNewLeadsModal'
 import LeadTypesTable from './LeadTypesTable'
 
 const Page = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
+
+  const [currentPage, setCurrentPage] = useState(1)
+
+  const totalPages = 10
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage)
+  }
 
   return (
     <div className='w-full px-10 pb-14 pt-10'>
@@ -22,7 +31,7 @@ const Page = () => {
       </div>
       <LeadTypesTable />
       <div className='pt-10'>
-        <Pagination />
+        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
       </div>
       <AddNewLeadsModal isOpen={isOpen} onClose={onOpenChange} />
     </div>

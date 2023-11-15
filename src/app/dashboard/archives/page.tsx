@@ -15,7 +15,6 @@ const Archives = () => {
   const { data: picklists, isLoading: isPicklistsLoading } = usePicklists()
 
   const [currentPage, setCurrentPage] = useState(1)
-  console.log('🚀 ~ file: page.tsx:18 ~ Archives ~ currentPage:', currentPage)
 
   const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage)
