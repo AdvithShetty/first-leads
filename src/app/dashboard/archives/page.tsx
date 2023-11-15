@@ -36,6 +36,7 @@ const Archives = () => {
             classNames={{
               label: 'font-inter text-sm font-normal text-[#686868] capitalize',
               listboxWrapper: 'font-inter text-sm font-normal text-[#686868] capitalize',
+              innerWrapper: 'font-inter text-sm font-normal text-[#686868] capitalize',
             }}
           >
             {leadTypes.map((type, i) => (
