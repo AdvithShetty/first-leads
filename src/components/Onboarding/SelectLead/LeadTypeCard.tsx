@@ -36,7 +36,35 @@ const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadT
       axios.post('/api/cart/create', { userId: user.id }).then((res) => {
         _cartId = res.data.id
         setCartId(res.data.id)
+        axios
+          .post(
+            '/api/cart/add',
+            {
+              itemId: plan === 'basic' ? basicPrice.id : premiumPrice.id,
+              areaType: areaValue?.areaType,
+              areaValue: areaValue.areaValue,
+            },
+            {
+              params: {
+                cartId: _cartId,
+              },
+            }
+          )
+          .then((res) => {
+            queryClient.invalidateQueries(['cart', _cartId])
+
+            if (res) {
+              setAddedToCart(true)
+              toast.success('Added to cart')
+            }
+          })
+          .catch((err) => {
+            toast.error('Error Creating cart')
+            console.log('Error Creating cart', err)
+          })
       })
+
+      return
     }
 
     if (cartId) {
