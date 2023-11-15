@@ -1,18 +1,20 @@
 'use client'
 import SelectedLeadRow from '@/components/Onboarding/SelectedLeadRow'
 import useCart from '@/hooks/useCart'
-import { Button, Skeleton } from '@nextui-org/react'
+import { Button, Checkbox, Skeleton } from '@nextui-org/react'
 import axios from 'axios'
+import { useState } from 'react'
 import toast from 'react-hot-toast'
 
 const Cart = () => {
   const { data: cart, isLoading } = useCart()
 
   const total = cart?.items.reduce((acc, item) => acc + Number(item.price), 0)
+  const [termsAgreed, setTermsAgreed] = useState(true)
 
   return (
     <div className='fixed flex h-full w-1/4 flex-col items-center font-sans'>
-      <div className='no-scroll-bar h-4/5 w-full overflow-y-auto px-8 pt-10'>
+      <div className='no-scroll-bar h-auto w-full overflow-y-auto px-8 pt-10'>
         <h1 className='text-[38px] font-bold text-black'>Your Cart</h1>
         {isLoading ? (
           Array.from({ length: 3 }).map((_, i) => <Skeleton key={i} className='mt-8 h-1/5 w-full rounded-lg' />)
@@ -31,8 +33,23 @@ const Cart = () => {
           </div>
         )}
       </div>
-      <div className='h-1/5 w-full text-white'>
-        <div className='flex h-3/5 w-full items-center justify-between bg-[#160042] px-8 py-4'>
+      <div className='mt-auto w-full text-white'>
+        <div className='flex flex-col gap-2 px-6 py-4'>
+          <Checkbox
+            defaultSelected
+            size='sm'
+            className='font-outfit text-sm font-medium'
+            color='secondary'
+            isSelected={termsAgreed}
+            onValueChange={setTermsAgreed}
+          >
+            Terms & Conditions
+          </Checkbox>
+          <Checkbox size='sm' className='font-outfit text-sm font-medium' color='secondary'>
+            Opt in to receive marketing emails and new updates.{' '}
+          </Checkbox>
+        </div>
+        <div className='flex w-full items-center justify-between bg-[#160042] px-8 py-4'>
           <div className='flex w-1/2 flex-col'>
             <h1 className='text-[30px] font-bold'>Sub Total</h1>
             <p className='text-sm font-medium'>(Exclusive Tax)</p>
@@ -43,11 +60,11 @@ const Cart = () => {
           </div>
         </div>
         <Button
-          className='flex h-2/5 w-full items-center justify-center gap-3 rounded-none bg-[#6941C6] p-0  text-2xl font-bold text-white'
+          className='flex h-16 w-full items-center justify-center gap-3 rounded-none bg-[#6941C6] p-0 text-2xl font-bold text-white'
           type='button'
           disabled={!total}
           onClick={async (e) => {
-            e.stopPropagation()
+            if (!termsAgreed) return toast.error('Please agree to the terms and conditions')
 
             try {
               const res = await axios.get('/api/cart/checkout', {

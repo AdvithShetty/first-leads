@@ -1,5 +1,4 @@
 'use client'
-import { motion } from 'framer-motion'
 import { useState } from 'react'
 import PlanCards from './PlanCards'
 
@@ -18,8 +17,8 @@ const PricingTabs = () => {
   const [activeTab, setActiveTab] = useState<AvailableTabs>(AvailableTabs.Monthly)
 
   return (
-    <div className='flex flex-col items-center gap-10'>
-      <div className='relative mb-4 mt-10'>
+    <div className='flex flex-col items-center gap-10 pt-10'>
+      {/* <div className='relative mb-4 mt-10'>
         <div className='relative z-0 flex overflow-hidden rounded-[10px] border border-[#00000052] bg-white font-outfit'>
           <motion.div
             className={`absolute z-[-1] h-12 w-40 bg-purple-2 xl:h-14 xl:w-52 ${
@@ -46,7 +45,7 @@ const PricingTabs = () => {
         <h3 className='absolute -right-6 -top-6 grid h-12 w-12 place-items-center rounded-full bg-[#FE3232] font-outfit text-[17px] font-semibold text-white'>
           -15%
         </h3>
-      </div>
+      </div> */}
 
       <PlanCards />
     </div>
