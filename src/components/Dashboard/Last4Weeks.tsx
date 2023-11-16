@@ -31,6 +31,7 @@ const Last4Weeks = () => {
         date: report.createdAt,
         link: report.url,
       }))}
+      responsiveColumns={responsiveColumns}
     />
   )
 }
@@ -50,6 +51,18 @@ const columns = [
     title: 'Date',
     className: 'col-span-2',
   },
+  {
+    title: 'Download',
+    className: 'col-span-2',
+  },
+]
+
+const responsiveColumns = [
+  {
+    title: 'Lead Type',
+    className: 'col-span-2',
+  },
+
   {
     title: 'Download',
     className: 'col-span-2',

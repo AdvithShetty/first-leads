@@ -48,14 +48,14 @@ const Archives = () => {
   }, [isReportsLoading, reports])
 
   return (
-    <div className='w-full px-10 py-6'>
-      <div className='flex items-center justify-between'>
-        <h1 className='font-sans text-[40px] font-bold text-black'>Archives</h1>
-        <div className='flex items-center gap-4'>
+    <div className='w-full px-6 py-8 lg:px-10'>
+      <div className='flex flex-col justify-between lg:flex-row lg:items-center'>
+        <h1 className='pb-2 font-sans text-3xl font-bold text-black lg:pb-4 lg:text-[40px]'>Archives</h1>
+        <div className='flex flex-col gap-4 pt-4 lg:flex-row lg:items-center lg:pt-0'>
           <Select
             label='Filter by Lead Type'
             variant='bordered'
-            className='w-[223px] font-inter text-sm font-normal capitalize text-[#686868] outline-none'
+            className='w-full font-inter text-sm font-normal capitalize text-[#686868] outline-none lg:w-[223px]'
             classNames={{
               label: 'font-inter text-sm font-normal text-[#686868] capitalize',
               listboxWrapper: 'font-inter text-sm font-normal text-[#686868] capitalize',
@@ -70,7 +70,7 @@ const Archives = () => {
               </SelectItem>
             ))}
           </Select>
-          <div className='flex h-[3.5rem] w-[223px] items-center overflow-hidden rounded-xl border-2 border-default-200 px-4 font-inter text-sm font-normal text-[#686868] shadow-sm'>
+          <div className='flex h-[3.5rem] w-full items-center overflow-hidden rounded-xl border-2 border-default-200 px-4 font-inter text-sm font-normal text-[#686868] shadow-sm lg:w-[223px]'>
             <CalenderIcon className='h-4 w-4 shrink-0' />
             <DatePicker
               selected={startDate}
@@ -89,7 +89,7 @@ const Archives = () => {
               input: 'font-inter text-base font-normal h-[3.5rem] pl-2',
               inputWrapper: 'h-[3.5rem]',
             }}
-            className='w-[223px]'
+            className='w-full lg:w-[223px]'
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
           />
@@ -109,10 +109,11 @@ const Archives = () => {
               date: report.createdAt,
               link: report.url,
             }))}
+            responsiveColumns={responsiveColumns}
           />
         ) : null}
       </div>
-      <div className='flex items-center justify-between pt-8'>
+      <div className='flex flex-col items-center justify-between gap-4 pt-8 lg:flex-row'>
         <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
         <p className='select-none font-rubik text-sm font-normal text-black'>
           © 2023 All Right Reserved by First Leads
@@ -139,6 +140,18 @@ const columns = [
   },
   {
     title: 'Status',
+    className: 'col-span-2',
+  },
+]
+
+const responsiveColumns = [
+  {
+    title: 'Lead Type',
+    className: 'col-span-2',
+  },
+
+  {
+    title: 'Download',
     className: 'col-span-2',
   },
 ]

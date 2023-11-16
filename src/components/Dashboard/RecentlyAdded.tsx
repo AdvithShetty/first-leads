@@ -31,6 +31,7 @@ const RecentlyAdded = () => {
             date: report.createdAt,
             link: report.url,
           }))}
+          responsiveColumns={responsiveColumns}
         />
       ) : null}
     </>
@@ -58,23 +59,14 @@ const columns = [
   },
 ]
 
-const rows = [
+const responsiveColumns = [
   {
-    fileName: 'October Week 1',
-    leadType: 'Lead Type',
-    date: '29 Sept 2023',
-    status: 'Status',
+    title: 'Lead Type',
+    className: 'col-span-2',
   },
+
   {
-    fileName: 'October Week 2',
-    leadType: 'Lead Type',
-    date: '29 Sept 2023',
-    status: 'Status',
-  },
-  {
-    fileName: 'October Week 3',
-    leadType: 'Lead Type',
-    date: '29 Sept 2023',
-    status: 'Status',
+    title: 'Download',
+    className: 'col-span-2',
   },
 ]
