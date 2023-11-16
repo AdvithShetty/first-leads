@@ -77,11 +77,11 @@ const SignIn = () => {
   if ((isUserLoading && !isSuccess) || !isClient) return <LoadingUi />
 
   return (
-    <div className='flex w-full gap-10 bg-white p-8'>
-      <div className='w-1/2'>
+    <div className='flex w-full gap-10 bg-white p-4 lg:p-8'>
+      <div className='w-full lg:w-1/2'>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className='flex h-[89vh] w-[85%] flex-col items-center justify-center gap-8 px-20 2xl:w-3/4'
+          className='flex h-[89vh] w-full flex-col items-center justify-center gap-8 lg:w-[85%] lg:px-20 2xl:w-3/4'
         >
           <div className='flex w-full flex-col items-center gap-2'>
             <h1 className='font-inter text-4xl font-bold tracking-[-0.72px] text-black'>Sign In</h1>
@@ -170,7 +170,7 @@ const SignIn = () => {
           <p>2023 © First Leads</p>
         </div>
       </div>
-      <div className='flex h-[91vh] w-1/2 flex-col items-end justify-center pl-40'>
+      <div className='hidden h-[91vh] w-1/2 flex-col items-end justify-center pl-40 lg:flex'>
         <div className='flex h-full w-full flex-col gap-6 bg-[#6941C6] p-8'>
           <Image src='/images/LogoWhite.png' width={250} height={100} alt='Logo' />
           <div className='my-auto flex flex-col items-center gap-6'>

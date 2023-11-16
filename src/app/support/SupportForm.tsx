@@ -53,16 +53,19 @@ const SupportForm = () => {
   if (!isClient) return null
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className='grid w-[800px] grid-cols-4 gap-x-10 gap-y-8 pt-10'>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className='grid w-full grid-cols-4 gap-x-6 gap-y-6 px-4 pt-16 lg:w-[800px] lg:gap-x-10 lg:gap-y-8 lg:px-0'
+    >
       <Input
         label='Your First Name'
-        className='col-span-2'
+        className='col-span-full lg:col-span-2'
         inputProps={{ ...register('firstName') }}
         error={errors.firstName}
       />
       <Input
         label='Your Last Name'
-        className='col-span-2'
+        className='col-span-full lg:col-span-2'
         inputProps={{ ...register('lastName') }}
         error={errors.lastName}
       />

@@ -58,7 +58,7 @@ const Sidebar = () => {
         <div className='flex w-full flex-col items-center justify-center gap-6 pb-4 font-inter text-base font-medium text-white'>
           <Link
             href='/support'
-            className={`flex w-full items-center justify-center gap-4 rounded-lg ${
+            className={`flex w-3/4 items-center justify-center gap-4 rounded-lg py-2 ${
               pathname == '/support' ? 'bg-purple-2' : ''
             }`}
           >
