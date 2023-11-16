@@ -79,10 +79,9 @@ const ChangePassword = () => {
           error={errors.confirmNewPassword}
           className='col-span-4'
         />
-
         <Button
           type='submit'
-          className='ml-auto h-12 w-max rounded-[10px] border border-[#0000001C] bg-[#7363F3] px-14 font-rubik text-[13px] font-normal text-white'
+          className='col-span-full h-12 w-full rounded-[10px] border border-[#0000001C] bg-[#7363F3] px-14 font-rubik text-[13px] font-normal text-white lg:w-max'
         >
           Change Password
         </Button>

@@ -11,13 +11,9 @@ const Account = () => {
   }
 
   return (
-    <div className='w-full px-10 py-10'>
+    <div className='w-full px-6 py-8 lg:px-10 lg:py-10'>
       <div className='flex w-full items-start justify-between gap-20'>
-        {/* <div className='flex w-1/2 flex-col items-start'>
-          
-          <UploadImage />
-        </div> */}
-        <div className='flex w-1/2 flex-col'>
+        <div className='flex w-full flex-col lg:w-1/2'>
           <ProfileForm />
           <ChangePassword />
         </div>
