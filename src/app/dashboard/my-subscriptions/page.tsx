@@ -1,6 +1,10 @@
+'use client'
+import useSubscriptions from '@/hooks/useSubscriptions'
 import PlanModification from './PlanModification'
 
 const MySubscriptions = () => {
+  const { data } = useSubscriptions()
+  console.log('🚀 ~ file: page.tsx:7 ~ MySubscriptions ~ data:', data)
   return (
     <div className='w-full px-10 py-6'>
       <h1 className='pb-10 font-sans text-[40px] font-bold text-black'>Subscription</h1>
