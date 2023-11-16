@@ -85,7 +85,7 @@ const Cart = () => {
               if (res) {
                 toast.success('Checkout successful: Redirecting to payment page')
 
-                window.location.href = res.data
+                window.location.href = res.data.url
               }
             } catch (error) {
               toast.error('Error while checking out')
