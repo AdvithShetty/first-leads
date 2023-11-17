@@ -17,8 +17,8 @@ const Cart = () => {
   const { onClose } = useCartDisclosure()
 
   return (
-    <div className='absolute top-0 flex h-full w-full flex-col items-center font-sans lg:fixed lg:w-1/4 lg:bg-[#7363F30D]'>
-      <div className='no-scroll-bar h-auto w-full overflow-y-auto px-8 pt-10'>
+    <div className='absolute top-0 flex h-full w-full flex-col items-center justify-between font-sans lg:fixed lg:w-1/4 lg:bg-[#7363F30D]'>
+      <div className='h-auto w-full overflow-y-auto px-8 pt-10'>
         <div className='flex items-center justify-between'>
           <h1 className='text-[38px] font-bold text-black'>Your Cart</h1>
           <button className='block rounded-full bg-white p-3 lg:hidden' onClick={onClose}>
@@ -42,7 +42,7 @@ const Cart = () => {
           </div>
         )}
       </div>
-      <div className='mt-auto w-full text-white'>
+      <div className='w-full text-white'>
         <div className='flex flex-col gap-2 px-6 py-4'>
           <Checkbox
             defaultSelected
