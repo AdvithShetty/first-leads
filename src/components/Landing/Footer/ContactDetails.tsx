@@ -6,7 +6,7 @@ const ContactDetails = () => {
       <h1 className='pb-2 text-xl font-semibold text-white'>Contact</h1>
       <div className='flex gap-3'>
         <LocationIcon />
-        <p className='text-base font-normal text-[#859794]'>#1234, 1234 Street CA, USA,</p>
+        <p className='text-base font-normal text-[#859794]'>166 Geary St, STE 1500, San Francisco, CA 94108</p>
       </div>
       <div className='flex gap-3'>
         <CallPhoneIcon />

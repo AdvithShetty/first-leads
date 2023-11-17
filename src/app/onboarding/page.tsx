@@ -31,10 +31,10 @@ const Onboarding = () => {
       <h1 className='px-8 pt-8 text-center font-quicksand text-4xl font-bold text-black lg:px-0 lg:text-5xl'>
         Let us know more about you!
       </h1>
-      <p className='w-4/5 py-2 text-center font-outfit text-[21px] font-normal text-[#5F5F5F] lg:w-3/5'>
+      {/* <p className='w-4/5 py-2 text-center font-outfit text-[21px] font-normal text-[#5F5F5F] lg:w-3/5'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua.
-      </p>
+      </p> */}
       <OnboardingDetailsForm />
     </div>
   )

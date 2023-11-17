@@ -167,7 +167,7 @@ const SignIn = () => {
               Terms of Use
             </Link>
           </div>
-          <p>2023 © First Leads</p>
+          <p>First Leads Generation Inc.</p>
         </div>
       </div>
       <div className='hidden h-[91vh] w-1/2 flex-col items-end justify-center pl-40 lg:flex'>

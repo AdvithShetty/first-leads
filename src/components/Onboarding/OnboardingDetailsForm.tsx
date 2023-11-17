@@ -57,7 +57,6 @@ const OnboardingDetailsForm = () => {
       })
 
       setRefreshToken(res.data.refreshToken)
-      toast.success('Details saved!')
       toast('Please check your email for temporary password', {
         icon: '👏',
         duration: 10000, // 10 seconds

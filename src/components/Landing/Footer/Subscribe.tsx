@@ -1,6 +1,7 @@
 'use client'
 
 import { useIsClient } from '@/hooks/useIsClient'
+import { Button, Link } from '@nextui-org/react'
 
 const Subscribe = () => {
   const isClient = useIsClient()
@@ -9,32 +10,17 @@ const Subscribe = () => {
 
   return (
     <div className='flex w-[20rem] flex-col gap-4 pt-2 font-archivo'>
-      <h1 className='pb-2 text-xl font-semibold text-white'>Subscribe</h1>
-      <h2 className='text-lg font-normal text-[#859794]'>
-        The latest news article and resources in your inbox every month.
-      </h2>
-      <form
-        className='flex w-full items-center py-2'
-        onSubmit={(e) => {
-          e.preventDefault()
-          console.log('submit', e.target)
-        }}
+      <h1 className='pb-2 text-xl font-semibold text-white'>Need more information?</h1>
+      <Button
+        className={`h-12 cursor-pointer rounded-lg bg-[#FD6001] transition-all duration-250 ease-in-out hover:scale-105`}
       >
-        <input
-          type='text'
-          placeholder='Enter your email Address....'
-          className='placeholder:text-[text-sm text-[#859794]] h-12 w-[90%] rounded-[10px] border border-[#E5E5E4] p-6 text-sm text-[#859794] outline-none placeholder:text-sm'
-        />
-        <button
-          type='submit'
-          className='grid h-full -translate-x-4 place-items-center rounded-lg bg-[#6A26DA] transition-colors hover:bg-[#8f5be3]'
-          style={{
-            aspectRatio: '1/1',
-          }}
+        <Link
+          href='/contact'
+          className='flex h-full w-full items-center justify-center px-4 text-base font-semibold text-[#FAFAFA]'
         >
-          <ArrowIcon />
-        </button>
-      </form>
+          Contact Us
+        </Link>
+      </Button>
     </div>
   )
 }

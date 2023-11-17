@@ -117,7 +117,7 @@ const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadT
           <div className='font-quicksand text-sm font-medium text-black'>
             Basic Plan
             <span className='inline-flex items-center gap-2 pl-1 font-bold text-black'>
-              - ${basicPrice.price} <LeadPlanPopover plan='basic' />
+              ${basicPrice.price} <LeadPlanPopover plan='basic' />
             </span>
           </div>
         </div>
@@ -132,7 +132,7 @@ const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadT
           <div className='font-quicksand text-sm font-medium text-black'>
             Premium Plan
             <span className='inline-flex items-center gap-2 pl-1 font-bold text-black'>
-              - ${premiumPrice.price} <LeadPlanPopover plan='premium' />
+              ${premiumPrice.price} <LeadPlanPopover plan='premium' />
             </span>
           </div>
         </div>
@@ -148,7 +148,7 @@ const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadT
         <input
           type='text'
           placeholder='Location'
-          className='h-10 w-full font-quicksand text-sm font-medium text-[#8E8E8E] outline-none'
+          className='h-10 w-full font-inter text-sm font-medium text-[#8E8E8E] outline-none'
           value={areaValue?.areaValue || ''}
           readOnly
         />
@@ -218,7 +218,7 @@ const SearchDropdownModal = ({ isOpen, onOpenChange, leadTypeId, setAreaValue, o
           <input
             type='text'
             placeholder='Location'
-            className='h-10 w-full font-quicksand text-sm font-medium text-[#8E8E8E] outline-none'
+            className='h-10 w-full font-inter text-sm font-medium text-[#8E8E8E] outline-none'
             onChange={(e) => setSearchInput(e.target.value)}
             value={searchInput}
           />
@@ -236,7 +236,7 @@ const SearchDropdownModal = ({ isOpen, onOpenChange, leadTypeId, setAreaValue, o
                   onClose()
                 }}
               >
-                <h1 className='w-full cursor-pointer p-2 text-left font-outfit text-lg hover:bg-slate-100'>
+                <h1 className='w-full cursor-pointer p-2 text-left font-inter text-lg hover:bg-slate-100'>
                   {item.areaValue}
                 </h1>
                 {/* <h2 className='cursor-pointer p-2 font-outfit text-lg hover:bg-slate-100'>#{item.areaType}</h2> */}

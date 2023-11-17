@@ -1,9 +1,12 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 const CompanySocials = () => {
   return (
     <div className='flex w-[20rem] flex-col gap-4 font-archivo'>
-      <h1 className='text-4xl font-semibold text-white'>Logo</h1>
+      <div className='relative'>
+        <Image src='/images/LogoWhite.png' alt='logo' width={250} height={80} />
+      </div>
       <p className='text-base font-normal text-[#859794]'>
         Get Lorem Ipsum Doler work with this amazing team & in future want to work together
       </p>

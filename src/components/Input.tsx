@@ -23,7 +23,7 @@ const Input = ({ label, inputProps, className, error, starterContent }: InputPro
           {starterContent}
           <input
             {...inputProps}
-            className={`h-[52px] w-full shrink-0 rounded-[10px] border-none p-2 font-outfit text-lg outline-none transition-all placeholder:text-[#a1a1a1] focus:border-2 focus:border-[#a1a1a1] ${inputProps?.className}`}
+            className={`h-[52px] w-full shrink-0 rounded-[10px] border-none p-2 font-inter text-lg outline-none transition-all placeholder:text-[#a1a1a1] focus:border-2 focus:border-[#a1a1a1] ${inputProps?.className}`}
           />
         </div>
       </div>
@@ -40,7 +40,7 @@ const Input = ({ label, inputProps, className, error, starterContent }: InputPro
       </p>
       <input
         {...inputProps}
-        className={`h-[52px] w-full shrink-0 rounded-[10px] border border-[#E7E7E7] p-2 font-outfit text-lg outline-none transition-all placeholder:text-[#a1a1a1] focus:border-2 focus:border-[#a1a1a1] ${inputProps?.className}`}
+        className={`h-[52px] w-full shrink-0 rounded-[10px] border border-[#E7E7E7] p-2 font-inter text-lg outline-none transition-all placeholder:text-[#a1a1a1] focus:border-2 focus:border-[#a1a1a1] ${inputProps?.className}`}
       />
     </div>
   )

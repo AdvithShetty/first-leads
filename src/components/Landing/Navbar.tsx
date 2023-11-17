@@ -38,7 +38,7 @@ const Navbar = () => {
           ))}
         </div>
         <div className='flex items-center gap-4'>
-          <GetStarted backgroundColor='bg-[#D88600]' />
+          <GetStarted backgroundColor='bg-[#FD6001]' />
           <Button
             className={`h-12 w-[9rem] cursor-pointer rounded-lg bg-purple-2 p-0 transition-all duration-250 ease-in-out hover:scale-105`}
           >
@@ -113,7 +113,7 @@ const Navbar = () => {
                   ))}
                 </div>
                 <div className='flex flex-col items-center gap-10'>
-                  <GetStarted backgroundColor='bg-[#D88600] w-4/5' />
+                  <GetStarted backgroundColor='bg-[#FD6001] w-4/5' />
                   <Button
                     className={`h-12 w-4/5 cursor-pointer rounded-lg bg-purple-2 p-0 transition-all duration-250 ease-in-out hover:scale-105`}
                   >

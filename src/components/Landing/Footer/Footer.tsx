@@ -43,7 +43,7 @@ const Footer = () => {
             <h2 className='text-center text-3xl font-semibold tracking-[-1px] text-white xl:text-5xl'>
               Sign up for free!
             </h2>
-            <GetStarted backgroundColor='bg-[#0F151C] h-14 px-8 mt-8' customText='Get Started' />
+            <GetStarted backgroundColor='bg-[#FD6001] h-14 px-8 mt-8' customText='Get Started' />
           </div>
           <div className='flex flex-col items-center justify-between gap-14'>
             <CompanySocials />

@@ -21,7 +21,7 @@ const Hero = () => {
           high-quality leads to service businesses across various industries.
         </p>
         <div className='flex items-center justify-center gap-4 pt-4 xl:justify-start'>
-          <GetStarted backgroundColor='bg-[#D88600] px-6 h-14' />
+          <GetStarted backgroundColor='bg-[#FD6001] px-6 h-14' />
         </div>
       </div>
 
