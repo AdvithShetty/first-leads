@@ -7,7 +7,7 @@ const CartWrapper = () => {
 
   return (
     <>
-      <div className='relative top-0 z-10 col-span-1 hidden h-screen w-full bg-[#7363F30D] lg:block'>
+      <div className='relative top-0 z-10 col-span-1 hidden h-screen w-full lg:block'>
         <Cart />
       </div>
       <AnimatePresence mode='wait'>

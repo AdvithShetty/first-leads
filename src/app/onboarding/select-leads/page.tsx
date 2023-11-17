@@ -23,8 +23,7 @@ const SelectLead = () => {
       </div>
       <h1 className='pt-4 font-sans text-3xl font-bold text-black lg:text-5xl'>Select your lead type</h1>
       <p className='mt-4 w-full font-outfit text-base font-normal text-[#5F5F5F] lg:w-3/4 lg:text-[21px]'>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua.
+        Pick your subscription, select lead types, and target locations for a tailored leads experience.
       </p>
       <div className='grid grid-cols-4 gap-10 py-10'>
         {isLoading

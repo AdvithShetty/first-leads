@@ -36,7 +36,7 @@ const Sidebar = () => {
   return (
     <>
       {/* --------------------------------- Mobile --------------------------------- */}
-      <div className='col-span-1 flex h-full flex-col items-center justify-between lg:hidden'>
+      <div className='z-10 col-span-1 flex h-full flex-col items-center justify-between lg:hidden'>
         <button className='flex flex-col items-center justify-center gap-1 pt-5' onClick={onOpen}>
           <div className='h-[3px] w-7 bg-white' />
           <div className='h-[3px] w-7 bg-white' />

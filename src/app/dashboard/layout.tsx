@@ -24,9 +24,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
   if ((isUserLoading && !isSuccess) || !isClient) return <LoadingUi />
 
   return (
-    <div className='grid h-screen grid-cols-7 bg-[#160042] lg:grid-cols-6'>
+    <div className='relative grid h-screen grid-cols-7 bg-[#160042] lg:grid-cols-6'>
       <Sidebar />
-      <div className='col-span-6 w-full lg:col-span-5'>
+      <div className='z-[1] col-span-6 w-full lg:col-span-5'>
         <div className='hidden h-[10vh] w-full items-center justify-between px-16 lg:flex'>
           <h1 className='flex gap-2 font-quicksand text-[21px] font-bold text-white'>
             <svg xmlns='http://www.w3.org/2000/svg' width='24' height='17' viewBox='0 0 24 17' fill='none'>
