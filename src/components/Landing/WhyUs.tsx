@@ -22,7 +22,7 @@ const WhyUs = () => {
       <div className='flex flex-col items-center justify-between xl:flex-row'>
         <div className='flex w-full flex-col gap-14 xl:w-1/2'>
           <h2 className='py-6 font-sans text-4xl font-bold text-black xl:text-6xl'>Your Gateway To Exclusive Leads</h2>
-          <Image src='/images/Landing/GeographicCoverage.png' width={600} height={400} alt='Why Us' />
+          <Image src='/images/Landing/USStates.png' width={600} height={400} alt='Why Us' />
         </div>
         <div className='flex scale-80 gap-5 font-outfit xl:scale-100 xl:gap-10'>
           <div className='flex flex-col gap-5 xl:gap-16'>
