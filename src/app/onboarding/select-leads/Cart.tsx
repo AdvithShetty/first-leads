@@ -109,8 +109,6 @@ const Cart = () => {
               setCartId(null)
 
               if (url) {
-                toast.success('Checkout successful: Redirecting to payment page')
-
                 window.location.href = url
               }
             } catch (error) {

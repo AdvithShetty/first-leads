@@ -67,7 +67,16 @@ const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadT
     } catch (error) {
       setIsAddingToSubscription(false)
     }
-  }, [areaValue?.areaType, areaValue?.areaValue, id, queryClient, subscription?.id, user])
+  }, [
+    areaValue?.areaType,
+    areaValue?.areaValue,
+    basicPrice?.id,
+    plan,
+    premiumPrice?.id,
+    queryClient,
+    subscription?.id,
+    user,
+  ])
 
   return (
     <div
