@@ -20,7 +20,7 @@ export interface PremiumPrice {
   price: string
 }
 
-const useLeadType = ({ id }: { id: string }) => {
+const useLeadType = ({ id }: { id: number }) => {
   return useQuery<LeadType>(
     ['leadType', id],
     async () => {

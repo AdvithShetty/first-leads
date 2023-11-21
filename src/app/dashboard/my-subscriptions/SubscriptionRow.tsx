@@ -3,7 +3,18 @@ import { SubscriptionsItem } from '@/hooks/useSubscriptions'
 import { Tooltip, useDisclosure } from '@nextui-org/react'
 import EditModal from './EditModal'
 
-const SubscriptionRow = ({ areaType, areaValue, coverageType, id, leadType }: SubscriptionsItem) => {
+const SubscriptionRow = ({
+  areaType,
+  areaValue,
+  coverageType,
+  id,
+  leadType,
+  price,
+  leadTypeId,
+  subscriptionId,
+}: SubscriptionsItem & {
+  subscriptionId: number
+}) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
   return (
     <div className='flex w-full flex-col gap-5 pt-8'>
@@ -22,10 +33,24 @@ const SubscriptionRow = ({ areaType, areaValue, coverageType, id, leadType }: Su
           </Tooltip>
         </div>
       </div>
-      <p className='font-sans text-base font-medium capitalize text-black'>
-        {areaValue} ({coverageType} Plan)
-      </p>
-      <EditModal isOpen={isOpen} onOpenChange={onOpenChange} subscriptionId={id} />
+      <div className='flex flex-col justify-between lg:flex-row lg:items-center'>
+        <p className='font-sans text-base font-medium capitalize text-black'>
+          {areaValue} ({coverageType} Plan)
+        </p>
+        <h2 className='font-sans text-xl font-bold'>${price}</h2>
+      </div>
+      {isOpen && (
+        <EditModal
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+          subscriptionId={subscriptionId}
+          leadTypeId={leadTypeId}
+          areaValue={areaValue}
+          areaType={areaType}
+          coverageType={coverageType}
+          itemId={id}
+        />
+      )}
     </div>
   )
 }

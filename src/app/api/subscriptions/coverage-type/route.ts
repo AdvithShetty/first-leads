@@ -21,7 +21,7 @@ export async function PATCH(request: Request) {
   try {
     const res = await (
       await backendWithAuth()
-    ).patch(`/subscriptions/${subscriptionId}/coverage/${itemId}/coverageType`, body, {
+    ).patch(`/subscriptions/${subscriptionId}/items/${itemId}/coverageType`, body, {
       headers: {
         'Content-Type': 'application/json',
       },

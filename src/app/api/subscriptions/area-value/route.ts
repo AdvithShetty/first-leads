@@ -21,7 +21,7 @@ export async function PATCH(request: Request) {
   try {
     const res = await (
       await backendWithAuth()
-    ).patch(`/subscriptions/${subscriptionId}/coverage/${itemId}`, body, {
+    ).patch(`/subscriptions/${subscriptionId}/items/${itemId}`, body, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -62,7 +62,7 @@ export async function DELETE(request: Request) {
   try {
     const res = await (
       await backendWithAuth()
-    ).delete(`/subscriptions/${subscriptionId}/coverage/${itemId}`, {
+    ).delete(`/subscriptions/${subscriptionId}/items/${itemId}`, {
       headers: {
         'Content-Type': 'application/json',
       },

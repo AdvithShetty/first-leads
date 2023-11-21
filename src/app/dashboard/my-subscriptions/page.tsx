@@ -1,10 +1,11 @@
 'use client'
 import useSubscriptions from '@/hooks/useSubscriptions'
+import { Skeleton } from '@nextui-org/react'
 import PlanModification from './PlanModification'
 import SubscriptionRow from './SubscriptionRow'
 
 const MySubscriptions = () => {
-  const { data } = useSubscriptions()
+  const { data, isLoading } = useSubscriptions()
 
   return (
     <div className='w-full px-6 py-8 lg:px-10'>
@@ -26,7 +27,15 @@ const MySubscriptions = () => {
           <h3 className='font-quicksand text-[17px] font-semibold text-black'>Active Plans</h3>
         </div>
         <div className='flex flex-col gap-8 divide-y divide-[#0000001F]'>
-          {data?.items.map((item, i) => <SubscriptionRow key={i} {...item} />)}
+          {isLoading ? (
+            <div className='flex w-full flex-col gap-6 pt-6'>
+              {Array.from({ length: 3 }).map((_, i) => (
+                <Skeleton className='h-[100px] w-full rounded-lg' key={i} />
+              ))}
+            </div>
+          ) : (
+            data?.items.map((item, i) => <SubscriptionRow key={i} {...item} subscriptionId={data.id} />)
+          )}
         </div>
         <PlanModification />
       </div>
