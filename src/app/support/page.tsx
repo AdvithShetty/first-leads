@@ -15,10 +15,10 @@ const Support = () => {
             <h1 className='px-8 text-center font-quicksand text-3xl font-bold text-black lg:px-0 lg:pt-4 lg:text-5xl'>
               How may we Help You?
             </h1>
-            <p className='w-4/5 py-2 text-center font-outfit text-lg font-normal text-[#5F5F5F] lg:w-3/5 lg:text-[21px]'>
+            {/* <p className='w-4/5 py-2 text-center font-outfit text-lg font-normal text-[#5F5F5F] lg:w-3/5 lg:text-[21px]'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua.
-            </p>
+            </p> */}
             <SupportForm />
           </div>
         </div>

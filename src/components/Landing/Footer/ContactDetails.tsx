@@ -15,8 +15,8 @@ const ContactDetails = () => {
       <div className='flex items-center gap-3'>
         <MailIcon />
         {/* //TODO: Add Mail link */}
-        <Link href='mailto:' className='text-base font-normal text-[#859794]'>
-          Email: needhelp@gamil.com
+        <Link href='mailto:info@firstleads.ai' className='text-base font-normal text-[#859794]'>
+          Email: info@firstleads.ai
         </Link>
       </div>
     </div>
