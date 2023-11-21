@@ -1,7 +1,3 @@
-/* eslint-disable */ // Disabling linting because this is a third party library
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
-'use client'
 import TawkMessengerReact from '@tawk.to/tawk-messenger-react'
 import { useRef } from 'react'
 

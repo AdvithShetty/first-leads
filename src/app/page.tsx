@@ -9,7 +9,7 @@ import UseCases from '@/components/Landing/UseCases'
 import WhatMakesUsUnique from '@/components/Landing/WhatMakesUsUnique'
 import WhatWeOffer from '@/components/Landing/WhatWeOffer'
 import WhyUs from '@/components/Landing/WhyUs'
-import TawkChat from '@/components/TawkChat'
+import TwakWrapper from '@/components/TwakWrapper'
 
 export default function Home() {
   return (
@@ -36,7 +36,7 @@ export default function Home() {
         <Faq />
         <LatestNews />
         <Footer />
-        <TawkChat />
+        <TwakWrapper />
       </div>
     </main>
   )
