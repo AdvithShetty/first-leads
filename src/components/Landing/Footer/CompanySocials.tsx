@@ -7,9 +7,6 @@ const CompanySocials = () => {
       <div className='relative'>
         <Image src='/images/LogoWhite.png' alt='logo' width={250} height={80} />
       </div>
-      <p className='text-base font-normal text-[#859794]'>
-        Get Lorem Ipsum Doler work with this amazing team & in future want to work together
-      </p>
       <div className='flex items-center gap-2 pt-1'>
         {socials.map((social, i) => (
           <Link

@@ -8,10 +8,10 @@ const ContactDetails = () => {
         <LocationIcon />
         <p className='text-base font-normal text-[#859794]'>166 Geary St, STE 1500, San Francisco, CA 94108</p>
       </div>
-      <div className='flex gap-3'>
+      {/* <div className='flex gap-3'>
         <CallPhoneIcon />
         <p className='text-base font-normal text-[#859794]'>Phone: +1 (123) 985 789</p>
-      </div>
+      </div> */}
       <div className='flex items-center gap-3'>
         <MailIcon />
         {/* //TODO: Add Mail link */}
