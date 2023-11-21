@@ -23,6 +23,7 @@ const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadT
   const { data: user } = useUser()
   const { cartId, setCartId } = useCartId()
   const queryClient = useQueryClient()
+  const [isAddingToCart, setIsAddingToCart] = useState(false)
 
   useInterval(() => setAddedToCart(false), 3000)
 
@@ -31,6 +32,8 @@ const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadT
     if (!user) return
 
     if (!areaValue?.areaValue) return toast.error('Please select a location')
+
+    setIsAddingToCart(true)
 
     if (!cartId) {
       axios.post('/api/cart/create', { userId: user.id }).then((res) => {
@@ -56,9 +59,11 @@ const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadT
             if (res) {
               setAddedToCart(true)
               toast.success('Added to cart')
+              setIsAddingToCart(false)
             }
           })
           .catch((err) => {
+            setIsAddingToCart(false)
             toast.error('Error Creating cart')
             console.log('Error Creating cart', err)
           })
@@ -91,9 +96,11 @@ const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadT
       if (res) {
         setAddedToCart(true)
         toast.success('Added to cart')
+        setIsAddingToCart(false)
       }
     } catch (error) {
       toast.error('Error Creating cart')
+      setIsAddingToCart(false)
     }
   }, [areaValue, basicPrice.id, cartId, plan, premiumPrice.id, queryClient, setCartId, user])
 
@@ -158,6 +165,8 @@ const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadT
         className={`mt-6 h-12 rounded-lg bg-[#6941C6] font-inter text-[15px] font-semibold text-white transition-colors ${
           addedToCart ? 'bg-[#0B8A00]' : ''
         }`}
+        isLoading={isAddingToCart}
+        isDisabled={isAddingToCart}
       >
         {addedToCart ? (
           <svg xmlns='http://www.w3.org/2000/svg' width='21' height='21' viewBox='0 0 21 21' fill='none'>
