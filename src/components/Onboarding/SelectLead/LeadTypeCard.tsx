@@ -193,7 +193,13 @@ interface SearchDropdownModalProps {
 
 const totalItems = 10
 
-const SearchDropdownModal = ({ isOpen, onOpenChange, leadTypeId, setAreaValue, onClose }: SearchDropdownModalProps) => {
+export const SearchDropdownModal = ({
+  isOpen,
+  onOpenChange,
+  leadTypeId,
+  setAreaValue,
+  onClose,
+}: SearchDropdownModalProps) => {
   const [currentPage, setCurrentPage] = useState(1)
   const [searchInput, setSearchInput] = useState('')
   const { data: areaValues, isLoading } = useAreaValues({
