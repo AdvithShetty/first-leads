@@ -3,6 +3,7 @@
 import useSubscriptions from '@/hooks/useSubscriptions'
 import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@nextui-org/react'
 import axios from 'axios'
+import Link from 'next/link'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
 import { useQueryClient } from 'react-query'
@@ -16,8 +17,10 @@ const PlanModification = () => {
 
   return (
     <div className='flex w-full flex-col items-center justify-between gap-4 pt-10 lg:flex-row'>
-      <Button className='h-12 w-[220px] rounded-[10px] border border-[#0000001C] bg-[#7363F3] font-rubik text-[13px] font-normal text-white'>
-        Add More Leads
+      <Button className='h-12 w-[220px] rounded-[10px] border border-[#0000001C] bg-[#7363F3] px-0 font-rubik text-[13px] font-normal text-white'>
+        <Link href='my-subscriptions/add' className='flex h-full w-full items-center justify-center'>
+          Add More Leads
+        </Link>
       </Button>
       {isEmpty ? null : (
         <Button

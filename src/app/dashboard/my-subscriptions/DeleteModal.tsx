@@ -45,6 +45,7 @@ const DeleteModal = ({
       setDeleteComplete(true)
       setIsDeleting(false)
       toast.success('Subscription deleted successfully')
+      onOpenChange(false)
     } catch (error) {
       console.log(error)
       setIsDeleting(false)

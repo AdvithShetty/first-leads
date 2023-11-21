@@ -29,7 +29,7 @@ const SelectedLeadRow = ({ leadType, plans, itemId }: SelectedLeadRowProps) => {
         },
       })
 
-      queryClient.invalidateQueries(['cart', cartId])
+      await queryClient.invalidateQueries(['cart', cartId])
 
       if (res) {
         setIsDeleting(false)

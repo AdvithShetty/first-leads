@@ -91,7 +91,7 @@ const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadT
         }
       )
 
-      queryClient.invalidateQueries(['cart', cartId])
+      await queryClient.invalidateQueries(['cart', cartId])
 
       if (res) {
         setAddedToCart(true)
