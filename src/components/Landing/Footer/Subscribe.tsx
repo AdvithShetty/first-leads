@@ -15,7 +15,7 @@ const Subscribe = () => {
         className={`h-12 cursor-pointer rounded-lg bg-[#FD6001] transition-all duration-250 ease-in-out hover:scale-105`}
       >
         <Link
-          href='/contact'
+          href='/support'
           className='flex h-full w-full items-center justify-center px-4 text-base font-semibold text-[#FAFAFA]'
         >
           Contact Us
