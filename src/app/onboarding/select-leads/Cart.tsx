@@ -89,7 +89,7 @@ const Cart = () => {
                 Promise.all([
                   axios.put('/api/user/accept-terms'),
                   axios.patch('/api/user/update', {
-                    marketingNotification: marketingAgreed,
+                    marketingNotifications: marketingAgreed,
                   }),
                   axios.get('/api/cart/checkout', {
                     params: {
@@ -104,7 +104,7 @@ const Cart = () => {
                 }
               )
 
-              const url = results[1].data.url
+              const url = results[2].data.url
 
               setCartId(null)
 

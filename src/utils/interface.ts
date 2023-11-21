@@ -18,6 +18,7 @@ export interface User {
   phone: string
   zipCode: string
   industry: string
+  marketingNotifications: boolean
 }
 
 export interface Picklists {

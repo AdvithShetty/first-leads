@@ -29,6 +29,7 @@ const useSubscriptions = () => {
     },
     {
       retry: false,
+      refetchOnWindowFocus: false,
     }
   )
 }

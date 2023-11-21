@@ -15,6 +15,18 @@ export async function GET() {
   } catch (error: any) {
     console.log('error', error?.response?.data || error?.response)
 
+    if (error?.response?.status === 404) {
+      return Response.json(
+        {
+          error: 'Not found',
+        },
+        {
+          status: 404,
+          statusText: 'Subscription not found',
+        }
+      )
+    }
+
     return Response.json(
       {
         error: 'Something went wrong',
