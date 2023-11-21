@@ -33,7 +33,7 @@ const SubscriptionRow = ({
               <PencilIcon className='text-purple-1' />
             </button>
           </Tooltip>
-          <Tooltip content='Delete' placement='top' color='secondary' className='font-inter'>
+          <Tooltip content='Delete' placement='top' color='danger' className='font-inter'>
             <button type='button' className='outline-none' onClick={onDeleteModalOpen}>
               <DustbinIcon className='fill-[#DC4141]' />
             </button>
