@@ -1,7 +1,8 @@
-import LoadingUi from '@/components/LoadingUi'
+'use client'
+import TawkChat from '@/components/TawkChat'
 
-const page = () => {
-  return <LoadingUi />
+const Temp = () => {
+  return <TawkChat />
 }
 
-export default page
+export default Temp
