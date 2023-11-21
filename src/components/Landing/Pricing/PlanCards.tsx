@@ -63,7 +63,7 @@ const monthlyPlans = [
     price: 29,
     features: ['Weekly Report', 'Industry Specific', 'Geo Area Coverage', 'List of Addresses'],
     buttonText: '14 Day Free Trial',
-    buttonLink: '#',
+    buttonLink: '/onboarding',
     isWhite: false,
   },
   {
@@ -71,7 +71,7 @@ const monthlyPlans = [
     price: 49,
     features: ['Basic Plan +', 'Phone Numbers', 'Contact Emails', 'Home Equity', 'Do Not Call (DNC) Verification'],
     buttonText: '7 Day Free Trial',
-    buttonLink: '#',
+    buttonLink: '/onboarding',
     isWhite: true,
   },
 ]
