@@ -1,6 +1,7 @@
 import { DustbinIcon, PencilIcon } from '@/components/Dashboard/icons'
 import { SubscriptionsItem } from '@/hooks/useSubscriptions'
 import { Tooltip, useDisclosure } from '@nextui-org/react'
+import DeleteModal from './DeleteModal'
 import EditModal from './EditModal'
 
 const SubscriptionRow = ({
@@ -16,6 +17,12 @@ const SubscriptionRow = ({
   subscriptionId: number
 }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
+  const {
+    isOpen: isDeleteModalOpen,
+    onOpen: onDeleteModalOpen,
+    onOpenChange: onDeleteModalOpenChange,
+  } = useDisclosure()
+
   return (
     <div className='flex w-full flex-col gap-5 pt-8'>
       <div className='flex w-full flex-col justify-between lg:flex-row lg:items-center'>
@@ -27,7 +34,7 @@ const SubscriptionRow = ({
             </button>
           </Tooltip>
           <Tooltip content='Delete' placement='top' color='secondary' className='font-inter'>
-            <button type='button' className='outline-none'>
+            <button type='button' className='outline-none' onClick={onDeleteModalOpen}>
               <DustbinIcon className='fill-[#DC4141]' />
             </button>
           </Tooltip>
@@ -47,6 +54,17 @@ const SubscriptionRow = ({
           leadTypeId={leadTypeId}
           areaValue={areaValue}
           areaType={areaType}
+          coverageType={coverageType}
+          itemId={id}
+        />
+      )}
+      {isDeleteModalOpen && (
+        <DeleteModal
+          isOpen={isDeleteModalOpen}
+          onOpenChange={onDeleteModalOpenChange}
+          subscriptionId={subscriptionId}
+          leadTypeId={leadTypeId}
+          areaValue={areaValue}
           coverageType={coverageType}
           itemId={id}
         />

@@ -1,6 +1,6 @@
 import { backendWithAuth } from '@/utils/axios'
 
-export async function PATCH(request: Request) {
+export async function DELETE(request: Request) {
   const params = new URL(request.url).searchParams
   const subscriptionId = params.get('subscriptionId')
   const itemId = params.get('itemId')
@@ -16,12 +16,10 @@ export async function PATCH(request: Request) {
     )
   }
 
-  const body = await request.json()
-
   try {
     const res = await (
       await backendWithAuth()
-    ).patch(`/subscriptions/${subscriptionId}/items/${itemId}`, body, {
+    ).delete(`/subscriptions/${subscriptionId}/items/${itemId}`, {
       headers: {
         'Content-Type': 'application/json',
       },
