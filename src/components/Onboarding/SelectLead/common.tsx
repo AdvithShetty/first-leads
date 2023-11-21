@@ -83,9 +83,9 @@ export const LeadPlanPopover = ({ plan }: { plan: 'basic' | 'premium' }) => (
             background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.07) 0%, rgba(0, 0, 0, 0.07) 100%), rgba(0, 0, 0, 0.15)',
           }}
         />
-        <p className='pt-4 font-outfit text-[21px] font-normal text-black'>
+        {/* <p className='pt-4 font-outfit text-[21px] font-normal text-black'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
-        </p>
+        </p> */}
         <div className='flex flex-col gap-5 pb-2 pt-8'>
           {(plan === 'basic'
             ? ['Weekly Report', 'Industry Specific', 'Geo Area Coverage', 'List of Addresses']
