@@ -11,7 +11,7 @@ export const profileSchema = z.object({
   firstName: z.string().min(1, 'Required'),
   lastName: z.string().min(1, 'Required'),
   email: z.string().email('Invalid email address'),
-  phoneNumber: z.string().min(1, 'Phone number is required'),
+  phoneNumber: z.string().optional(),
   zipCode: z.string().min(1, 'ZipCode is required'),
 })
 

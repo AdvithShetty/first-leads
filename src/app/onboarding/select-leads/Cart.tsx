@@ -14,6 +14,7 @@ const Cart = () => {
 
   const total = cart?.items.reduce((acc, item) => acc + Number(item.price), 0)
   const [termsAgreed, setTermsAgreed] = useState(true)
+  const [marketingAgreed, setMarketingAgreed] = useState(false)
   const { setCartId } = useCartId()
 
   const { onClose } = useCartDisclosure()
@@ -56,7 +57,13 @@ const Cart = () => {
           >
             Terms & Conditions
           </Checkbox>
-          <Checkbox size='sm' className='font-outfit text-sm font-medium' color='secondary'>
+          <Checkbox
+            size='sm'
+            className='font-outfit text-sm font-medium'
+            color='secondary'
+            isSelected={marketingAgreed}
+            onValueChange={setMarketingAgreed}
+          >
             Opt in to receive marketing emails and new updates.{' '}
           </Checkbox>
         </div>
@@ -66,7 +73,7 @@ const Cart = () => {
             <p className='text-sm font-medium'>(Exclusive Tax)</p>
           </div>
           <div className='flex w-1/2 flex-col items-end'>
-            <h1 className='text-[26px] font-bold'>${total} /mo</h1>
+            <h1 className='text-[26px] font-bold'>${total || 0} /mo</h1>
             <p className='text-sm font-medium'>(Billed Monthly)</p>
           </div>
         </div>
@@ -78,21 +85,36 @@ const Cart = () => {
             if (!termsAgreed) return toast.error('Please agree to the terms and conditions')
 
             try {
-              const res = await axios.get('/api/cart/checkout', {
-                params: {
-                  cartId: cart?.id,
-                },
-              })
+              const results = await toast.promise(
+                Promise.all([
+                  axios.put('/api/user/accept-terms'),
+                  axios.patch('/api/user/update', {
+                    marketingNotification: marketingAgreed,
+                  }),
+                  axios.get('/api/cart/checkout', {
+                    params: {
+                      cartId: cart?.id,
+                    },
+                  }),
+                ]),
+                {
+                  loading: 'Checking out...',
+                  success: 'Checkout successful: Redirecting to payment page',
+                  error: 'Error while checking out',
+                }
+              )
+
+              const url = results[1].data.url
 
               setCartId(null)
 
-              if (res) {
+              if (url) {
                 toast.success('Checkout successful: Redirecting to payment page')
 
-                window.location.href = res.data.url
+                window.location.href = url
               }
             } catch (error) {
-              toast.error('Error while checking out')
+              console.error('Error while checking out', error)
             }
           }}
         >
