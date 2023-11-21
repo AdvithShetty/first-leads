@@ -2,6 +2,7 @@
 import { CrossIcon } from '@/components/Dashboard/icons'
 import SelectedLeadRow from '@/components/Onboarding/SelectedLeadRow'
 import useCart from '@/hooks/useCart'
+import useCartId from '@/hooks/useCartId'
 import { Button, Checkbox, Skeleton } from '@nextui-org/react'
 import axios from 'axios'
 import { useState } from 'react'
@@ -13,6 +14,7 @@ const Cart = () => {
 
   const total = cart?.items.reduce((acc, item) => acc + Number(item.price), 0)
   const [termsAgreed, setTermsAgreed] = useState(true)
+  const { setCartId } = useCartId()
 
   const { onClose } = useCartDisclosure()
 
@@ -81,6 +83,8 @@ const Cart = () => {
                   cartId: cart?.id,
                 },
               })
+
+              setCartId(null)
 
               if (res) {
                 toast.success('Checkout successful: Redirecting to payment page')

@@ -5,6 +5,7 @@ import PlanModification from './PlanModification'
 const MySubscriptions = () => {
   const { data } = useSubscriptions()
   console.log('🚀 ~ file: page.tsx:7 ~ MySubscriptions ~ data:', data)
+
   return (
     <div className='w-full px-10 py-6'>
       <h1 className='pb-10 font-sans text-[40px] font-bold text-black'>Subscription</h1>
@@ -23,15 +24,8 @@ const MySubscriptions = () => {
             <div className='flex w-full flex-col gap-5 pt-8' key={i}>
               <div className='grid w-full grid-cols-10'>
                 <h1 className='col-span-4 font-sans text-2xl font-bold text-black'>Lead Type</h1>
-                <h1 className='col-span-4 font-sans text-2xl font-bold text-black'>Renewal</h1>
               </div>
-              {[1, 2].map((_, i2) => (
-                <div className='grid w-full grid-cols-10' key={i2}>
-                  <p className='col-span-4 font-sans text-lg font-medium text-black'>Location (Basic Plan)</p>
-                  <p className='col-span-4 font-sans text-lg font-medium text-black'>Renews at 02 Dec 2023</p>
-                  <p className='col-span-2 text-right font-sans text-xl font-bold text-black'>$29</p>
-                </div>
-              ))}
+              <p className='col-span-4 font-sans text-lg font-medium text-black'>Location (Basic Plan)</p>
             </div>
           ))}
         </div>
