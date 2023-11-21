@@ -3,16 +3,21 @@ import { useQuery } from 'react-query'
 
 export interface Subscriptions {
   items: SubscriptionsItem[]
-  taxAmount: number
-  totalPrice: number
+  taxAmount: string
+  totalPrice: string
+  id: number
+  nextBillingDate: string
 }
 
 export interface SubscriptionsItem {
+  id: number
+  name: string
+  price: number
+  leadType: string
+  leadTypeId: number
+  coverageType: string
   areaType: string
   areaValue: string
-  coverageType: string
-  id: number
-  leadType: string
 }
 
 const useSubscriptions = () => {

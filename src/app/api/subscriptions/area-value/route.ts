@@ -2,18 +2,76 @@ import { backendWithAuth } from '@/utils/axios'
 
 export async function PATCH(request: Request) {
   const params = new URL(request.url).searchParams
-  const id = params.get('id')
-  const coverageId = params.get('coverageId')
+  const subscriptionId = params.get('subscriptionId')
+  const itemId = params.get('itemId')
+
+  if (!subscriptionId || !itemId) {
+    return Response.json(
+      {
+        error: 'Subscription Id and Item Id are required',
+      },
+      {
+        status: 400,
+      }
+    )
+  }
 
   const body = await request.json()
 
   try {
-    const res = await (await backendWithAuth()).patch(`/subscriptions/${id}/coverage/${coverageId}`, body)
-    const data = await res.data
+    const res = await (
+      await backendWithAuth()
+    ).patch(`/subscriptions/${subscriptionId}/coverage/${itemId}`, body, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    const data = res.data
 
-    return Response.json(data)
+    return Response.json(data, { status: 200 })
   } catch (error: any) {
-    console.log('Error while updating Subscriptions', error?.response?.data || error?.response)
+    console.log('Error while updating Subscriptions area value', error?.response?.data || error?.response)
+
+    return Response.json(
+      {
+        error: 'Something went wrong',
+      },
+      {
+        status: 500,
+      }
+    )
+  }
+}
+
+export async function DELETE(request: Request) {
+  const params = new URL(request.url).searchParams
+  const subscriptionId = params.get('subscriptionId')
+  const itemId = params.get('itemId')
+
+  if (!subscriptionId || !itemId) {
+    return Response.json(
+      {
+        error: 'Subscription Id and Item Id are required',
+      },
+      {
+        status: 400,
+      }
+    )
+  }
+
+  try {
+    const res = await (
+      await backendWithAuth()
+    ).delete(`/subscriptions/${subscriptionId}/coverage/${itemId}`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    const data = res.data
+
+    return Response.json(data, { status: 200 })
+  } catch (error: any) {
+    console.log('Error while updating Subscriptions area value', error?.response?.data || error?.response)
 
     return Response.json(
       {
