@@ -41,7 +41,7 @@ const LeadTypeCard = ({ description, id, name, premiumPrice, basicPrice }: LeadT
         axios.post(
           '/api/subscriptions/add',
           {
-            itemId: id,
+            itemId: plan === 'basic' ? basicPrice.id : premiumPrice.id,
             areaType: areaValue?.areaType,
             areaValue: areaValue?.areaValue,
           },

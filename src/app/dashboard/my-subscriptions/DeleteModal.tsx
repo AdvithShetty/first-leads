@@ -59,7 +59,7 @@ const DeleteModal = ({
         {(onClose) => (
           <div className='w-full'>
             <ModalHeader className='flex flex-col gap-1 font-inter text-lg font-semibold text-[#6941C6]'>
-              Delete Subscription
+              Delete Item
             </ModalHeader>
             <ModalBody>
               <h1 className='w-full font-sans text-lg font-bold capitalize text-black lg:text-2xl'>{leadType?.name}</h1>
@@ -70,7 +70,7 @@ const DeleteModal = ({
                 <h2 className='font-sans text-xl font-bold'>${leadType?.basicPrice.price}</h2>
               </div>
               <p className='font-inter text-sm'>
-                Are you sure you want to delete this subscription? This action cannot be undone.
+                Are you sure you want to delete this item? This action cannot be undone.
               </p>
             </ModalBody>
             <ModalFooter>
