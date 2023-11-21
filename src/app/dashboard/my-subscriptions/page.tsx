@@ -37,6 +37,35 @@ const MySubscriptions = () => {
             data?.items.map((item, i) => <SubscriptionRow key={i} {...item} subscriptionId={data.id} />)
           )}
         </div>
+        <div className='mt-6 h-[1px] w-full bg-[#0000001F]' />
+        {isLoading ? (
+          <div className='flex w-full flex-col gap-6 pt-6'>
+            {Array.from({ length: 3 }).map((_, i) => (
+              <Skeleton className='h-[100px] w-full rounded-lg' key={i} />
+            ))}
+          </div>
+        ) : data ? (
+          <>
+            <div className='flex flex-col justify-between pt-4 lg:flex-row lg:items-center'>
+              <h1 className='font-sans text-lg font-semibold'>Renewal Date</h1>
+              <h2 className='font-sans text-lg font-semibold'>
+                {new Date(data.nextBillingDate).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </h2>
+            </div>
+            <div className='flex flex-col justify-between pt-4 lg:flex-row lg:items-center'>
+              <h1 className='font-sans text-lg font-semibold'>Tax</h1>
+              <h2 className='font-sans text-xl font-bold'>${data.taxAmount}</h2>
+            </div>
+            <div className='flex flex-col justify-between pt-4 lg:flex-row lg:items-center'>
+              <h1 className='font-sans text-lg font-semibold'>Total Amount</h1>
+              <h2 className='font-sans text-xl font-bold'>${data.totalPrice}</h2>
+            </div>
+          </>
+        ) : null}
         <PlanModification />
       </div>
       <div className='flex items-center justify-end pt-14'>
