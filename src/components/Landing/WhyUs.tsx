@@ -37,12 +37,18 @@ const WhyUs = () => {
               <PurpleCard title='Total States Covered' value={picklists.geoStatistics.totalUniqueStates} />
               <WhiteCard
                 title='Average Number of Leads per week'
-                value={picklists.globalStatistics.totalLeadsPerWeek}
+                value={picklists.globalStatistics.totalLeadsPerWeek.toLocaleString('en-US')}
               />
             </div>
             <div className='mt-10 flex flex-col gap-5 xl:mt-16 xl:gap-16'>
-              <WhiteCard title='Total Number of Leads' value={picklists.globalStatistics.totalLeads} />
-              <PurpleCard title='Potential Revenues' value={'$' + picklists.globalStatistics.totalPotentialRevenue} />
+              <WhiteCard
+                title='Total Number of Leads'
+                value={picklists.globalStatistics.totalLeads.toLocaleString('en-US')}
+              />
+              <PurpleCard
+                title='Potential Revenues'
+                value={'$' + picklists.globalStatistics.totalPotentialRevenue.toLocaleString('en-US')}
+              />
             </div>
           </div>
         ) : null}
