@@ -19,8 +19,8 @@ const BlogCards: FC<Props> = ({ link, image, title, description, rowSpan }) => {
       href={link}
       target='_blank'
       rel='noopener noreferrer'
-      className={`group relative z-0 col-span-1 overflow-hidden rounded-lg 2xl:h-[20rem] ${
-        rowSpan ? rowSpan : 'h-[17rem]'
+      className={`group relative z-0 col-span-1 overflow-hidden rounded-lg ${
+        rowSpan ? rowSpan : 'h-[17rem] 2xl:h-[20rem]'
       }`}
     >
       <Image

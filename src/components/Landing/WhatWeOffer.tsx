@@ -3,21 +3,13 @@ import { fadeVariants } from '@/utils/variants'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { FC } from 'react'
-import { useInView } from 'react-intersection-observer'
 
 const WhatWeOffer = () => {
-  const [ref, inView] = useInView({
-    threshold: 0.25,
-    triggerOnce: true,
-    fallbackInView: true,
-  })
-
   return (
     <motion.div
       variants={fadeVariants}
       initial='hidden'
-      animate={inView && 'visible'}
-      ref={ref}
+      whileInView='visible'
       className='flex flex-col items-center gap-20 pb-20 font-rubik xl:py-20'
       id='features'
     >
