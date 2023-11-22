@@ -1,9 +1,7 @@
-import Link from 'next/link'
-
 const ContactDetails = () => {
   return (
     <div className='flex w-[20rem] flex-col gap-4 pt-2 font-archivo'>
-      <h1 className='pb-2 text-xl font-semibold text-white'>Contact</h1>
+      {/* <h1 className='pb-2 text-xl font-semibold text-white'>Contact</h1> */}
       <div className='flex gap-3'>
         <LocationIcon />
         <p className='text-base font-normal text-[#859794]'>166 Geary St, STE 1500, San Francisco, CA 94108</p>
@@ -12,13 +10,12 @@ const ContactDetails = () => {
         <CallPhoneIcon />
         <p className='text-base font-normal text-[#859794]'>Phone: +1 (123) 985 789</p>
       </div> */}
-      <div className='flex items-center gap-3'>
+      {/* <div className='flex items-center gap-3'>
         <MailIcon />
-        {/* //TODO: Add Mail link */}
         <Link href='mailto:info@firstleads.ai' className='text-base font-normal text-[#859794]'>
           Email: info@firstleads.ai
         </Link>
-      </div>
+      </div> */}
     </div>
   )
 }

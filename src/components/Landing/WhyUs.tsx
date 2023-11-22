@@ -42,7 +42,7 @@ const WhyUs = () => {
             </div>
             <div className='mt-10 flex flex-col gap-5 xl:mt-16 xl:gap-16'>
               <WhiteCard title='Total Number of Leads' value={picklists.globalStatistics.totalLeads} />
-              <PurpleCard title='Potential Revenues' value={picklists.globalStatistics.totalPotentialRevenue} />
+              <PurpleCard title='Potential Revenues' value={'$' + picklists.globalStatistics.totalPotentialRevenue} />
             </div>
           </div>
         ) : null}
@@ -53,7 +53,7 @@ const WhyUs = () => {
 
 interface CardProps {
   title: string
-  value: number
+  value: number | string
   // subtitle: string
 }
 
@@ -66,7 +66,16 @@ const PurpleCard = ({ title, value }: CardProps) => {
       }}
     >
       <h2 className='text-2xl font-normal xl:text-[26px]'>Upto</h2>
-      <h1 className='text-4xl font-bold xl:text-[58px]'>{value}</h1>
+      <h1
+        className='text-4xl font-bold xl:text-[58px]'
+        style={{
+          fontSize: `calc(3rem - ${
+            value.toString().length < 10 ? value.toString().length : value.toString().length * 1.5
+          }px)`,
+        }}
+      >
+        {value}
+      </h1>
       <p className='text-base font-normal xl:text-[21px]'>{title}</p>
     </div>
   )
@@ -81,7 +90,16 @@ const WhiteCard = ({ title, value }: CardProps) => {
       }}
     >
       <h2 className='text-2xl font-normal xl:text-[26px]'>Upto</h2>
-      <h1 className='text-4xl font-bold xl:text-[58px]'>{value}</h1>
+      <h1
+        className='text-4xl font-bold xl:text-[58px]'
+        style={{
+          fontSize: `calc(3rem - ${
+            value.toString().length < 10 ? value.toString().length : value.toString().length * 1.5
+          }px)`,
+        }}
+      >
+        {value}
+      </h1>
       <p className='text-base font-normal xl:text-[21px]'>{title}</p>
     </div>
   )
