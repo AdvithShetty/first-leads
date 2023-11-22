@@ -2,9 +2,11 @@
 import usePicklists from '@/hooks/usePicklists'
 import { fadeVariants } from '@/utils/variants'
 import { Skeleton } from '@nextui-org/react'
+import { animated, useSpring } from '@react-spring/web'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useInView } from 'react-intersection-observer'
+import { useIsClient, useWindowSize } from 'usehooks-ts'
 
 const WhyUs = () => {
   const [ref, inView] = useInView({
@@ -31,23 +33,23 @@ const WhyUs = () => {
         </div>
         {isLoading ? (
           <Skeleton className='h-[400px] w-full lg:w-2/5' />
-        ) : picklists ? (
+        ) : picklists && inView ? (
           <div className='flex scale-80 gap-5 font-outfit xl:scale-100 xl:gap-10'>
             <div className='flex flex-col gap-5 xl:gap-16'>
               <PurpleCard title='Total States Covered' value={picklists.geoStatistics.totalUniqueStates} />
               <WhiteCard
                 title='Average Number of Leads per week'
-                value={picklists.globalStatistics.totalLeadsPerWeek.toLocaleString('en-US')}
+                value={picklists.globalStatistics.totalLeadsPerWeek}
+                isCounting
               />
             </div>
             <div className='mt-10 flex flex-col gap-5 xl:mt-16 xl:gap-16'>
-              <WhiteCard
-                title='Total Number of Leads'
-                value={picklists.globalStatistics.totalLeads.toLocaleString('en-US')}
-              />
+              <WhiteCard title='Total Number of Leads' value={picklists.globalStatistics.totalLeads} isCounting />
               <PurpleCard
                 title='Potential Revenues'
-                value={'$' + picklists.globalStatistics.totalPotentialRevenue.toLocaleString('en-US')}
+                value={picklists.globalStatistics.totalPotentialRevenue}
+                isCounting
+                symbol='$'
               />
             </div>
           </div>
@@ -60,10 +62,15 @@ const WhyUs = () => {
 interface CardProps {
   title: string
   value: number | string
-  // subtitle: string
+  isCounting?: boolean
+  symbol?: string
 }
 
-const PurpleCard = ({ title, value }: CardProps) => {
+const PurpleCard = ({ title, value, isCounting, symbol }: CardProps) => {
+  useIsClient()
+  const { width } = useWindowSize()
+  const isMobile = width < 1280
+
   return (
     <div
       className='flex w-[12rem] flex-col gap-4 rounded-[5px] bg-purple-2 p-4 leading-none text-white xl:w-[19rem] xl:p-9'
@@ -73,21 +80,25 @@ const PurpleCard = ({ title, value }: CardProps) => {
     >
       <h2 className='text-2xl font-normal xl:text-[26px]'>Upto</h2>
       <h1
-        className='text-4xl font-bold xl:text-[58px]'
+        className='flex items-center gap-1 text-4xl font-bold xl:text-[58px]'
         style={{
-          fontSize: `calc(3rem - ${
+          fontSize: `calc(${isMobile ? '2.4rem' : '3rem'} - ${
             value.toString().length < 10 ? value.toString().length : value.toString().length * 1.5
           }px)`,
         }}
       >
-        {value}
+        <span>{symbol}</span> {isCounting ? <RollingNumbers value={value as number} /> : value}
       </h1>
       <p className='text-base font-normal xl:text-[21px]'>{title}</p>
     </div>
   )
 }
 
-const WhiteCard = ({ title, value }: CardProps) => {
+const WhiteCard = ({ title, value, isCounting }: CardProps) => {
+  useIsClient()
+  const { width } = useWindowSize()
+  const isMobile = width < 1280
+
   return (
     <div
       className='flex w-[12rem] flex-col gap-4 rounded-[5px] bg-white p-4 leading-none text-black xl:w-[19rem] xl:p-9'
@@ -99,15 +110,33 @@ const WhiteCard = ({ title, value }: CardProps) => {
       <h1
         className='text-4xl font-bold xl:text-[58px]'
         style={{
-          fontSize: `calc(3rem - ${
+          fontSize: `calc(${isMobile ? '2.4rem' : '3rem'} - ${
             value.toString().length < 10 ? value.toString().length : value.toString().length * 1.5
           }px)`,
         }}
       >
-        {value}
+        {isCounting ? <RollingNumbers value={value as number} /> : value}
       </h1>
       <p className='text-base font-normal xl:text-[21px]'>{title}</p>
     </div>
+  )
+}
+
+const RollingNumbers = ({ value }: { value: number }) => {
+  const { number } = useSpring({
+    from: { number: 0 },
+    number: value,
+    config: { mass: 1, tension: 20, friction: 10 },
+  })
+
+  return (
+    <animated.div>
+      {number.to((n) =>
+        n.toLocaleString('en-US', {
+          maximumFractionDigits: 0,
+        })
+      )}
+    </animated.div>
   )
 }
 
