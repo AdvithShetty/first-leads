@@ -116,7 +116,7 @@ const Archives = () => {
       <div className='flex flex-col items-center justify-between gap-4 pt-8 lg:flex-row'>
         <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
         <p className='select-none font-rubik text-sm font-normal text-black'>
-          © 2023 All Right Reserved by First Leads
+          © 2023 All Rights Reserved by First Leads Generation Inc.
         </p>
       </div>
     </div>

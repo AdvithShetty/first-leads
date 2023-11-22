@@ -33,7 +33,9 @@ const Page = () => {
       <RecentlyAdded />
       <NeedMoreLeads buttonStyles='px-8' />
       <div className='flex items-center justify-end'>
-        <p className='font-rubik text-sm font-normal text-black'>© 2023 All Right Reserved by First Leads</p>
+        <p className='font-rubik text-sm font-normal text-black'>
+          © 2023 All Rights Reserved by First Leads Generation Inc.
+        </p>
       </div>
     </div>
   )
