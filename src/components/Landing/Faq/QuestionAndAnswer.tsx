@@ -58,42 +58,39 @@ const faqs = [
   {
     question: 'Can I cancel my subscription at any time?',
     answer:
-      'We update our lead data on a weekly basis to ensure that you have access to the most current information available. This frequency allows you to stay ahead in your lead generation efforts.',
+      'Yes, you have the flexibility to cancel your subscription at any time with no long-term commitments or hidden fees. We believe in providing you with a hassle-free experience.',
   },
   {
     question: 'What industries can benefit from your lead data?',
     answer:
-      'We update our lead data on a weekly basis to ensure that you have access to the most current information available. This frequency allows you to stay ahead in your lead generation efforts.',
+      'Our lead data caters to a wide range of industries, including real estate, construction, legal, insurance, and many more.',
   },
   {
     question: 'How do I access premium features like phone numbers and emails?',
     answer:
-      'We update our lead data on a weekly basis to ensure that you have access to the most current information available. This frequency allows you to stay ahead in your lead generation efforts.',
+      'Premium features, includes lead names, phone numbers, emails, and more. Simply choose this plan to unlock these valuable details for your lead generation efforts.',
   },
   {
-    question: 'What is ZIP code targeting, and how does it work?',
-    answer:
-      'We update our lead data on a weekly basis to ensure that you have access to the most current information available. This frequency allows you to stay ahead in your lead generation efforts.',
+    question: 'How do I select the location for lead acquisition?',
+    answer: `The subscription allows you to specify geographic areas of interest for lead acquisition. With this feature, you can focus your efforts on specific regions, ensuring that you're reaching your target audience effectively.`,
   },
   {
-    question: 'How can I maximize my ROI using your service?',
+    question: 'How do I maximize my subscription using your service?',
     answer:
-      'We update our lead data on a weekly basis to ensure that you have access to the most current information available. This frequency allows you to stay ahead in your lead generation efforts.',
+      'To maximize your return on investment, consider our Premium Subscription, which provides comprehensive lead details. Additionally, take advantage of our expert support and analytics dashboard to fine-tune your lead generation strategies.',
   },
   {
-    question: 'Are there any discounts for high-volume users?',
-    answer:
-      'We update our lead data on a weekly basis to ensure that you have access to the most current information available. This frequency allows you to stay ahead in your lead generation efforts.',
+    question: 'Are there any discounts for high-volume users or historical data?',
+    answer: `Yes, we offer volume discounts for high-volume users and historical data. Contact our sales team to discuss custom pricing options that align with your specific business needs.`,
   },
   {
     question: 'What if I have technical issues or need assistance?',
-    answer:
-      'We update our lead data on a weekly basis to ensure that you have access to the most current information available. This frequency allows you to stay ahead in your lead generation efforts.',
+    answer: `Our dedicated support team is here to assist you with any technical issues or questions you may have. Feel free to reach out to our support team, and we'll provide prompt assistance.`,
   },
   {
-    question: 'Do you offer a free trial for your premium plans? ',
+    question: 'Do you offer a free trial for your premium plans?',
     answer:
-      'We update our lead data on a weekly basis to ensure that you have access to the most current information available. This frequency allows you to stay ahead in your lead generation efforts.',
+      'Yes, we offer a 14 days free trial for our Basic and Premium Subscriptions. This allows you to experience the benefits of our premium features before committing to a subscription.',
   },
 ]
 
