@@ -13,15 +13,13 @@ const Footer = () => {
         <div className='w-full'>
           <SuperCharge />
           <div className='absolute bottom-0 w-full px-28 2xl:px-40'>
-            <div className='flex h-[16rem] justify-between '>
-              <div className='flex gap-14'>
-                <CompanySocials />
-                <ContactDetails />
-              </div>
+            <div className='flex h-[16rem] justify-between'>
+              <CompanySocials />
               <Subscribe />
+              <div className='w-[20rem]'></div>
             </div>
             <div className='flex justify-between border-t-2 border-[#8597941A] py-14 font-archivo text-base text-[#E5EDE5]'>
-              <p>2023 All Right Reserved by domain</p>
+              <p>2023 All Rights Reserves by First Leads Generation Inc.</p>
               <div className='flex items-center divide-x-1 divide-[#4A5957]'>
                 <Link href='#' target='_blank' rel='noopener noreferrer' className='pr-4'>
                   Privacy Policy

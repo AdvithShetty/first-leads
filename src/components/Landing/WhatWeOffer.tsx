@@ -49,8 +49,7 @@ const Card: FC<CardProps> = ({ image, title, description, className }) => {
 const cardsContent: CardProps[] = [
   {
     title: '14-day free trial',
-    description:
-      'No strings attached, cancel at any time, instant access to our data. Not charged until end of trial period.',
+    description: 'No strings attached, cancel at any time. Not charged until end of trial period.',
     image: '/images/Landing/FreeTrial.jpeg',
     className: 'object-cover object-top',
   },
