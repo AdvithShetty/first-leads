@@ -58,13 +58,13 @@ const SupportForm = () => {
       className='grid w-full grid-cols-4 gap-x-6 gap-y-6 px-4 pt-16 lg:w-[800px] lg:gap-x-10 lg:gap-y-8 lg:px-0'
     >
       <Input
-        label='Your First Name'
+        label='First Name'
         className='col-span-full lg:col-span-2'
         inputProps={{ ...register('firstName') }}
         error={errors.firstName}
       />
       <Input
-        label='Your Last Name'
+        label='Last Name'
         className='col-span-full lg:col-span-2'
         inputProps={{ ...register('lastName') }}
         error={errors.lastName}
@@ -72,7 +72,7 @@ const SupportForm = () => {
       <Input label='Email Address' className='col-span-4' inputProps={{ ...register('email') }} error={errors.email} />
       <Input label='Subject' className='col-span-4' inputProps={{ ...register('subject') }} error={errors.subject} />
       <TextArea
-        label='Your Message'
+        label='Message'
         className='col-span-4'
         textAreaProps={{ ...register('message') }}
         error={errors.message}
