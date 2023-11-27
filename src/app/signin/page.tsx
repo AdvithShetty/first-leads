@@ -128,26 +128,31 @@ const SignIn = () => {
               inputWrapper: 'border border-[#D0D5DD] rounded-lg',
             }}
           />
-          <div className='flex w-full items-center justify-between'>
-            <div className='flex items-center gap-2'>
-              <svg
-                className='cursor-pointer'
-                onClick={() => setRememberMe(!rememberMe)}
-                xmlns='http://www.w3.org/2000/svg'
-                width='20'
-                height='20'
-                viewBox='0 0 20 20'
-                fill='none'
-              >
-                <rect x='0.5' y='0.5' width='19' height='19' rx='9.5' fill='#F9F5FF' />
-                {rememberMe ? <circle cx='10' cy='10' r='4' fill='#7F56D9' /> : null}
-                <rect x='0.5' y='0.5' width='19' height='19' rx='9.5' stroke='#7F56D9' />
-              </svg>
-              <h2 className='font-inter text-base font-medium text-black'>Remember me</h2>
+          <div className='flex w-full flex-col gap-2'>
+            <div className='flex w-full items-center justify-between'>
+              <div className='flex items-center gap-2'>
+                <svg
+                  className='cursor-pointer'
+                  onClick={() => setRememberMe(!rememberMe)}
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='20'
+                  height='20'
+                  viewBox='0 0 20 20'
+                  fill='none'
+                >
+                  <rect x='0.5' y='0.5' width='19' height='19' rx='9.5' fill='#F9F5FF' />
+                  {rememberMe ? <circle cx='10' cy='10' r='4' fill='#7F56D9' /> : null}
+                  <rect x='0.5' y='0.5' width='19' height='19' rx='9.5' stroke='#7F56D9' />
+                </svg>
+                <h2 className='font-inter text-base font-medium text-black'>Remember me</h2>
+              </div>
+              <button className='font-inter text-lg font-normal text-[#6941C6]' onClick={onOpen}>
+                Forgot Password?
+              </button>
             </div>
-            <button className='font-inter text-lg font-normal text-[#6941C6]' onClick={onOpen}>
-              Forgot Password?
-            </button>
+            <p className='w-full font-inter text-sm text-[#5F5F5F]'>
+              By signing in you accept our Terms and Privacy Policies.
+            </p>
           </div>
           <Button
             type='submit'
@@ -158,7 +163,7 @@ const SignIn = () => {
             Sign In
           </Button>
         </form>
-        <div className='flex items-center justify-between font-inter text-sm font-normal text-[#667085]'>
+        <div className='flex flex-col justify-between gap-4 font-inter text-sm font-normal text-[#667085] lg:flex-row lg:items-center lg:gap-0'>
           <div className='flex items-center divide-x-1 divide-[#4A5957]'>
             <Link href='#' target='_blank' rel='noopener noreferrer' className='pr-2 '>
               Privacy Policy
@@ -167,7 +172,7 @@ const SignIn = () => {
               Terms of Use
             </Link>
           </div>
-          <p>First Leads Generation Inc.</p>
+          <p>© 2023 All Rights Reserved by First Leads Generation Inc.</p>
         </div>
       </div>
       <div className='hidden h-[91vh] w-1/2 flex-col items-end justify-center pl-40 lg:flex'>
@@ -186,9 +191,8 @@ const SignIn = () => {
               Leads that work
             </h1>
             <p className='text-center font-inter text-base font-normal leading-8 text-white'>
-              Quaerat sodales sapien euismod blandit at vitae ipsum primis undo and cubilia laoreet augue and luctus
-              magna dolor luctus at egestas sapien vitae nemo egestas volute and turpis dolores aliquam quaerat sodales
-              a sapien
+              Are you ready to supercharge your sales and grow your business? At FirstLeads, we specialize in delivering
+              high-quality leads to service businesses across various industries.
             </p>
           </div>
         </div>
