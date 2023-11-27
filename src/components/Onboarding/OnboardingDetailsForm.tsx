@@ -95,7 +95,13 @@ const OnboardingDetailsForm = () => {
         inputProps={{ ...register('lastName') }}
         error={errors.lastName}
       />
-      <Input label='Email Address' className='col-span-4' inputProps={{ ...register('email') }} error={errors.email} />
+      <Input
+        label='Email Address'
+        className='col-span-4'
+        inputProps={{ ...register('email') }}
+        error={errors.email}
+        subtitle='Temporary password will be sent to this email address'
+      />
       <Input label='Industry' className='col-span-4' inputProps={{ ...register('industry') }} error={errors.industry} />
       <Input label='Zip Code' className='col-span-4' inputProps={{ ...register('zipCode') }} error={errors.zipCode} />
       <Button

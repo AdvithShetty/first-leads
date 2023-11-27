@@ -10,7 +10,7 @@ const NeedMoreLeads = ({ buttonStyles }: { buttonStyles?: string }) => {
         boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.10)',
       }}
     >
-      <h1 className='text-center font-sans text-lg font-medium text-white lg:text-left lg:text-[32px]'>{`Didn't find what you're looking for`}</h1>
+      <h1 className='text-center font-sans text-lg font-medium text-white lg:text-left lg:text-[32px]'>{`Didn't find what you're looking for?`}</h1>
       <Button
         className={`mx-auto h-12 shrink-0 rounded-lg bg-black font-inter text-base font-medium text-white lg:mx-0 ${buttonStyles}`}
       >

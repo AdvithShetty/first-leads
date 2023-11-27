@@ -25,7 +25,7 @@ interface CardProps {
 const Card: FC<CardProps> = ({ title, price, buttonLink, buttonText, features, isWhite }) => {
   return (
     <div
-      className={`flex h-auto w-[90%] flex-col gap-2 rounded-[15px] px-10 py-8 xl:h-[40.7rem] xl:w-[35rem] ${
+      className={`flex h-auto w-[90%] flex-col gap-2 rounded-[15px] px-10 py-8 xl:h-[39rem] xl:w-[35rem] ${
         isWhite ? 'bg-white text-black' : 'bg-[#0C1E1B] text-white'
       }`}
       style={{
@@ -45,7 +45,7 @@ const Card: FC<CardProps> = ({ title, price, buttonLink, buttonText, features, i
           </div>
         ))}
       </div>
-      <Button className='my-4 h-12 w-max rounded-lg p-0'>
+      <Button className='mt-auto h-12 w-max rounded-lg p-0'>
         <Link
           className='flex h-full w-full items-center justify-center gap-2 bg-purple-2 px-8 font-outfit text-sm font-semibold uppercase tracking-[0.7px] text-white'
           href={buttonLink}
@@ -70,7 +70,7 @@ const monthlyPlans = [
     title: 'Premium Plan',
     price: 49,
     features: ['Basic Plan +', 'Phone Numbers', 'Contact Emails', 'Home Equity', 'Do Not Call (DNC) Verification'],
-    buttonText: '7 Day Free Trial',
+    buttonText: '14 Day Free Trial',
     buttonLink: '/onboarding',
     isWhite: true,
   },

@@ -7,9 +7,10 @@ interface InputProps {
   className?: string
   inputProps?: InputHTMLAttributes<HTMLInputElement>
   starterContent?: string | JSX.Element
+  subtitle?: string
 }
 
-const Input = ({ label, inputProps, className, error, starterContent }: InputProps) => {
+const Input = ({ label, inputProps, className, error, starterContent, subtitle }: InputProps) => {
   if (starterContent) {
     return (
       <div className={`relative ${className}`}>
@@ -26,6 +27,7 @@ const Input = ({ label, inputProps, className, error, starterContent }: InputPro
             className={`h-[52px] w-full shrink-0 rounded-[10px] border-none p-2 font-inter text-lg outline-none transition-all placeholder:text-[#a1a1a1] focus:border-2 focus:border-[#a1a1a1] ${inputProps?.className}`}
           />
         </div>
+        <p className='col-span-full px-6 pt-2 font-inter text-xs text-[#a1a1a1]'>{subtitle}</p>
       </div>
     )
   }
@@ -42,6 +44,7 @@ const Input = ({ label, inputProps, className, error, starterContent }: InputPro
         {...inputProps}
         className={`h-[52px] w-full shrink-0 rounded-[10px] border border-[#E7E7E7] p-2 font-inter text-lg outline-none transition-all placeholder:text-[#a1a1a1] focus:border-2 focus:border-[#a1a1a1] ${inputProps?.className}`}
       />
+      <p className='col-span-full px-6 pt-2 font-inter text-xs text-[#a1a1a1]'>{subtitle}</p>
     </div>
   )
 }
