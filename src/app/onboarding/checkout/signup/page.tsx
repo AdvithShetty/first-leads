@@ -109,14 +109,14 @@ const SignUp = () => {
         </form>
         <div className='flex items-center justify-between font-inter text-sm font-normal text-[#667085]'>
           <div className='flex items-center divide-x-1 divide-[#4A5957]'>
-            <Link href='#' target='_blank' rel='noopener noreferrer' className='pr-2 '>
+            <Link href='/privacy' target='_blank' rel='noopener noreferrer' className='pr-2 '>
               Privacy Policy
             </Link>
-            <Link href='#' target='_blank' rel='noopener noreferrer' className='pl-2 '>
+            <Link href='/terms' target='_blank' rel='noopener noreferrer' className='pl-2 '>
               Terms of Use
             </Link>
           </div>
-          <p>2023 © First Leads</p>
+          <p>2023 All Rights Reserves by First Leads Generation Inc.</p>
         </div>
       </div>
       <div className='flex h-[91vh] w-1/2 flex-col items-end justify-center pl-40'>

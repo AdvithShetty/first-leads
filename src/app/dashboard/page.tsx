@@ -31,7 +31,7 @@ const Page = () => {
         </div>
       </div>
       <RecentlyAdded />
-      <div className='mt-auto'>
+      <div className='mt-auto pb-8'>
         <NeedMoreLeads buttonStyles='px-8' />
         <div className='flex items-center justify-end'>
           <p className='font-rubik text-sm font-normal text-black'>

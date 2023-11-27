@@ -112,7 +112,7 @@ const Admin = () => {
           </Button>
         </form>
         <div className='absolute bottom-6 right-8 flex items-center justify-between font-inter text-sm font-normal text-[#667085]'>
-          <p>2023 © First Leads</p>
+          <p>2023 All Rights Reserves by First Leads Generation Inc.</p>
         </div>
       </div>
       <ForgorPasswordModal isOpen={isOpen} onOpenChange={onOpenChange} />

@@ -165,10 +165,10 @@ const SignIn = () => {
         </form>
         <div className='flex flex-col justify-between gap-4 font-inter text-sm font-normal text-[#667085] lg:flex-row lg:items-center lg:gap-0'>
           <div className='flex items-center divide-x-1 divide-[#4A5957]'>
-            <Link href='#' target='_blank' rel='noopener noreferrer' className='pr-2 '>
+            <Link href='/privacy' target='_blank' rel='noopener noreferrer' className='pr-2 '>
               Privacy Policy
             </Link>
-            <Link href='#' target='_blank' rel='noopener noreferrer' className='pl-2 '>
+            <Link href='/terms' target='_blank' rel='noopener noreferrer' className='pl-2 '>
               Terms of Use
             </Link>
           </div>

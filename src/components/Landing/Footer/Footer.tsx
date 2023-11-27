@@ -21,10 +21,10 @@ const Footer = () => {
             <div className='flex justify-between border-t-2 border-[#8597941A] py-14 font-archivo text-base text-[#E5EDE5]'>
               <p>2023 All Rights Reserves by First Leads Generation Inc.</p>
               <div className='flex items-center divide-x-1 divide-[#4A5957]'>
-                <Link href='#' target='_blank' rel='noopener noreferrer' className='pr-4'>
+                <Link href='/privacy' target='_blank' rel='noopener noreferrer' className='pr-4'>
                   Privacy Policy
                 </Link>
-                <Link href='#' target='_blank' rel='noopener noreferrer' className='pl-4'>
+                <Link href='/terms' target='_blank' rel='noopener noreferrer' className='pl-4'>
                   Terms of Use
                 </Link>
               </div>
