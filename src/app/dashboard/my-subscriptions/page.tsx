@@ -12,7 +12,7 @@ const MySubscriptions = () => {
   const hasNoSubscription = isError && (error as any).response?.status === 404
 
   return (
-    <div className='w-full px-6 py-8 lg:px-10'>
+    <div className='flex h-full w-full flex-col px-6 py-8 lg:px-10'>
       <div className='flex flex-col items-start justify-between pb-8 '>
         <h1 className='pb-4 font-sans text-3xl font-bold text-black lg:pb-6 lg:text-[40px] '>Subscription</h1>
         {isEmpty ? (
@@ -106,7 +106,7 @@ const MySubscriptions = () => {
           <PlanModification />
         </div>
       )}
-      <div className='flex items-center justify-end pt-14'>
+      <div className='mt-auto flex items-center justify-end pb-8 pt-14 lg:pb-0'>
         <p className='font-rubik text-sm font-normal text-black'>
           © 2023 All Rights Reserved by First Leads Generation Inc.
         </p>

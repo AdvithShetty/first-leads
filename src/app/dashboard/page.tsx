@@ -3,7 +3,7 @@ import RecentlyAdded from '@/components/Dashboard/RecentlyAdded'
 
 const Page = () => {
   return (
-    <div className='w-full px-6 py-8 lg:px-10'>
+    <div className='flex h-full w-full flex-col px-6 py-8 lg:px-10'>
       <h1 className='pb-2 font-sans text-3xl font-bold text-black lg:text-[40px]'>Dashboard</h1>
       <h2 className='pb-6 pt-4 font-sans text-lg font-semibold text-black lg:pt-6 lg:text-2xl'>Analytics</h2>
       <div className='flex items-center justify-between lg:justify-start lg:gap-28'>
@@ -31,11 +31,13 @@ const Page = () => {
         </div>
       </div>
       <RecentlyAdded />
-      <NeedMoreLeads buttonStyles='px-8' />
-      <div className='flex items-center justify-end'>
-        <p className='font-rubik text-sm font-normal text-black'>
-          © 2023 All Rights Reserved by First Leads Generation Inc.
-        </p>
+      <div className='mt-auto'>
+        <NeedMoreLeads buttonStyles='px-8' />
+        <div className='flex items-center justify-end'>
+          <p className='font-rubik text-sm font-normal text-black'>
+            © 2023 All Rights Reserved by First Leads Generation Inc.
+          </p>
+        </div>
       </div>
     </div>
   )

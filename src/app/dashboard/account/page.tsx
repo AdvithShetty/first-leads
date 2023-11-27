@@ -11,7 +11,7 @@ const Account = () => {
   }
 
   return (
-    <div className='w-full px-6 py-8 lg:px-10 lg:py-10'>
+    <div className='flex h-full w-full flex-col px-6 py-8 lg:px-10 lg:py-10'>
       <div className='flex w-full items-start justify-between gap-20'>
         <div className='flex w-full flex-col lg:w-1/2'>
           <ProfileForm />
@@ -19,7 +19,7 @@ const Account = () => {
         </div>
       </div>
 
-      <div className='flex items-center justify-end pt-10'>
+      <div className='mt-auto flex items-center justify-end pb-8 pt-10'>
         <p className='font-rubik text-sm font-normal text-black'>
           © 2023 All Rights Reserved by First Leads Generation Inc.
         </p>

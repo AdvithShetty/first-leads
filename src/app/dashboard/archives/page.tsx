@@ -48,7 +48,7 @@ const Archives = () => {
   }, [isReportsLoading, reports])
 
   return (
-    <div className='w-full px-6 py-8 lg:px-10'>
+    <div className='flex h-full w-full flex-col px-6 py-8 lg:px-10'>
       <div className='flex flex-col justify-between lg:flex-row lg:items-center'>
         <h1 className='pb-2 font-sans text-3xl font-bold text-black lg:pb-4 lg:text-[40px]'>Archives</h1>
         <div className='flex flex-col gap-4 pt-4 lg:flex-row lg:items-center lg:pt-0'>
@@ -113,7 +113,7 @@ const Archives = () => {
           />
         ) : null}
       </div>
-      <div className='flex flex-col items-center justify-between gap-4 pt-8 lg:flex-row'>
+      <div className='mt-auto flex flex-col items-center justify-between gap-4 py-8 lg:flex-row'>
         <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
         <p className='select-none font-rubik text-sm font-normal text-black'>
           © 2023 All Rights Reserved by First Leads Generation Inc.
