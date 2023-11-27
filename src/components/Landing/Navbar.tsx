@@ -30,7 +30,7 @@ const Navbar = () => {
   return (
     <>
       {/* --------------------------------- Desktop -------------------------------- */}
-      <nav className='hidden w-full items-center justify-between px-36 py-4 font-archivo xl:flex'>
+      <nav className='hidden w-full items-center justify-between px-20 py-4 font-archivo xl:flex min-[1440px]:px-36'>
         <Image src='/images/LogoWhite.png' alt='logo' width={200} height={50} />
         <div className='flex items-center gap-16'>
           {navLinks.map((link, i) => (
