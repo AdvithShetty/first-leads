@@ -14,7 +14,7 @@ const NeedMoreLeads = ({ buttonStyles }: { buttonStyles?: string }) => {
       <Button
         className={`mx-auto h-12 shrink-0 rounded-lg bg-black font-inter text-base font-medium text-white lg:mx-0 ${buttonStyles}`}
       >
-        <Link href='/contact'>Get In Touch</Link>
+        <Link href='/support'>Get In Touch</Link>
       </Button>
     </div>
   )

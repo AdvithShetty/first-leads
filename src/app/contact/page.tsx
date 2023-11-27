@@ -12,7 +12,8 @@ const page = () => {
           {`Didn't find what you're looking for?`}
         </h1>
         <p className='w-4/5 py-2 text-center font-outfit text-lg font-normal text-[#5F5F5F] lg:w-3/5 lg:text-[21px]'>
-          Let us know what industry, lead type, and locations are you interested in to see if we can better serve you.
+          Let us know if you have any questions or are interested in industries, lead types, locations not yet
+          represented.
         </p>
         <ContactForm />
       </div>

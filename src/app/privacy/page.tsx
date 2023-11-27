@@ -2,7 +2,7 @@ import { LinkWrapper } from './common'
 
 const Privacy = () => {
   return (
-    <div className='mx-auto flex w-3/4 flex-col gap-8 p-10 font-sans'>
+    <div className='mx-auto flex w-full flex-col gap-8 p-4 font-sans lg:w-3/4 lg:p-10'>
       <div className='flex flex-col gap-4'>
         <h1 className='text-3xl font-bold'>Privacy Policy</h1>
         <p>
@@ -119,7 +119,7 @@ const Privacy = () => {
         </p>
       </div>
       <div className='flex flex-col gap-2'>
-        <h2 className='text-2xl font-bold'>Your Consen</h2>
+        <h2 className='text-2xl font-bold'>Your Consent</h2>
         <p>By using our site or subscribing to our service, you consent to our privacy policy.</p>
       </div>
       <div className='flex flex-col gap-2'>
