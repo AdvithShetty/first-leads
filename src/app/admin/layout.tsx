@@ -10,13 +10,13 @@ const Layout = ({ children }: { children: ReactNode }) => {
   if (pathname === '/admin') return <>{children}</>
 
   return (
-    <div className='grid h-screen grid-cols-6 bg-[#160042]'>
+    <div className='relative grid h-screen grid-cols-7 bg-[#160042] lg:grid-cols-6'>
       <AdminSidebar />
-      <div className='col-span-5 w-full'>
-        <div className='flex h-[10vh] w-full items-center justify-end px-16'>
+      <div className='z-[1] col-span-6 w-full lg:col-span-5'>
+        <div className='hidden h-[10vh] w-full items-center justify-end px-16 lg:flex'>
           <Image src='/images/LogoWhite.png' width={250} height={100} alt='Logo' />
         </div>
-        <div className='h-[90vh] w-full overflow-y-auto rounded-tl-[15px] bg-white'>{children}</div>
+        <div className='h-screen w-full overflow-y-auto bg-white lg:h-[90vh] lg:rounded-tl-[15px]'>{children}</div>
       </div>
     </div>
   )

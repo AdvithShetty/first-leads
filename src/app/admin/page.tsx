@@ -1,11 +1,16 @@
 'use client'
 import ForgorPasswordModal from '@/app/signin/ForgorPasswordModal'
 import { EmailIcon, EyeFilledIcon, EyeSlashFilledIcon } from '@/components/Input'
+import useRefreshToken from '@/hooks/useRefreshToken'
+import { UserResponse } from '@/utils/interface'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Input, useDisclosure } from '@nextui-org/react'
+import axios from 'axios'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 import { z } from 'zod'
 
 const schema = z.object({
@@ -19,6 +24,9 @@ const Admin = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
   const [rememberMe, setRememberMe] = useState(true)
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
+  const { setRefreshToken } = useRefreshToken()
+  const router = useRouter()
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const {
     handleSubmit,
@@ -32,8 +40,23 @@ const Admin = () => {
     },
   })
 
-  const onSubmit = (data: LoginInSchemaType) => {
-    console.log(data)
+  const onSubmit = async (data: LoginInSchemaType) => {
+    try {
+      const res = await axios.post<UserResponse>('/api/login', {
+        email: data.email,
+        password: data.password,
+      })
+
+      setRefreshToken(res.data.refreshToken)
+
+      setIsSubmitting(false)
+      toast.success('Logged in successfully: Redirecting to dashboard...')
+      router.push('/dashboard')
+    } catch (error: any) {
+      setIsSubmitting(false)
+      toast.error("We couldn't find an account matching the email and password you entered. Please try again.")
+      console.log('error', error?.response?.data.error)
+    }
   }
 
   return (
