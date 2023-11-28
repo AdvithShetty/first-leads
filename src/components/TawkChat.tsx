@@ -8,7 +8,13 @@ const TawkChat = () => {
     ;(tawkMessengerRef.current as any)?.minimize()
   }
 
-  return <TawkMessengerReact propertyId='65593ffed600b968d314a697' widgetId='1hflq8sgv' ref={tawkMessengerRef} />
+  return (
+    <TawkMessengerReact
+      propertyId={process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID as string}
+      widgetId={process.env.NEXT_PUBLIC_TAWK_WIDGET_ID as string}
+      ref={tawkMessengerRef}
+    />
+  )
 }
 
 export default TawkChat
