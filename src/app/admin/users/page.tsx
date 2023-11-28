@@ -1,12 +1,26 @@
 'use client'
 import Pagination from '@/components/Dashboard/Pagination'
 import { SearchIcon } from '@/components/Dashboard/icons'
-import { Input } from '@nextui-org/react'
-import { Fragment, useState } from 'react'
+import useUsersForAdmin from '@/hooks/useUsersForAdmin'
+import { Input, Spinner } from '@nextui-org/react'
+import { Fragment, useMemo, useState } from 'react'
 
 const Users = () => {
+  const [searchInput, setSearchInput] = useState<string>('')
+
   const [currentPage, setCurrentPage] = useState(1)
-  const totalPages = 10
+
+  const { data, isLoading } = useUsersForAdmin({
+    search: searchInput,
+    page: currentPage - 1,
+    rows: 10,
+  })
+
+  const totalPages = useMemo(() => {
+    if (isLoading || !data) return 0
+    return Math.ceil(data.total / 10)
+  }, [data, isLoading])
+
   const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage)
   }
@@ -29,48 +43,58 @@ const Users = () => {
           }}
           placeholder='Search'
           className='mt-6 w-full lg:mt-0 lg:w-[16rem]'
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
         />
       </div>
-      <div className='w-full pt-10'>
-        <div
-          className='mt-10 hidden w-full grid-cols-10 gap-6 rounded-md bg-white px-6 py-6 lg:grid'
-          style={{
-            boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.10)',
-          }}
-        >
-          {columns.map((column, i) => (
-            <h1 className={`pt-3 font-rubik text-lg font-medium text-black ${column.className}`} key={i}>
-              {column.title}
-            </h1>
-          ))}
-          <div className='col-span-full h-[1px] rounded-full bg-[#F5F5F5]' />
-          {rows.map((row, i) => (
-            <Fragment key={i}>
-              <h1 className='col-span-2 py-2 font-rubik text-[15px] font-normal text-[#686868]'>{row.name}</h1>
-              <h1 className='col-span-2 py-2 font-rubik text-[15px] font-normal text-[#686868]'>{row.email}</h1>
-              <h1 className='col-span-2 py-2 font-rubik text-[15px] font-normal text-[#686868]'>{row.phoneNumber}</h1>
-              <h1 className='col-span-2 py-2 font-rubik text-[15px] font-normal text-[#686868]'>{row.zipCode}</h1>
-              <h1 className='col-span-2 py-2 font-rubik text-[15px] font-normal text-[#686868]'>{row.industry}</h1>
-            </Fragment>
-          ))}
+      {isLoading ? (
+        <div className='flex min-h-[20rem] w-full items-center justify-center'>
+          <Spinner size='lg' color='secondary' />
         </div>
-        <div
-          className='flex flex-col divide-y divide-[#F5F5F5] rounded-md bg-white px-6 py-2 lg:hidden'
-          style={{
-            boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.10)',
-          }}
-        >
-          {rows.map((row, i) => (
-            <div className='flex w-full flex-col py-4' key={i}>
-              <h1 className='font-rubik text-lg font-medium text-black'>Jack Doe</h1>
-              <h1 className='font-rubik text-[15px] font-normal text-[#686868]'>email</h1>
-              <h1 className='font-rubik text-[15px] font-normal text-[#686868]'>phoneNumber</h1>
-              <h1 className='font-rubik text-[15px] font-normal text-[#686868]'>zipCode</h1>
-              <h1 className='font-rubik text-[15px] font-normal text-[#686868]'>industry</h1>
+      ) : (
+        data && (
+          <div className='w-full pt-10'>
+            <div
+              className='mt-10 hidden w-full grid-cols-10 gap-6 rounded-md bg-white px-6 py-6 lg:grid'
+              style={{
+                boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.10)',
+              }}
+            >
+              {columns.map((column, i) => (
+                <h1 className={`pt-3 font-rubik text-lg font-medium text-black ${column.className}`} key={i}>
+                  {column.title}
+                </h1>
+              ))}
+              <div className='col-span-full h-[1px] rounded-full bg-[#F5F5F5]' />
+              {data.results.map((user, i) => (
+                <Fragment key={i}>
+                  <h1 className='col-span-2 py-2 font-rubik text-[15px] font-normal text-[#686868]'>{`${user.firstName} ${user.lastName}`}</h1>
+                  <h1 className='col-span-2 py-2 font-rubik text-[15px] font-normal text-[#686868]'>{user.email}</h1>
+                  <h1 className='col-span-2 py-2 font-rubik text-[15px] font-normal text-[#686868]'>{user.phone}</h1>
+                  <h1 className='col-span-2 py-2 font-rubik text-[15px] font-normal text-[#686868]'>{user.zipCode}</h1>
+                  <h1 className='col-span-2 py-2 font-rubik text-[15px] font-normal text-[#686868]'>{user.industry}</h1>
+                </Fragment>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+            <div
+              className='flex flex-col divide-y divide-[#F5F5F5] rounded-md bg-white px-6 py-2 lg:hidden'
+              style={{
+                boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.10)',
+              }}
+            >
+              {data.results.map((user, i) => (
+                <div className='flex w-full flex-col py-4' key={i}>
+                  <h1 className='font-rubik text-lg font-medium text-black'>{`${user.firstName} ${user.lastName}`}</h1>
+                  <h1 className='font-rubik text-[15px] font-normal text-[#686868]'>{user.email}</h1>
+                  <h1 className='font-rubik text-[15px] font-normal text-[#686868]'>{user.phone}</h1>
+                  <h1 className='font-rubik text-[15px] font-normal text-[#686868]'>{user.zipCode}</h1>
+                  <h1 className='font-rubik text-[15px] font-normal text-[#686868]'>{user.industry}</h1>
+                </div>
+              ))}
+            </div>
+          </div>
+        )
+      )}
       <div className='mt-auto flex flex-col items-center justify-between gap-4 py-8 lg:flex-row'>
         <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
         <p className='select-none font-rubik text-sm font-normal text-black'>

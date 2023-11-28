@@ -117,3 +117,20 @@ export interface Blogs {
     publishedAt: string
   }[]
 }
+
+export interface UsersForAdmin {
+  page: number
+  rows: number
+  total: number
+  results: {
+    id: number
+    firstName: string
+    lastName: string
+    email: string
+    phone: string
+    zipCode: string
+    industry: string
+    marketingNotifications: boolean
+    isActive: boolean
+  }[]
+}
