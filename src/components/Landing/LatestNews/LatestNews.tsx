@@ -1,5 +1,7 @@
 'use client'
+import useBlogs from '@/hooks/useBlogs'
 import { fadeVariants } from '@/utils/variants'
+import { Skeleton } from '@nextui-org/react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import BlogCards from './BlogCards'
@@ -11,6 +13,8 @@ const LatestNews = () => {
     triggerOnce: true,
     fallbackInView: true,
   })
+
+  const { data, isLoading } = useBlogs()
 
   return (
     <motion.div
@@ -26,16 +30,26 @@ const LatestNews = () => {
         Explore how you can do more with less.
       </p>
       <div className='hidden grid-cols-3 grid-rows-2 gap-6 py-10 xl:grid'>
-        {Array.from({ length: 5 }).map((_, i) => (
-          <BlogCards
-            link='#'
-            image='/images/Landing/WhatMakesUsUnique.jpg'
-            title='Ligula risus auctor tempus'
-            description='Ligula risus auctor tempus magna feugiat lacinia.'
-            rowSpan={i === 2 ? 'lg:row-span-2' : undefined}
-            key={i}
-          />
-        ))}
+        {isLoading ? (
+          <>
+            <Skeleton className='h-[17rem] rounded-lg 2xl:h-[20rem]' />
+            <Skeleton className='h-[17rem] rounded-lg 2xl:h-[20rem]' />
+            <Skeleton className='h-[17rem] rounded-lg 2xl:h-[20rem]' />
+          </>
+        ) : (
+          data?.blogs
+            .slice(0, 5)
+            .map((blog, i) => (
+              <BlogCards
+                link={blog.url}
+                image={blog.coverImageUrl || '/images/Landing/WhatMakesUsUnique.jpg'}
+                title={blog.title}
+                description={blog.title}
+                rowSpan={i === 2 ? 'lg:row-span-2' : undefined}
+                key={i}
+              />
+            ))
+        )}
       </div>
       <BlogCardsResponsive />
     </motion.div>

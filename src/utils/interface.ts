@@ -108,3 +108,12 @@ export interface Reports {
     leadType: string
   }[]
 }
+
+export interface Blogs {
+  blogs: {
+    url: string
+    title: string
+    coverImageUrl?: string
+    publishedAt: string
+  }[]
+}
