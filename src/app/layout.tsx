@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Archivo, Inter, Outfit, Plus_Jakarta_Sans, Quicksand, Rubik } from 'next/font/google'
+import Script from 'next/script'
 import NextTopLoader from 'nextjs-toploader'
 import './globals.css'
 import { Providers } from './providers'
@@ -41,13 +42,26 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'First Lead',
+  title: 'First Leads',
   description: 'Leads for Every Business',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
+      <head>
+        <Script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
+        <Script
+          id='gtag-init'
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+								function gtag(){dataLayer.push(arguments);}
+								gtag('js', new Date());
+
+								gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', { page_path: window.location.pathname });`,
+          }}
+        />
+      </head>
       <body
         className={`${archivo.variable} ${plusJakartaSans.variable} ${rubik.variable} ${outfit.variable} ${quicksand.variable} ${inter.variable}
       `}
