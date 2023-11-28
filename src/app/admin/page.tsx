@@ -41,6 +41,7 @@ const Admin = () => {
   })
 
   const onSubmit = async (data: LoginInSchemaType) => {
+    setIsSubmitting(true)
     try {
       const res = await axios.post<UserResponse>('/api/login', {
         email: data.email,
@@ -50,8 +51,7 @@ const Admin = () => {
       setRefreshToken(res.data.refreshToken)
 
       setIsSubmitting(false)
-      toast.success('Logged in successfully: Redirecting to dashboard...')
-      router.push('/dashboard')
+      router.push('/admin/users')
     } catch (error: any) {
       setIsSubmitting(false)
       toast.error("We couldn't find an account matching the email and password you entered. Please try again.")
@@ -130,6 +130,8 @@ const Admin = () => {
           <Button
             type='submit'
             className='h-14 w-full rounded-lg bg-[#6941C6] font-inter text-lg font-semibold text-white 2xl:w-3/4'
+            isLoading={isSubmitting}
+            isDisabled={isSubmitting}
           >
             Sign In
           </Button>
