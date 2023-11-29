@@ -19,6 +19,7 @@ export interface User {
   zipCode: string
   industry: string
   marketingNotifications: boolean
+  type: 'admin' | 'user'
 }
 
 export interface Picklists {
@@ -133,4 +134,9 @@ export interface UsersForAdmin {
     marketingNotifications: boolean
     isActive: boolean
   }[]
+}
+
+export interface UserAnalytics {
+  totalCount: number
+  last30DaysCount: number
 }
