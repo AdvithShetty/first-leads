@@ -53,7 +53,7 @@ const Users = () => {
         </div>
       ) : (
         data && (
-          <div className='w-full pt-10'>
+          <div className='w-full pt-10 lg:pt-0'>
             <div
               className='mt-10 hidden w-full grid-cols-10 gap-6 rounded-md bg-white px-6 py-6 lg:grid'
               style={{
