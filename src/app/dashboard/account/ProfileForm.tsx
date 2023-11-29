@@ -64,13 +64,13 @@ const ProfileForm = () => {
       <h1 className='pb-4 font-sans text-[22px] font-bold text-black'>Your Profile</h1>
       <div className='grid w-full grid-cols-4 gap-x-10 gap-y-8 pb-16'>
         <Input
-          label='Your First Name'
+          label='First Name'
           inputProps={{ ...register('firstName') }}
           error={errors.firstName}
           className='col-span-full lg:col-span-2'
         />
         <Input
-          label='Your Last Name'
+          label='Last Name'
           inputProps={{ ...register('lastName') }}
           error={errors.lastName}
           className='col-span-full lg:col-span-2'

@@ -32,8 +32,6 @@ const Users = () => {
   const { data: user, isLoading: isUserLoading, isSuccess } = useUser()
   const router = useRouter()
 
-  console.log('user', user, isLoading, isSuccess)
-
   useEffect(() => {
     //TODO: Check for admin role
     if (!user && !isLoading && !isSuccess) {

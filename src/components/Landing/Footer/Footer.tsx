@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import GetStarted from '../GetStarted'
 import CompanySocials from './CompanySocials'
-import ContactDetails from './ContactDetails'
 import Subscribe from './Subscribe'
 import SuperCharge from './SuperCharge'
 
@@ -13,9 +12,9 @@ const Footer = () => {
         <div className='w-full'>
           <SuperCharge />
           <div className='absolute bottom-0 w-full px-28 2xl:px-40'>
-            <div className='flex h-[16rem] justify-between'>
-              <CompanySocials />
+            <div className='flex h-[16rem] flex-col items-center gap-4'>
               <Subscribe />
+              <CompanySocials />
               <div className='w-[20rem]'></div>
             </div>
             <div className='flex justify-between border-t-2 border-[#8597941A] py-14 font-archivo text-base text-[#E5EDE5]'>
@@ -43,13 +42,12 @@ const Footer = () => {
             </h2>
             <GetStarted backgroundColor='bg-[#FD6001] h-14 px-8 mt-8' customText='Get Started' />
           </div>
-          <div className='flex flex-col items-center justify-between gap-14'>
-            <CompanySocials />
-            <ContactDetails />
+          <div className='flex flex-col items-center justify-between gap-6'>
             <Subscribe />
+            <CompanySocials />
           </div>
           <div className='mt-14 flex justify-between border-t-2 border-[#8597941A] px-8 py-8 font-archivo text-base text-[#E5EDE5]'>
-            <p>2023 All Right Reserved by domain</p>
+            <p>2023 All Rights Reserves by First Leads Generation Inc.</p>
           </div>
         </div>
       </footer>
