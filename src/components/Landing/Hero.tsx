@@ -31,7 +31,7 @@ const Hero = () => {
           alt='hero'
           width={900}
           height={800}
-          className='mt-[8rem] translate-x-10 scale-110 object-contain xl:mt-0 xl:translate-x-[6rem] xl:scale-125 2xl:translate-x-[9rem]'
+          className='mt-[8rem] object-contain xl:mt-0 xl:translate-y-[-1.5rem] 2xl:translate-y-0 2xl:scale-105'
           quality={100}
         />
       </div>
