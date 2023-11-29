@@ -32,6 +32,7 @@ const useUsersForAdmin = ({ page, rows, search }: Partial<UserForAdmin>) => {
       retry: false,
       staleTime: 1000 * 60 * 60 * 24,
       cacheTime: 1000 * 60 * 60 * 24,
+      refetchOnWindowFocus: false,
     }
   )
 }

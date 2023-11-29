@@ -6,6 +6,7 @@ import { Skeleton } from '@nextui-org/react'
 
 const Page = () => {
   const { data: analytics, isLoading } = useUserAnalytics()
+  console.log('🚀 ~ file: page.tsx:9 ~ Page ~ analytics:', analytics)
 
   return (
     <div className='flex h-full w-full flex-col px-6 py-8 lg:px-10'>
@@ -23,7 +24,7 @@ const Page = () => {
           {isLoading ? (
             <Skeleton className='h-8 w-24' />
           ) : (
-            <h1 className='text-[28px] font-bold tracking-[0.28px] text-[#6A7ADA]'>{analytics?.totalCount}</h1>
+            <h1 className='text-[28px] font-bold tracking-[0.28px] text-[#6A7ADA]'>{analytics?.totalCount || 0}</h1>
           )}
           <h2 className='text-sm font-medium tracking-[0.14px] text-[#949494] lg:pt-1'>Leads</h2>
         </div>
@@ -38,7 +39,9 @@ const Page = () => {
           {isLoading ? (
             <Skeleton className='h-8 w-24' />
           ) : (
-            <h1 className='text-[28px] font-bold tracking-[0.28px] text-[#6A7ADA]'>{analytics?.last30DaysCount}</h1>
+            <h1 className='text-[28px] font-bold tracking-[0.28px] text-[#6A7ADA]'>
+              {analytics?.last30DaysCount || 0}
+            </h1>
           )}
           <h2 className='text-sm font-medium tracking-[0.14px] text-[#949494] lg:pt-1'>Leads</h2>
         </div>

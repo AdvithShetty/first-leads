@@ -7,6 +7,7 @@ import useUsersForAdmin from '@/hooks/useUsersForAdmin'
 import { Input, Spinner } from '@nextui-org/react'
 import { useRouter } from 'next/navigation'
 import { Fragment, useEffect, useMemo, useState } from 'react'
+import toast from 'react-hot-toast'
 import { useIsClient } from 'usehooks-ts'
 
 const Users = () => {
@@ -33,7 +34,11 @@ const Users = () => {
   const router = useRouter()
 
   useEffect(() => {
-    //TODO: Check for admin role
+    if (user && user.type !== 'admin' && !isLoading) {
+      toast.error('You are not admin')
+      router.push('/admin')
+    }
+
     if (!user && !isLoading && !isSuccess) {
       router.push('/admin')
     }

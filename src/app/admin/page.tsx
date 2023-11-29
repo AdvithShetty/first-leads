@@ -53,9 +53,13 @@ const Admin = () => {
         password: data.password,
       })
 
-      setRefreshToken(res.data.refreshToken)
-
       setIsSubmitting(false)
+
+      if (res.data.user.type !== 'admin') {
+        toast.error('You are not admin')
+        return
+      }
+      setRefreshToken(res.data.refreshToken)
       router.push('/admin/users')
     } catch (error: any) {
       setIsSubmitting(false)
@@ -67,9 +71,8 @@ const Admin = () => {
   const { data: user, isLoading: isUserLoading, isSuccess } = useUser()
 
   useEffect(() => {
-    //TODO: Check for admin role
-    if (user) {
-      router.push('/admin')
+    if (user && user.type === 'admin') {
+      router.push('/admin/users')
     }
   }, [router, user])
 

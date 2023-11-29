@@ -1,11 +1,5 @@
 export interface UserResponse {
-  user: {
-    id: number
-    firstName: string
-    lastName: string
-    email: string
-    phone: string
-  }
+  user: User
   accessToken: string
   refreshToken: string
 }
