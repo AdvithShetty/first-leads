@@ -11,7 +11,7 @@ const GetCustomPlanCard = () => {
         boxShadow: '0px 0px 30px 3px rgba(0, 0, 0, 0.07)',
       }}
     >
-      <LeadTypeTitle title={`Didn't find what you're looking for`} />
+      <LeadTypeTitle title={`Didn't find what you're looking for?`} />
       {/* <p className='pt-2 font-outfit text-[15px] font-normal text-[#5F5F5F]'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
       </p> */}

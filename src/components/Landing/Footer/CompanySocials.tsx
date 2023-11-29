@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const CompanySocials = () => {
   return (
-    <div className='flex w-[20rem] flex-col gap-4 font-archivo'>
+    <div className='flex w-[20rem] flex-col items-center gap-4 font-archivo'>
       <div className='relative'>
         <Image src='/images/LogoWhite.png' alt='logo' width={250} height={80} />
       </div>

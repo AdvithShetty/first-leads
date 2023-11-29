@@ -9,10 +9,10 @@ const Subscribe = () => {
   if (!isClient) return null
 
   return (
-    <div className='flex w-[20rem] flex-col gap-4 pt-2 font-archivo'>
+    <div className='flex w-[20rem] flex-col items-center gap-4 pt-2 font-archivo'>
       <h1 className='pb-2 text-xl font-semibold text-white'>Need more information?</h1>
       <Button
-        className={`h-12 cursor-pointer rounded-lg bg-[#FD6001] transition-all duration-250 ease-in-out hover:scale-105`}
+        className={`h-12 w-full cursor-pointer rounded-lg bg-[#FD6001] transition-all duration-250 ease-in-out hover:scale-105`}
       >
         <Link
           href='/support'

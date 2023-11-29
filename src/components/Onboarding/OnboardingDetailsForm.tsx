@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@nextui-org/react'
 import axios, { isAxiosError } from 'axios'
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { useSessionStorage } from 'usehooks-ts'
@@ -44,8 +45,12 @@ const OnboardingDetailsForm = () => {
     },
   })
 
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
   const onSubmit = async (data: OnboardingDetails) => {
     setSessionValue(data)
+    setIsSubmitting(true)
 
     try {
       const res = await axios.post<UserResponse>('/api/save', {
@@ -59,8 +64,10 @@ const OnboardingDetailsForm = () => {
       setRefreshToken(res.data.refreshToken)
       toast('Please check your email for temporary password', {
         icon: '👏',
-        duration: 10000, // 10 seconds
+        duration: 5000, // 5 seconds
       })
+      setIsSubmitted(true)
+      setIsSubmitting(false)
     } catch (error) {
       if (isAxiosError(error)) {
         if (error.response?.status === 409) {
@@ -68,6 +75,7 @@ const OnboardingDetailsForm = () => {
           return
         }
       }
+      setIsSubmitting(false)
 
       toast.error('Something went wrong')
       return
@@ -107,6 +115,8 @@ const OnboardingDetailsForm = () => {
       <Button
         type='submit'
         className='col-span-4 h-14 w-full rounded-md bg-[#7363F3] text-center font-sans text-lg font-medium text-white'
+        isLoading={isSubmitting}
+        isDisabled={isSubmitted}
       >
         Next Step
         <svg xmlns='http://www.w3.org/2000/svg' width='13' height='12' viewBox='0 0 13 12' fill='none'>
