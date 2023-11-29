@@ -29,7 +29,7 @@ const LatestNews = () => {
       <p className='font-rubik text-xl font-normal text-[#757575] xl:text-2xl'>
         Explore how you can do more with less.
       </p>
-      <div className='hidden grid-cols-3 grid-rows-2 gap-6 py-10 xl:grid'>
+      <div className='hidden auto-rows-auto grid-cols-3 gap-6 py-10 xl:grid'>
         {isLoading ? (
           <>
             <Skeleton className='h-[17rem] rounded-lg 2xl:h-[20rem]' />

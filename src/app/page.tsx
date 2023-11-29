@@ -14,7 +14,7 @@ import TwakWrapper from '@/components/TwakWrapper'
 export default function Home() {
   return (
     <main className='relative z-0 flex min-h-screen w-full flex-col items-center'>
-      <div className='absolute z-[-1] h-[47rem] w-full overflow-hidden'>
+      <div className='absolute z-[-1] h-[47rem] w-full overflow-hidden 2xl:h-[85vh]'>
         <div className='z-0 h-full w-[110vw] skew-x-6 rounded-bl-[7rem] bg-[#160042]'></div>
         <div
           className='absolute bottom-0 right-0 z-[1] h-0 w-0'

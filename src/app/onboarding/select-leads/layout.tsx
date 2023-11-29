@@ -16,7 +16,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (!refreshToken) {
-      router.push('/signin')
+      router.push('/onboarding')
     }
   }, [refreshToken, router])
 
