@@ -5,6 +5,7 @@ import useCart from '@/hooks/useCart'
 import useCartId from '@/hooks/useCartId'
 import { Button, Checkbox, Skeleton } from '@nextui-org/react'
 import axios from 'axios'
+import Link from 'next/link'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
 import { useCartDisclosure } from './CartSidebarContext'
@@ -55,7 +56,9 @@ const Cart = () => {
             isSelected={termsAgreed}
             onValueChange={setTermsAgreed}
           >
-            Terms & Conditions
+            <Link href='/terms' target='_blank' rel='noopener noreferrer' className='hover:text-blue-500'>
+              Terms & Conditions
+            </Link>
           </Checkbox>
           <Checkbox
             size='sm'

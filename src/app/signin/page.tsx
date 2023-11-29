@@ -173,7 +173,15 @@ const SignIn = () => {
               </button>
             </div>
             <p className='w-full font-inter text-sm text-[#5F5F5F]'>
-              By signing in you accept our Terms and Privacy Policies.
+              By signing in you accept our{' '}
+              <Link href='/terms' target='_blank' rel='noopener noreferrer' className='hover:text-blue-500'>
+                Terms
+              </Link>{' '}
+              and{' '}
+              <Link href='/privacy' target='_blank' rel='noopener noreferrer' className='hover:text-blue-500'>
+                Privacy
+              </Link>{' '}
+              Policies.
             </p>
           </div>
           <Button
