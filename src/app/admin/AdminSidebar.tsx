@@ -87,6 +87,7 @@ const AdminSidebar = () => {
                   onClick={() => {
                     setRefreshToken('')
                     queryClient.clear()
+                    router.replace('/admin')
                   }}
                   className='flex w-full items-center gap-4 rounded-lg px-4 py-3 text-[#F10A0A]'
                 >
@@ -125,6 +126,7 @@ const AdminSidebar = () => {
             onClick={() => {
               setRefreshToken('')
               queryClient.clear()
+              router.replace('/admin')
             }}
           >
             <LogoutIcon />

@@ -1,9 +1,13 @@
 'use client'
 import Pagination from '@/components/Dashboard/Pagination'
 import { SearchIcon } from '@/components/Dashboard/icons'
+import LoadingUi from '@/components/LoadingUi'
+import useUser from '@/hooks/useUser'
 import useUsersForAdmin from '@/hooks/useUsersForAdmin'
 import { Input, Spinner } from '@nextui-org/react'
-import { Fragment, useMemo, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { Fragment, useEffect, useMemo, useState } from 'react'
+import { useIsClient } from 'usehooks-ts'
 
 const Users = () => {
   const [searchInput, setSearchInput] = useState<string>('')
@@ -24,6 +28,22 @@ const Users = () => {
   const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage)
   }
+
+  const { data: user, isLoading: isUserLoading, isSuccess } = useUser()
+  const router = useRouter()
+
+  console.log('user', user, isLoading, isSuccess)
+
+  useEffect(() => {
+    //TODO: Check for admin role
+    if (!user && !isLoading && !isSuccess) {
+      router.push('/admin')
+    }
+  }, [isLoading, isSuccess, router, user])
+
+  const isClient = useIsClient()
+
+  if ((isUserLoading && !isSuccess) || !isClient) return <LoadingUi />
 
   return (
     <div className='flex h-full w-full flex-col px-6 py-8 lg:px-10'>

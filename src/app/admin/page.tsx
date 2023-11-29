@@ -1,16 +1,19 @@
 'use client'
 import ForgorPasswordModal from '@/app/signin/ForgorPasswordModal'
 import { EmailIcon, EyeFilledIcon, EyeSlashFilledIcon } from '@/components/Input'
+import LoadingUi from '@/components/LoadingUi'
 import useRefreshToken from '@/hooks/useRefreshToken'
+import useUser from '@/hooks/useUser'
 import { UserResponse } from '@/utils/interface'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Input, useDisclosure } from '@nextui-org/react'
 import axios from 'axios'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
+import { useIsClient } from 'usehooks-ts'
 import { z } from 'zod'
 
 const schema = z.object({
@@ -59,11 +62,26 @@ const Admin = () => {
     }
   }
 
+  const { data: user, isLoading: isUserLoading, isSuccess } = useUser()
+
+  useEffect(() => {
+    //TODO: Check for admin role
+    if (user) {
+      router.push('/admin')
+    }
+  }, [router, user])
+
+  const isClient = useIsClient()
+
+  if ((isUserLoading && !isSuccess) || !isClient) return <LoadingUi />
+
   return (
-    <div className='h-screen w-full bg-[#F9F5FF] px-12 py-10'>
+    <div className='h-screen w-full bg-[#F9F5FF] p-4 lg:px-12 lg:py-10'>
       <div className='relative flex h-full w-full flex-col items-center rounded-[10px] bg-white py-20'>
-        <Image src='/images/Onboarding/Logo.png' width={400} height={150} alt='Logo' className='object-contain' />
-        <form onSubmit={handleSubmit(onSubmit)} className='flex w-1/3 flex-col gap-8 py-10'>
+        <div className='relative h-[75px] w-3/4 lg:h-[100px] lg:w-[400px]'>
+          <Image src='/images/Onboarding/Logo.png' fill alt='Logo' className='object-contain' />
+        </div>
+        <form onSubmit={handleSubmit(onSubmit)} className='flex w-full flex-col gap-8 px-4 py-10 lg:w-1/3 lg:px-0'>
           <h1 className='font-inter text-4xl font-bold tracking-[-0.72px] text-[#101828]'>Admin Login</h1>
           <Input
             {...register('email')}
