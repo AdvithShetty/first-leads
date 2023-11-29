@@ -22,7 +22,7 @@ const LatestNews = () => {
       initial='hidden'
       animate={inView && 'visible'}
       ref={ref}
-      className='mx-auto flex w-[85%] flex-col gap-2 2xl:w-4/5'
+      className='mx-auto flex w-[85%] flex-col gap-2 pb-10 lg:pb-0 2xl:w-4/5'
     >
       <h1 className='font-sans text-xl font-bold uppercase tracking-[-0.6px] text-[#2A00FF]'>Latest news</h1>
       <h2 className='py-2 font-sans text-4xl font-bold tracking-[-0.5px] text-[#212529] xl:text-[57px]'>Blogs</h2>
