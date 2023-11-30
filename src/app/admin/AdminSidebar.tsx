@@ -1,5 +1,5 @@
 'use client'
-import { LeadTypeIcon, UsersIcon } from '@/components/Admin/icons'
+import { UsersIcon } from '@/components/Admin/icons'
 import { CrossIcon, LogoutIcon } from '@/components/Dashboard/icons'
 import useRefreshToken from '@/hooks/useRefreshToken'
 import useUser from '@/hooks/useUser'
@@ -139,11 +139,6 @@ const AdminSidebar = () => {
 }
 
 const sidebarTabs = [
-  {
-    route: '/admin/lead-type',
-    icon: <LeadTypeIcon />,
-    label: 'Lead Type',
-  },
   {
     route: '/admin/users',
     icon: <UsersIcon />,

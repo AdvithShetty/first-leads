@@ -1,6 +1,5 @@
 'use client'
 
-import Pagination from '@/components/Dashboard/Pagination'
 import { Button, useDisclosure } from '@nextui-org/react'
 import { useState } from 'react'
 import AddNewLeadsModal from './AddNewLeadsModal'
@@ -30,9 +29,9 @@ const Page = () => {
         </Button>
       </div>
       <LeadTypesTable />
-      <div className='pt-10'>
+      {/* <div className='pt-10'>
         <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
-      </div>
+      </div> */}
       <AddNewLeadsModal isOpen={isOpen} onClose={onOpenChange} />
     </div>
   )
