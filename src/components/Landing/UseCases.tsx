@@ -59,7 +59,7 @@ const UseCases = () => {
       </motion.div>
       <motion.div variants={childrenVariants} className='relative mb-20 mt-10 block h-[100vh] w-full xl:hidden'>
         <Image
-          src='/images/Landing/UseCaseDiagramMobile.svg'
+          src='/images/Landing/UseCaseDiagramMobile.png'
           fill
           className='object-contain'
           alt='Use Case Diagram Mobile'
