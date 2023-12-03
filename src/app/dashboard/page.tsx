@@ -2,11 +2,12 @@
 import NeedMoreLeads from '@/components/Dashboard/NeedMoreLeads'
 import RecentlyAdded from '@/components/Dashboard/RecentlyAdded'
 import useUserAnalytics from '@/hooks/useUserAnalytics'
+import useUserNextReports from '@/hooks/useUserNextReports'
 import { Skeleton } from '@nextui-org/react'
 
 const Page = () => {
   const { data: analytics, isLoading } = useUserAnalytics()
-  console.log('🚀 ~ file: page.tsx:9 ~ Page ~ analytics:', analytics)
+  const { data: nextReports } = useUserNextReports()
 
   return (
     <div className='flex h-full w-full flex-col px-6 py-8 lg:px-10'>
@@ -45,6 +46,22 @@ const Page = () => {
           )}
           <h2 className='text-sm font-medium tracking-[0.14px] text-[#949494] lg:pt-1'>Leads</h2>
         </div>
+      </div>
+      <h2 className='py-6 font-sans text-lg font-semibold text-black lg:pt-8 lg:text-2xl'>Upcoming Reports</h2>
+      <div
+        className='flex flex-col gap-4 rounded-md p-4'
+        style={{
+          boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.10)',
+        }}
+      >
+        {nextReports?.map((report, i) => (
+          <div className='flex flex-col gap-2 lg:flex-row' key={i}>
+            <h1 className='font-outfit text-lg font-medium capitalize'>{report.leadType} -</h1>
+            <p className='font-rubik text-lg font-normal text-[#3f3f3f]'>
+              {report.nextReportDate ? new Date(report.nextReportDate).toLocaleDateString() : 'N/A'}
+            </p>
+          </div>
+        ))}
       </div>
       <RecentlyAdded />
       <div className='mt-auto pb-8'>

@@ -134,3 +134,9 @@ export interface UserAnalytics {
   totalCount: number
   last30DaysCount: number
 }
+
+export type NextReports = {
+  leadTypeId: number
+  leadType: string
+  nextReportDate: string
+}[]
